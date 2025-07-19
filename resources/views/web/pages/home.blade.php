@@ -219,67 +219,50 @@
 
         </section><!-- /Call To Action Section -->
 
-        @if ($result['features']->count())
-        <!-- Features Section -->
-        <section id="features" class="features section">
+@if ($result['features']->count())
+<!-- Features Section -->
+<section id="features" class="features section">
 
-            <!-- Section Title -->
-            <div class="container section-title" data-aos="fade-up">
-                <span>Features</span>
-                <h2>Features</h2>
-                {{-- <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p> --}}
-            </div><!-- End Section Title -->
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <span>Features</span>
+        <h2>Features</h2>
+    </div><!-- End Section Title -->
 
-            <div class="container">
+    <div class="container">
+        @foreach ($result['features'] as $index => $feature)
+            @php
+                $isEven = $index % 2 === 0;
+                // $image = $feature->image ?? 'assets/img/default-feature.jpg';
+            @endphp
 
-                <div class="row gy-4 align-items-center features-item">
-                    <div class="col-md-5 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="100">
-                        <img src="assets/img/features-1.jpg" class="img-fluid" alt="">
-                    </div>
-                    <div class="col-md-7" data-aos="fade-up" data-aos-delay="100">
-                        <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
-                        <p class="fst-italic">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore
-                            magna aliqua.
-                        </p>
+            <div class="row gy-4 align-items-center features-item mb-5">
+                <!-- صورة -->
+                <div class="col-md-5 {{ $isEven ? '' : 'order-1 order-md-2' }} d-flex align-items-center"
+                     data-aos="zoom-out" data-aos-delay="{{ ($index + 1) * 100 }}">
+                    <img src="{{ App\Helpers\Image::getMediaUrl($feature, 'features') }}" class="img-fluid" alt="{{ $feature->title }}">
+                </div>
+
+                <!-- نص -->
+                <div class="col-md-7 {{ $isEven ? '' : 'order-2 order-md-1' }}"
+                     data-aos="fade-up" data-aos-delay="{{ ($index + 1) * 100 }}">
+                    <h3>{{ $feature->title }}</h3>
+                    <p class="fst-italic">{{ $feature->description }}</p>
+
+                    {{-- @if (!empty($feature->points) && is_array($feature->points))
                         <ul>
-                            <li><i class="bi bi-check"></i><span> Ullamco laboris nisi ut aliquip ex ea commodo
-                                    consequat.</span></li>
-                            <li><i class="bi bi-check"></i> <span>Duis aute irure dolor in reprehenderit in voluptate
-                                    velit.</span></li>
-                            <li><i class="bi bi-check"></i> <span>Ullam est qui quos consequatur eos accusamus.</span></li>
+                            @foreach ($feature->points as $point)
+                                <li><i class="bi bi-check"></i><span> {{ $point }}</span></li>
+                            @endforeach
                         </ul>
-                    </div>
-                </div><!-- Features Item -->
+                    @endif --}}
+                </div>
+            </div><!-- Features Item -->
+        @endforeach
+    </div>
 
-                <div class="row gy-4 align-items-center features-item">
-                    <div class="col-md-5 order-1 order-md-2 d-flex align-items-center" data-aos="zoom-out"
-                        data-aos-delay="200">
-                        <img src="assets/img/features-2.jpg" class="img-fluid" alt="">
-                    </div>
-                    <div class="col-md-7 order-2 order-md-1" data-aos="fade-up" data-aos-delay="200">
-                        <h3>Corporis temporibus maiores provident</h3>
-                        <p class="fst-italic">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore
-                            magna aliqua.
-                        </p>
-                        <p>
-                            Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-                            in voluptate
-                            velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                            proident, sunt in
-                            culpa qui officia deserunt mollit anim id est laborum
-                        </p>
-                    </div>
-                </div><!-- Features Item -->
-
-
-            </div>
-
-        </section><!-- /Features Section -->
-        @endif
+</section><!-- /Features Section -->
+@endif
 
 
         <!-- Pricing Section -->
