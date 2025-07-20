@@ -21,7 +21,7 @@
                             <button type="submit" class="btn btn-primary">Search</button>
                         </form> --}}
 
-                        <div class="row gy-4" data-aos="fade-up" data-aos-delay="300">
+                        {{-- <div class="row gy-4" data-aos="fade-up" data-aos-delay="300">
 
                             <div class="col-lg-3 col-6">
                                 <div class="stats-item text-center w-100 h-100">
@@ -55,13 +55,13 @@
                                 </div>
                             </div><!-- End Stats Item -->
 
-                        </div>
+                        </div> --}}
 
                     </div>
 
-                    <div class="col-lg-5 order-1 order-lg-2 hero-img" data-aos="zoom-out">
+                    {{-- <div class="col-lg-5 order-1 order-lg-2 hero-img" data-aos="zoom-out">
                         <img src="{{ asset('web/img/hero-img.svg') }}" class="img-fluid mb-3 mb-lg-0" alt="">
-                    </div>
+                    </div> --}}
 
                 </div>
             </div>
@@ -69,7 +69,7 @@
         </section><!-- /Hero Section -->
 
         <!-- Featured Services Section -->
-        <section id="featured-services" class="featured-services section">
+        {{-- <section id="featured-services" class="featured-services section">
 
             <div class="container">
 
@@ -113,7 +113,8 @@
 
             </div>
 
-        </section><!-- /Featured Services Section -->
+        </section> --}}
+        <!-- /Featured Services Section -->
 
         <!-- About Section -->
         <section id="about" class="about section">
@@ -266,7 +267,7 @@
 
 
         <!-- Pricing Section -->
-        <section id="pricing" class="pricing section">
+        {{-- <section id="pricing" class="pricing section">
 
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
@@ -330,7 +331,8 @@
 
             </div>
 
-        </section><!-- /Pricing Section -->
+        </section> --}}
+        <!-- /Pricing Section -->
 
         <!-- Testimonials Section -->
         <section id="testimonials" class="testimonials section dark-background">
