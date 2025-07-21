@@ -134,4 +134,31 @@ Route::middleware('checkAuth')->group(function () {
         Route::delete('/delete/{id}', 'destroy')->name('what_we_do.delete');
         Route::post('/change-status', 'changeStatus')->name('what_we_do.status');
     });
+    Route::prefix('blogs_category')->controller(\App\Http\Controllers\Admin\BlogCategory\BlogCategoryController::class)->group(function () {
+        Route::get('/', 'index')->name('blogs_category.index');
+        Route::get('/create', 'create')->name('blogs_category.create');
+        Route::post('/store', 'store')->name('blogs_category.store');
+        Route::get('/{id}/edit', 'edit')->name('blogs_category.edit');
+        Route::put('/update/{id}', 'update')->name('blogs_category.update');
+        Route::delete('/delete/{id}', 'destroy')->name('blogs_category.delete');
+        Route::post('/change-status', 'changeStatus')->name('blogs_category.status');
+    });
+    Route::prefix('value_add_category')->controller(\App\Http\Controllers\Admin\ValueAddCategory\ValueAddCategoryController::class)->group(function () {
+        Route::get('/', 'index')->name('value_add_category.index');
+        Route::get('/create', 'create')->name('value_add_category.create');
+        Route::post('/store', 'store')->name('value_add_category.store');
+        Route::get('/{id}/edit', 'edit')->name('value_add_category.edit');
+        Route::put('/update/{id}', 'update')->name('value_add_category.update');
+        Route::delete('/delete/{id}', 'destroy')->name('value_add_category.delete');
+        Route::post('/change-status', 'changeStatus')->name('value_add_category.status');
+    });
+    Route::prefix('what_we_do_category')->controller(\App\Http\Controllers\Admin\WhatWeDoCategory\WhatWeDoCategoryController::class)->group(function () {
+        Route::get('/', 'index')->name('what_we_do_category.index');
+        Route::get('/create', 'create')->name('what_we_do_category.create');
+        Route::post('/store', 'store')->name('what_we_do_category.store');
+        Route::get('/{id}/edit', 'edit')->name('what_we_do_category.edit');
+        Route::put('/update/{id}', 'update')->name('what_we_do_category.update');
+        Route::delete('/delete/{id}', 'destroy')->name('what_we_do_category.delete');
+        Route::post('/change-status', 'changeStatus')->name('what_we_do_category.status');
+    });
 });

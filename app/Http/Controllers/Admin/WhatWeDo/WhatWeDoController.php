@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Admin\WhatWeDo;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\WhatWeDo\WhatWeDoRequest;
-use App\Services\Sliders\WhatWeDoService;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Services\WhatWeDo\WhatWeDoService;
+use App\Http\Requests\WhatWeDo\WhatWeDoRequest;
 
 class WhatWeDoController extends Controller
 {

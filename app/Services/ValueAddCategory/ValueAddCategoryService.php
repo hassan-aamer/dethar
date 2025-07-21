@@ -1,18 +1,19 @@
 <?php
 
-namespace App\Services\ValueAdd;
+namespace App\Services\ValueAddCategory;
 use Illuminate\Support\Facades\DB;
 use App\Interfaces\CRUDRepositoryInterface;
 use App\Models\ValueAdd;
+use App\Models\ValueAddCategory;
 
-class ValueAddService
+class ValueAddCategoryService
 {
     private $model;
     private CRUDRepositoryInterface $itemRepository;
     public function __construct(CRUDRepositoryInterface $itemRepository)
     {
         $this->itemRepository = $itemRepository;
-        $this->model = new ValueAdd();
+        $this->model = new ValueAddCategory();
     }
     public function index($request)
     {
@@ -31,7 +32,7 @@ class ValueAddService
             $value_add = $this->itemRepository->createItem($this->model, $request);
 
             if (isset($request['image']) && $request['image']) {
-                $value_add->addMediaFromRequest('image')->toMediaCollection('value_add');
+                $value_add->addMediaFromRequest('image')->toMediaCollection('value_add_category');
             }
 
             DB::commit();
@@ -54,8 +55,8 @@ class ValueAddService
             $this->itemRepository->updateItem($this->model, $id, $request);
 
             if (isset($request['image']) && $request['image']) {
-                $value_add->clearMediaCollection('value_add');
-                $value_add->addMediaFromRequest('image')->toMediaCollection('value_add');
+                $value_add->clearMediaCollection('value_add_category');
+                $value_add->addMediaFromRequest('image')->toMediaCollection('value_add_category');
             }
 
             DB::commit();

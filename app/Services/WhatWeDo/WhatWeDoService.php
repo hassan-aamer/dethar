@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Sliders;
+namespace App\Services\WhatWeDo;
 use Illuminate\Support\Facades\DB;
 use App\Interfaces\CRUDRepositoryInterface;
 use App\Models\WhatWeDo;

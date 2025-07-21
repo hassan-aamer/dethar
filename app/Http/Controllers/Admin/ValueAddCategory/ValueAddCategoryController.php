@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Http\Controllers\Admin\ValueAdd;
+namespace App\Http\Controllers\Admin\ValueAddCategory;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Services\ValueAdd\ValueAddService;
-use App\Http\Requests\ValueAdd\ValueAddRequest;
+use App\Http\Requests\ValueAddCategory\ValueAddCategoryRequest;
+use App\Services\ValueAddCategory\ValueAddCategoryService;
+use Illuminate\Http\Request;
 
-class ValueAddController extends Controller
+class ValueAddCategoryController extends Controller
 {
-    private $folderPath = 'admin.value_add.';
-    protected ValueAddService $service;
-    public function __construct(ValueAddService $service)
+    private $folderPath = 'admin.value_add_category.';
+    protected ValueAddCategoryService $service;
+    public function __construct(ValueAddCategoryService $service)
     {
         $this->service = $service;
     }
@@ -29,11 +29,11 @@ class ValueAddController extends Controller
     {
         return view($this->folderPath . 'create_and_edit', ['result' => null]);
     }
-    public function store(ValueAddRequest $request)
+    public function store(ValueAddCategoryRequest $request)
     {
         try {
             $this->service->store($request->validated());
-            return redirect()->route('admin.value_add.index')->with('success', __('attributes.OperationCompletedSuccessfully'));
+            return redirect()->route('admin.value_add_category.index')->with('success', __('attributes.OperationCompletedSuccessfully'));
         } catch (\Throwable $e) {
             return redirect()->back()->with('error', 'Failed to create slider: ' . $e->getMessage());
         }
@@ -43,11 +43,11 @@ class ValueAddController extends Controller
         $result = $this->service->edit($id);
         return view($this->folderPath . 'create_and_edit', compact('result'));
     }
-    public function update(ValueAddRequest $request, $id)
+    public function update(ValueAddCategoryRequest $request, $id)
     {
         try {
             $this->service->update($request->validated(), $id);
-            return redirect()->route('admin.value_add.index')->with('success', __('attributes.OperationCompletedSuccessfully'));
+            return redirect()->route('admin.value_add_category.index')->with('success', __('attributes.OperationCompletedSuccessfully'));
         } catch (\Throwable $e) {
             return redirect()->back()->with('error', 'Failed to update slider: ' . $e->getMessage());
         }

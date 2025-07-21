@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Admin\Pages;
 
+use Illuminate\Http\Request;
+use App\Services\Pages\PageService;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Pages\PageRequest;
-use App\Services\Sliders\PageService;
-use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
