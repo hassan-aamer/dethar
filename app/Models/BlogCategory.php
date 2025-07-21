@@ -2,9 +2,19 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use App\Models\Model;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\Translatable\HasTranslations;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class BlogCategory extends Model
+class BlogCategory extends Model implements HasMedia
 {
-    //
+    use HasFactory, InteractsWithMedia, HasTranslations;
+    public $translatable = ['title', 'description'];
+    protected $guarded = [''];
+    public function blogs()
+    {
+        return $this->hasMany(Blog::class);
+    }
 }

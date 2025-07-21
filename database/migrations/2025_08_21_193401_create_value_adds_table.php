@@ -13,6 +13,14 @@ return new class extends Migration
     {
         Schema::create('value_adds', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('value_add_category_id')->nullable()->constrained('value_add_categories')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->text('title')->nullable();
+            $table->longText('description')->nullable();
+            $table->longText('content')->nullable();
+            $table->boolean('active')->default(1);
+            $table->integer('position')->nullable();
+            $table->integer('created_by')->nullable();
+            $table->integer('updated_by')->nullable();
             $table->timestamps();
         });
     }
