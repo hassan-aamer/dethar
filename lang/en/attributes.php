@@ -113,7 +113,7 @@ return [
     'service' => 'Service',
     'WhyChooseFuture' => 'Why choose the sword of the future',
     'features' => 'Features',
-    'categories' => 'Categories',
+    'categories' => 'Product categories',
     'WhatWill' => 'What will he offer',
     'feature' => 'Feature',
     'all' => 'All',

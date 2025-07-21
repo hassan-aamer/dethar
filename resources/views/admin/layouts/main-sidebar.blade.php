@@ -73,7 +73,7 @@
                     </a>
                 </li>
 
-                @can('list services')
+                {{-- @can('list services')
                     <li>
                         <a class="{{ request()->routeIs('admin.services.*') ? 'active' : '' }}"
                             href="{{ route('admin.services.index') }}">
@@ -81,7 +81,7 @@
                             <span> {{ __('attributes.services') }} </span>
                         </a>
                     </li>
-                @endcan
+                @endcan --}}
                 @can('list products')
                     <li>
                         <a class="{{ request()->routeIs('admin.products.*') ? 'active' : '' }}"
