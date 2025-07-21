@@ -34,7 +34,7 @@
                     </li>
                 @endcan
 
-                @can('list subscription')
+                {{-- @can('list subscription')
                     <li>
                         <a class="{{ request()->routeIs('admin.subscription.*') ? 'active' : '' }}"
                             href="{{ route('admin.subscription.index') }}">
@@ -63,7 +63,7 @@
                             <span>{{ __('attributes.features') }}</span>
                         </a>
                     </li>
-                @endcan
+                @endcan --}}
 
                 <li>
                     <a class="{{ request()->routeIs('admin.categories.*') ? 'active' : '' }}"
@@ -91,7 +91,7 @@
                         </a>
                     </li>
                 @endcan
-                @can('list reviews')
+                {{-- @can('list reviews')
                     <li>
                         <a class="{{ request()->routeIs('admin.reviews.*') ? 'active' : '' }}"
                             href="{{ route('admin.reviews.index') }}">
@@ -99,7 +99,7 @@
                             <span> {{ __('attributes.reviews') }} </span>
                         </a>
                     </li>
-                @endcan
+                @endcan --}}
                 @can('list settings')
                     <li>
                         <a class="{{ request()->routeIs('admin.settings.*') ? 'active' : '' }}"

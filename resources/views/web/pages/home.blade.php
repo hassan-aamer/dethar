@@ -1,5 +1,9 @@
 @extends('web.layouts.app')
 @section('title', __('attributes.home'))
+@section('css')
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+@endsection
 @section('content')
     <main class="main">
 
@@ -13,7 +17,8 @@
                 <div class="row gy-4 d-flex justify-content-between">
                     <div class="col-lg-9 order-2 order-lg-1 d-flex flex-column justify-content-center">
                         <h2 style="margin-top: 60px;" data-aos="fade-up">{{ setting('title') ?? '' }}</h2>
-                        <p style="margin-top: 20px;" data-aos="fade-up" data-aos-delay="100">{{ setting('description') ?? '' }}</p>
+                        <p style="margin-top: 20px;" data-aos="fade-up" data-aos-delay="100">
+                            {{ setting('description') ?? '' }}</p>
                     </div>
                 </div>
             </div>
@@ -124,32 +129,37 @@
         @if ($result['services']->count())
             <!-- Services Section -->
             <section id="services" class="services section">
-
                 <!-- Section Title -->
                 <div class="container section-title" data-aos="fade-up">
-                    <span>Our Services<br></span>
-                    <h2>Our ServiceS</h2>
+                    <span>Our Products<br></span>
+                    <h2>Our Products</h2>
                     {{-- <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p> --}}
                 </div><!-- End Section Title -->
 
-                <div class="container">
-                    <div class="row gy-4">
+                <div class="swiper-container mySwiper" data-aos="fade-up">
+                    <div class="swiper-wrapper">
                         @foreach ($result['services']->sortBy('position') as $service)
-                            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                            <div class="swiper-slide">
                                 <div class="card">
                                     <div class="card-img">
                                         <img src="{{ App\Helpers\Image::getMediaUrl($service, 'services') }}"
                                             alt="{{ $service->title ?? '' }}" class="img-fluid">
                                     </div>
-                                    <h3><a href="#"
-                                            class="stretched-link">{{ shortenText($service->title ?? '') }}</a></h3>
+                                    <h3>
+                                        <a href="#"
+                                            class="stretched-link">{{ shortenText($service->title ?? '') }}</a>
+                                    </h3>
                                     <p>{{ shortenText($service->description ?? '') }}</p>
                                 </div>
-                            </div><!-- End Card Item -->
+                            </div>
                         @endforeach
                     </div>
+
+
                 </div>
-            </section><!-- /Services Section -->
+
+            </section>
+            <!-- /Services Section -->
         @endif
 
         <!-- Call To Action Section -->
@@ -173,51 +183,6 @@
 
         </section> --}}
         <!-- /Call To Action Section -->
-
-@if ($result['features']->count())
-<!-- Features Section -->
-<section id="features" class="features section">
-
-    <!-- Section Title -->
-    <div class="container section-title" data-aos="fade-up">
-        <span>Features</span>
-        <h2>Features</h2>
-    </div><!-- End Section Title -->
-
-    <div class="container">
-        @foreach ($result['features'] as $index => $feature)
-            @php
-                $isEven = $index % 2 === 0;
-                // $image = $feature->image ?? 'assets/img/default-feature.jpg';
-            @endphp
-
-            <div class="row gy-4 align-items-center features-item mb-5">
-                <!-- صورة -->
-                <div class="col-md-5 {{ $isEven ? '' : 'order-1 order-md-2' }} d-flex align-items-center"
-                     data-aos="zoom-out" data-aos-delay="{{ ($index + 1) * 100 }}">
-                    <img src="{{ App\Helpers\Image::getMediaUrl($feature, 'features') }}" class="img-fluid" alt="{{ $feature->title }}">
-                </div>
-
-                <!-- نص -->
-                <div class="col-md-7 {{ $isEven ? '' : 'order-2 order-md-1' }}"
-                     data-aos="fade-up" data-aos-delay="{{ ($index + 1) * 100 }}">
-                    <h3>{{ $feature->title }}</h3>
-                    <p class="fst-italic">{{ $feature->description }}</p>
-
-                    {{-- @if (!empty($feature->points) && is_array($feature->points))
-                        <ul>
-                            @foreach ($feature->points as $point)
-                                <li><i class="bi bi-check"></i><span> {{ $point }}</span></li>
-                            @endforeach
-                        </ul>
-                    @endif --}}
-                </div>
-            </div><!-- Features Item -->
-        @endforeach
-    </div>
-
-</section><!-- /Features Section -->
-@endif
 
 
         <!-- Pricing Section -->
@@ -289,7 +254,7 @@
         <!-- /Pricing Section -->
 
         <!-- Testimonials Section -->
-        <section id="testimonials" class="testimonials section dark-background">
+        {{-- <section id="testimonials" class="testimonials section dark-background">
 
             <img src="assets/img/testimonials-bg.jpg" class="testimonials-bg" alt="">
 
@@ -424,10 +389,11 @@
 
             </div>
 
-        </section><!-- /Testimonials Section -->
+        </section> --}}
+        <!-- /Testimonials Section -->
 
         <!-- Faq Section -->
-        <section id="faq" class="faq section">
+        {{-- <section id="faq" class="faq section">
 
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
@@ -510,7 +476,46 @@
 
             </div>
 
-        </section><!-- /Faq Section -->
+        </section> --}}
+        <!-- /Faq Section -->
 
     </main>
+@endsection
+@section('js')
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        new Swiper(".mySwiper", {
+            loop: true,
+            spaceBetween: 30,
+            slidesPerView: 1,
+            speed: 1000, // ✅ سرعة الانتقال بين الشرائح بالميلي ثانية (1000 = 1 ثانية)
+            effect: "slide", // ✅ تأثير الانزلاق الناعم (الافتراضي)
+            grabCursor: true, // ✅ لتغيير المؤشر عند السحب (يوحي بالسلاسة)
+            autoplay: {
+                delay: 1500,  // ⏱️ تأخير بين كل شريحة
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 2,
+                },
+                1024: {
+                    slidesPerView: 3,
+                }
+            }
+        });
+    });
+</script>
+
+
 @endsection
