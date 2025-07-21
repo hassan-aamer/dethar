@@ -3,7 +3,7 @@
 namespace App\Services\Sliders;
 use Illuminate\Support\Facades\DB;
 use App\Interfaces\CRUDRepositoryInterface;
-use App\Models\Blog;
+use App\Models\Page;
 
 class PageService
 {
@@ -12,7 +12,7 @@ class PageService
     public function __construct(CRUDRepositoryInterface $itemRepository)
     {
         $this->itemRepository = $itemRepository;
-        $this->model = new Blog();
+        $this->model = new Page();
     }
     public function index($request)
     {

@@ -98,4 +98,40 @@ Route::middleware('checkAuth')->group(function () {
         Route::delete('/delete/{id}', 'destroy')->name('reviews.delete');
         Route::post('/change-status', 'changeStatus')->name('reviews.status');
     });
+    Route::prefix('blogs')->controller(\App\Http\Controllers\Admin\Blogs\BlogController::class)->group(function () {
+        Route::get('/', 'index')->name('blogs.index');
+        Route::get('/create', 'create')->name('blogs.create');
+        Route::post('/store', 'store')->name('blogs.store');
+        Route::get('/{id}/edit', 'edit')->name('blogs.edit');
+        Route::put('/update/{id}', 'update')->name('blogs.update');
+        Route::delete('/delete/{id}', 'destroy')->name('blogs.delete');
+        Route::post('/change-status', 'changeStatus')->name('blogs.status');
+    });
+    Route::prefix('pages')->controller(\App\Http\Controllers\Admin\Pages\PageController::class)->group(function () {
+        Route::get('/', 'index')->name('pages.index');
+        Route::get('/create', 'create')->name('pages.create');
+        Route::post('/store', 'store')->name('pages.store');
+        Route::get('/{id}/edit', 'edit')->name('pages.edit');
+        Route::put('/update/{id}', 'update')->name('pages.update');
+        Route::delete('/delete/{id}', 'destroy')->name('pages.delete');
+        Route::post('/change-status', 'changeStatus')->name('pages.status');
+    });
+    Route::prefix('value_add')->controller(\App\Http\Controllers\Admin\ValueAdd\ValueAddController::class)->group(function () {
+        Route::get('/', 'index')->name('value_add.index');
+        Route::get('/create', 'create')->name('value_add.create');
+        Route::post('/store', 'store')->name('value_add.store');
+        Route::get('/{id}/edit', 'edit')->name('value_add.edit');
+        Route::put('/update/{id}', 'update')->name('value_add.update');
+        Route::delete('/delete/{id}', 'destroy')->name('value_add.delete');
+        Route::post('/change-status', 'changeStatus')->name('value_add.status');
+    });
+    Route::prefix('what_we_do')->controller(\App\Http\Controllers\Admin\WhatWeDo\WhatWeDoController::class)->group(function () {
+        Route::get('/', 'index')->name('what_we_do.index');
+        Route::get('/create', 'create')->name('what_we_do.create');
+        Route::post('/store', 'store')->name('what_we_do.store');
+        Route::get('/{id}/edit', 'edit')->name('what_we_do.edit');
+        Route::put('/update/{id}', 'update')->name('what_we_do.update');
+        Route::delete('/delete/{id}', 'destroy')->name('what_we_do.delete');
+        Route::post('/change-status', 'changeStatus')->name('what_we_do.status');
+    });
 });
