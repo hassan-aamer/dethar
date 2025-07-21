@@ -24,6 +24,7 @@
                                 <div class="row">
                                     @include('admin.components.name')
                                     @include('admin.components.title')
+                                    @include('admin.components.description')
                                     @include('admin.components.email')
                                     @include('admin.components.phone')
                                     @include('admin.components.whatsapp')
@@ -35,7 +36,6 @@
                                     @include('admin.components.copyrights')
                                     @include('admin.components.address')
                                     @include('admin.components.about')
-                                    @include('admin.components.description')
                                     @include('admin.components.map')
                                     <div class="row">
                                         @include('admin.components.ImageUpload', [
@@ -49,7 +49,7 @@
                                             'collection' => 'about',
                                             'label' => 'about',
                                         ])
-                                        @include('admin.components.ImageUpload', [
+                                        {{-- @include('admin.components.ImageUpload', [
                                             'result' => $result ?? null,
                                             'collection' => 'callToActions',
                                             'label' => 'Call to action',
@@ -60,7 +60,7 @@
                                             'collection' => 'reviews',
                                             'label' => 'Reviews',
                                             'name' => 'review',
-                                        ])
+                                        ]) --}}
                                         @include('admin.components.ImageUpload', [
                                             'result' => $result ?? null,
                                             'collection' => 'logo',

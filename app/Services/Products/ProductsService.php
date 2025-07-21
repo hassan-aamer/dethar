@@ -43,9 +43,9 @@ class ProductsService
             //         $products->addMedia($file)->toMediaCollection('product_collection');
             //     }
             // }
-            if (isset($request['images']) && $request['images']) {
-                Bus::dispatch(new UploadProductImages($products, $request['images']));
-            }
+            // if (isset($request['images']) && $request['images']) {
+            //     Bus::dispatch(new UploadProductImages($products, $request['images']));
+            // }
 
             DB::commit();
         } catch (\Throwable $e) {
@@ -76,9 +76,9 @@ class ProductsService
             //         $products->addMedia($file)->toMediaCollection('product_collection');
             //     }
             // }
-            if (isset($request['images']) && $request['images']) {
-                Bus::dispatch(new UploadProductImages($products, $request['images']));
-            }
+            // if (isset($request['images']) && $request['images']) {
+            //     Bus::dispatch(new UploadProductImages($products, $request['images']));
+            // }
 
             Cache::forget("product_{$id}");
 

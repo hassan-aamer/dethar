@@ -76,57 +76,70 @@
 
         <!-- About Section -->
         <section id="about" class="about section">
-
             <div class="container">
-
                 <div class="row gy-4">
-
                     <div class="col-lg-6 position-relative align-self-start order-lg-last order-first" data-aos="fade-up"
                         data-aos-delay="200">
                         <img src="{{ App\Helpers\Image::getMediaUrl(App\Models\Setting::first(), 'about') }}"
                             class="img-fluid" alt="">
-                        {{-- <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox pulsating-play-btn"></a> --}}
                     </div>
 
                     <div class="col-lg-6 content order-last  order-lg-first" data-aos="fade-up" data-aos-delay="100">
                         <h3>About Us</h3>
-                        <p>
+                        <h5 style="color: black;">
                             {{ setting('about') ?? '' }}
-                        </p>
-                        {{-- <ul>
-                            <li>
-                                <i class="bi bi-diagram-3"></i>
-                                <div>
-                                    <h5>Ullamco laboris nisi ut aliquip consequat</h5>
-                                    <p>Magni facilis facilis repellendus cum excepturi quaerat praesentium libre trade</p>
-                                </div>
-                            </li>
-                            <li>
-                                <i class="bi bi-fullscreen-exit"></i>
-                                <div>
-                                    <h5>Magnam soluta odio exercitationem reprehenderi</h5>
-                                    <p>Quo totam dolorum at pariatur aut distinctio dolorum laudantium illo direna pasata
-                                        redi</p>
-                                </div>
-                            </li>
-                            <li>
-                                <i class="bi bi-broadcast"></i>
-                                <div>
-                                    <h5>Voluptatem et qui exercitationem</h5>
-                                    <p>Et velit et eos maiores est tempora et quos dolorem autem tempora incidunt maxime
-                                        veniam</p>
-                                </div>
-                            </li>
-                        </ul> --}}
+                        </h5>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /About Section -->
+
+        <section id="about" class="about section" style="background-color: beige;">
+            <div class="container">
+                <div class="row gy-4">
+                    <div class="col-lg-6 position-relative align-self-start order-first order-lg-first" data-aos="fade-up"
+                        data-aos-delay="200">
+                        <img src="{{ App\Helpers\Image::getMediaUrl(App\Models\Setting::first(), 'about') }}"
+                            class="img-fluid" alt="">
                     </div>
 
+                    <div class="col-lg-6 content order-last order-lg-last" data-aos="fade-up" data-aos-delay="100">
+                        <h3>Vision</h3>
+                        <h5 style="color: black;">
+                            To redefine how global trade connects with logistics—empowering businesses
+                            through transparent, agile, and insight-driven import/export solutions from the heart
+                            of Egypt to the world.
+                        </h5>
+                    </div>
                 </div>
-
             </div>
+        </section>
 
-        </section><!-- /About Section -->
+        <section id="about" class="about section">
+            <div class="container">
+                <div class="row gy-4">
+                    <div class="col-lg-6 position-relative align-self-start order-lg-last order-first" data-aos="fade-up"
+                        data-aos-delay="200">
+                        <img src="{{ App\Helpers\Image::getMediaUrl(App\Models\Setting::first(), 'about') }}"
+                            class="img-fluid" alt="">
+                    </div>
 
-        @if ($result['services']->count())
+                    <div class="col-lg-6 content order-last  order-lg-first" data-aos="fade-up" data-aos-delay="100">
+                        <h3>Mission</h3>
+                        <h5 style="color: black;">
+                            At Dethar, we deliver seamless international trade experiences by combining sharp
+                            market intelligence, reliable logistics, and client-first service. Through our integrated
+                            partnership with Tact Freight, we manage the full supply chain—ensuring quality,
+                            speed, and compliance at every step.
+                        </h5>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        @if ($result['products']->count())
             <!-- Services Section -->
             <section id="services" class="services section">
                 <!-- Section Title -->
@@ -138,18 +151,18 @@
 
                 <div class="swiper-container mySwiper" data-aos="fade-up">
                     <div class="swiper-wrapper">
-                        @foreach ($result['services']->sortBy('position') as $service)
+                        @foreach ($result['products']->sortBy('position') as $product)
                             <div class="swiper-slide">
                                 <div class="card">
                                     <div class="card-img">
-                                        <img src="{{ App\Helpers\Image::getMediaUrl($service, 'services') }}"
-                                            alt="{{ $service->title ?? '' }}" class="img-fluid">
+                                        <img src="{{ App\Helpers\Image::getMediaUrl($product, 'products') }}"
+                                            alt="{{ $product->title ?? '' }}" class="img-fluid">
                                     </div>
                                     <h3>
                                         <a href="#"
-                                            class="stretched-link">{{ shortenText($service->title ?? '') }}</a>
+                                            class="stretched-link">{{ shortenText($product->title ?? '') }}</a>
                                     </h3>
-                                    <p>{{ shortenText($service->description ?? '') }}</p>
+                                    <p>{{ shortenText($product->description ?? '') }}</p>
                                 </div>
                             </div>
                         @endforeach
@@ -484,38 +497,38 @@
 @section('js')
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        new Swiper(".mySwiper", {
-            loop: true,
-            spaceBetween: 30,
-            slidesPerView: 1,
-            speed: 1000, // ✅ سرعة الانتقال بين الشرائح بالميلي ثانية (1000 = 1 ثانية)
-            effect: "slide", // ✅ تأثير الانزلاق الناعم (الافتراضي)
-            grabCursor: true, // ✅ لتغيير المؤشر عند السحب (يوحي بالسلاسة)
-            autoplay: {
-                delay: 1500,  // ⏱️ تأخير بين كل شريحة
-                disableOnInteraction: false,
-            },
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
-            },
-            breakpoints: {
-                768: {
-                    slidesPerView: 2,
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            new Swiper(".mySwiper", {
+                loop: true,
+                spaceBetween: 30,
+                slidesPerView: 1,
+                speed: 1000, // ✅ سرعة الانتقال بين الشرائح بالميلي ثانية (1000 = 1 ثانية)
+                effect: "slide", // ✅ تأثير الانزلاق الناعم (الافتراضي)
+                grabCursor: true, // ✅ لتغيير المؤشر عند السحب (يوحي بالسلاسة)
+                autoplay: {
+                    delay: 1500, // ⏱️ تأخير بين كل شريحة
+                    disableOnInteraction: false,
                 },
-                1024: {
-                    slidesPerView: 3,
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+                breakpoints: {
+                    768: {
+                        slidesPerView: 2,
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                    }
                 }
-            }
+            });
         });
-    });
-</script>
+    </script>
 
 
 @endsection

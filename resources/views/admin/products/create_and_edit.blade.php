@@ -31,13 +31,13 @@
                                         'result' => $result ?? null,
                                         'collection' => 'products',
                                     ])
-                                    @if (isset($result) && $result->id)
+                                    {{-- @if (isset($result) && $result->id)
                                         @include('admin.components.ImagesUpload', [
                                             'result' => $result ?? null,
                                             'collection' => 'product_collection',
                                             'name' => 'images',
                                         ])
-                                    @endif
+                                    @endif --}}
                                     @include('admin.components.active')
                                     @include('admin.components.submit')
                                 </div>
