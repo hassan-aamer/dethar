@@ -46,7 +46,7 @@
                                             @foreach ($result as $products)
                                                 <tr id="row-{{ $products->id ?? '' }}">
                                                     <td>{{ $loop->iteration ?? '' }}</td>
-                                                    <td>{{ $products->category->title ?? '' }}</td>
+                                                    <td>{{ $products->valueAddCategory->title ?? '' }}</td>
                                                     <td><img src="{{ App\Helpers\Image::getMediaUrl($products, 'value_add') }}"
                                                             alt="products" width="100"
                                                             onclick="openImage('{{ App\Helpers\Image::getMediaUrl($products, 'value_add') }}')"

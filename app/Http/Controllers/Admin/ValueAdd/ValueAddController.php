@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Services\ValueAdd\ValueAddService;
 use App\Http\Requests\ValueAdd\ValueAddRequest;
+use App\Models\ValueAddCategory;
 
 class ValueAddController extends Controller
 {
@@ -27,7 +28,8 @@ class ValueAddController extends Controller
     }
     public function create()
     {
-        return view($this->folderPath . 'create_and_edit', ['result' => null]);
+        $categories = ValueAddCategory::publish()->get();
+        return view($this->folderPath . 'create_and_edit', ['result' => null],compact('categories'));
     }
     public function store(ValueAddRequest $request)
     {
@@ -40,8 +42,9 @@ class ValueAddController extends Controller
     }
     public function edit($id)
     {
+        $categories = ValueAddCategory::publish()->get();
         $result = $this->service->edit($id);
-        return view($this->folderPath . 'create_and_edit', compact('result'));
+        return view($this->folderPath . 'create_and_edit', compact('result','categories'));
     }
     public function update(ValueAddRequest $request, $id)
     {
