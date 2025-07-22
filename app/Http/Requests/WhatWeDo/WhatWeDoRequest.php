@@ -22,7 +22,23 @@ class WhatWeDoRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'what_we_do_category_id'         => 'required|exists:what_we_do_categories,id',
+            'title'         => 'required|array',
+            'title.*'       => [
+                'required',
+                'string',
+                'max:255',
+                // \CodeZero\UniqueTranslation\UniqueTranslationRule::for('what_we_dos')->ignore($this->id)
+            ],
+            'description'   => 'required|array',
+            'description.*' => 'required|string|max:1000',
+            'content'   => 'required|array',
+            'content.*' => 'required|string|max:1000',
+            'position'      => 'required',
+            'image'         => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp',
+            'images'   => 'nullable|array|max:10',
+            'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg',
+            'active'        => 'required|in:0,1',
         ];
     }
 }

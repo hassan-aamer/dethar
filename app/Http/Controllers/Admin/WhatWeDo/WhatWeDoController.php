@@ -3,13 +3,14 @@
 namespace App\Http\Controllers\Admin\WhatWeDo;
 
 use Illuminate\Http\Request;
+use App\Models\WhatWeDoCategory;
 use App\Http\Controllers\Controller;
 use App\Services\WhatWeDo\WhatWeDoService;
 use App\Http\Requests\WhatWeDo\WhatWeDoRequest;
 
 class WhatWeDoController extends Controller
 {
-        private $folderPath = 'admin.what_we_do.';
+    private $folderPath = 'admin.what_we_do.';
     protected WhatWeDoService $service;
     public function __construct(WhatWeDoService $service)
     {
@@ -27,7 +28,8 @@ class WhatWeDoController extends Controller
     }
     public function create()
     {
-        return view($this->folderPath . 'create_and_edit', ['result' => null]);
+        $categories = WhatWeDoCategory::publish()->get();
+        return view($this->folderPath . 'create_and_edit', ['result' => null], compact('categories'));
     }
     public function store(WhatWeDoRequest $request)
     {
@@ -40,8 +42,9 @@ class WhatWeDoController extends Controller
     }
     public function edit($id)
     {
+        $categories = WhatWeDoCategory::publish()->get();
         $result = $this->service->edit($id);
-        return view($this->folderPath . 'create_and_edit', compact('result'));
+        return view($this->folderPath . 'create_and_edit', compact('result', 'categories'));
     }
     public function update(WhatWeDoRequest $request, $id)
     {

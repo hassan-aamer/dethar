@@ -15,7 +15,7 @@
                         <div class="page-title-box">
 
                             <a class="btn btn-success"
-                                href="{{ route('admin.categories.create') }}">{{ __('attributes.create') }}</a>
+                                href="{{ route('admin.what_we_do_category.create') }}">{{ __('attributes.create') }}</a>
 
                         </div>
                     </div>
@@ -61,7 +61,7 @@
                                                     </td>
                                                     <td>
 
-                                                        <a href="{{ route('admin.categories.edit', $categories->id) }}">
+                                                        <a href="{{ route('admin.what_we_do_category.edit', $categories->id) }}">
                                                             <button type="button" class="btn btn-warning btn-block "><i
                                                                     class="fa uil-edit"></i> </button>
                                                         </a>
@@ -90,7 +90,7 @@
                                                                     data-bs-dismiss="modal" aria-label="Close"></button>
                                                             </div>
                                                             <form id="deleteForm{{ $categories->id }}"
-                                                                action="{{ route('admin.categories.delete', $categories->id) }}"
+                                                                action="{{ route('admin.what_we_do_category.delete', $categories->id) }}"
                                                                 method="post">
                                                                 @csrf
                                                                 @method('delete')
@@ -142,7 +142,7 @@
                 const Id = this.getAttribute('data-id');
                 const status = this.checked ? 1 : 0;
 
-                fetch("{{ route('admin.categories.status', app()->getLocale()) }}", {
+                fetch("{{ route('admin.what_we_do_category.status', app()->getLocale()) }}", {
                     method: 'POST',
                     headers: {
                         'X-CSRF-TOKEN': '{{ csrf_token() }}',

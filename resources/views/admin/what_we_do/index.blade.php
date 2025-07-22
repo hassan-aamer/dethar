@@ -1,5 +1,5 @@
 @extends('admin.layouts.master')
-@section('title', __('attributes.products'))
+@section('title', __('attributes.what_we_do'))
 
 @section('content')
 
@@ -13,10 +13,10 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="page-title-box">
-                            @can('create products')
+                            {{-- @can('create products') --}}
                                 <a class="btn btn-success"
-                                    href="{{ route('admin.products.create') }}">{{ __('attributes.create') }}</a>
-                            @endcan
+                                    href="{{ route('admin.what_we_do.create') }}">{{ __('attributes.create') }}</a>
+                            {{-- @endcan --}}
                         </div>
                     </div>
                 </div>
@@ -27,7 +27,7 @@
 
                             <div class="card-body">
 
-                                <h4 class="header-title mt-0 mb-1">{{ __('attributes.products') }}</h4>
+                                <h4 class="header-title mt-0 mb-1">{{ __('attributes.what_we_do') }}</h4>
                                 <table id="datatable-buttons" class="table table-striped dt-responsive nowrap w-100">
                                     <thead>
                                         <tr>
@@ -46,10 +46,10 @@
                                             @foreach ($result as $products)
                                                 <tr id="row-{{ $products->id ?? '' }}">
                                                     <td>{{ $loop->iteration ?? '' }}</td>
-                                                    <td>{{ $products->category->title ?? '' }}</td>
-                                                    <td><img src="{{ App\Helpers\Image::getMediaUrl($products, 'products') }}"
+                                                    <td>{{ $products->whatWeDoCategory->title ?? '' }}</td>
+                                                    <td><img src="{{ App\Helpers\Image::getMediaUrl($products, 'what_we_do') }}"
                                                             alt="products" width="100"
-                                                            onclick="openImage('{{ App\Helpers\Image::getMediaUrl($products, 'products') }}')"
+                                                            onclick="openImage('{{ App\Helpers\Image::getMediaUrl($products, 'what_we_do') }}')"
                                                             style="width: 100px; height: auto; cursor: pointer; transition: transform 0.3s;"
                                                             onmouseover="this.style.transform='scale(1.1)'"
                                                             onmouseout="this.style.transform='scale(1)'"></td>
@@ -57,8 +57,8 @@
                                                     <td>{{ shortenText($products->title ?? '', 10) }}</td>
                                                     <td>{{ shortenText($products->description ?? '', 10) }}</td>
                                                     <td>
-                                                        @can('active products')
-                                                        @endcan
+                                                        {{-- @can('active products')
+                                                        @endcan --}}
                                                         <div class="form-check form-switch">
                                                             <input class="form-check-input" type="checkbox" name="status"
                                                                 id="active-{{ $products->id }}"
@@ -69,19 +69,19 @@
                                                         </div>
                                                     </td>
                                                     <td>
-                                                        @can('edit products')
-                                                            <a href="{{ route('admin.products.edit', $products->id) }}">
+                                                        {{-- @can('edit products') --}}
+                                                            <a href="{{ route('admin.what_we_do.edit', $products->id) }}">
                                                                 <button type="button" class="btn btn-warning btn-block "><i
                                                                         class="fa uil-edit"></i> </button>
                                                             </a>
-                                                        @endcan
-                                                        @can('delete products')
+                                                        {{-- @endcan --}}
+                                                        {{-- @can('delete products') --}}
                                                             <button type="button" class="btn btn-danger btn-block btn-delete"
                                                                 data-bs-toggle="modal"
                                                                 data-bs-target="#delete{{ $products->id }}">
                                                                 <i class="fa uil-trash"></i>
                                                             </button>
-                                                        @endcan
+                                                        {{-- @endcan --}}
 
                                                     </td>
                                                 </tr>
@@ -100,7 +100,7 @@
                                                                     data-bs-dismiss="modal" aria-label="Close"></button>
                                                             </div>
                                                             <form id="deleteForm{{ $products->id }}"
-                                                                action="{{ route('admin.products.delete', $products->id) }}"
+                                                                action="{{ route('admin.what_we_do.delete', $products->id) }}"
                                                                 method="post">
                                                                 @csrf
                                                                 @method('delete')
@@ -152,7 +152,7 @@
                 const Id = this.getAttribute('data-id');
                 const status = this.checked ? 1 : 0;
 
-                fetch("{{ route('admin.products.status', app()->getLocale()) }}", {
+                fetch("{{ route('admin.what_we_do.status', app()->getLocale()) }}", {
                     method: 'POST',
                     headers: {
                         'X-CSRF-TOKEN': '{{ csrf_token() }}',

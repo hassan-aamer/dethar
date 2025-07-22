@@ -20,6 +20,67 @@
 
                 <li class="menu-title mt-2"></li>
 
+                <li>
+                    <a href="#sidebarEmail" data-bs-toggle="collapse">
+                        <i data-feather="menu"></i>
+                        <span> {{ __('attributes.products') }} </span>
+                    </a>
+                    <div class="collapse" id="sidebarEmail">
+                        <ul class="nav-second-level">
+                            <li><a class="{{ request()->routeIs('admin.products.*') ? 'active' : '' }}"
+                                    href="{{ route('admin.products.index') }}">{{ __('attributes.products') }}</a></li>
+                            <li><a class="{{ request()->routeIs('admin.categories.*') ? 'active' : '' }}"
+                                    href="{{ route('admin.categories.index') }}"> {{ __('attributes.categories') }} </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="#what_we_do" data-bs-toggle="collapse">
+                        <i data-feather="menu"></i>
+                        <span> {{ __('attributes.what_we_do') }} </span>
+                    </a>
+                    <div class="collapse" id="what_we_do">
+                        <ul class="nav-second-level">
+                            <li><a class="{{ request()->routeIs('admin.what_we_do.*') ? 'active' : '' }}"
+                                    href="{{ route('admin.what_we_do.index') }}">{{ __('attributes.what_we_do') }}</a></li>
+                            <li><a class="{{ request()->routeIs('admin.what_we_do_category.*') ? 'active' : '' }}"
+                                    href="{{ route('admin.what_we_do_category.index') }}"> {{ __('attributes.categories') }} </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="#value_add" data-bs-toggle="collapse">
+                        <i data-feather="menu"></i>
+                        <span> {{ __('attributes.value_add') }} </span>
+                    </a>
+                    <div class="collapse" id="value_add">
+                        <ul class="nav-second-level">
+                            <li><a class="{{ request()->routeIs('admin.value_add.*') ? 'active' : '' }}"
+                                    href="{{ route('admin.value_add.index') }}">{{ __('attributes.value_add') }}</a></li>
+                            <li><a class="{{ request()->routeIs('admin.value_add_category.*') ? 'active' : '' }}"
+                                    href="{{ route('admin.value_add_category.index') }}"> {{ __('attributes.categories') }} </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="#blogs" data-bs-toggle="collapse">
+                        <i data-feather="menu"></i>
+                        <span> {{ __('attributes.blogs') }} </span>
+                    </a>
+                    <div class="collapse" id="blogs">
+                        <ul class="nav-second-level">
+                            <li><a class="{{ request()->routeIs('admin.blogs.*') ? 'active' : '' }}"
+                                    href="{{ route('admin.blogs.index') }}">{{ __('attributes.blogs') }}</a></li>
+                            <li><a class="{{ request()->routeIs('admin.blogs_category.*') ? 'active' : '' }}"
+                                    href="{{ route('admin.blogs_category.index') }}"> {{ __('attributes.categories') }} </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
                 @can('list contacts')
                     <li>
                         <a class="{{ request()->routeIs('admin.contacts.*') ? 'active' : '' }}"
@@ -34,72 +95,8 @@
                     </li>
                 @endcan
 
-                {{-- @can('list subscription')
-                    <li>
-                        <a class="{{ request()->routeIs('admin.subscription.*') ? 'active' : '' }}"
-                            href="{{ route('admin.subscription.index') }}">
-                            <i data-feather="bell"></i>
-                            @if (App\Models\Subscription::count())
-                                <span class="badge bg-success float-end">{{ App\Models\Subscription::count() ?? 0 }}</span>
-                            @endif
-                            <span> {{ __('attributes.subscriptions') }} </span>
-                        </a>
-                    </li>
-                @endcan
-                @can('list sliders')
-                    <li>
-                        <a class="{{ request()->routeIs('admin.sliders.*') ? 'active' : '' }}"
-                            href="{{ route('admin.sliders.index') }}">
-                            <i data-feather="sliders"></i>
-                            <span>{{ __('attributes.sliders') }}</span>
-                        </a>
-                    </li>
-                @endcan
-                @can('list features')
-                    <li>
-                        <a class="{{ request()->routeIs('admin.features.*') ? 'active' : '' }}"
-                            href="{{ route('admin.features.index') }}">
-                            <i data-feather="message-circle"></i>
-                            <span>{{ __('attributes.features') }}</span>
-                        </a>
-                    </li>
-                @endcan --}}
 
-                <li>
-                    <a class="{{ request()->routeIs('admin.categories.*') ? 'active' : '' }}"
-                        href="{{ route('admin.categories.index') }}">
-                        <i data-feather="layers"></i>
-                        <span> {{ __('attributes.categories') }} </span>
-                    </a>
-                </li>
 
-                {{-- @can('list services')
-                    <li>
-                        <a class="{{ request()->routeIs('admin.services.*') ? 'active' : '' }}"
-                            href="{{ route('admin.services.index') }}">
-                            <i data-feather="tool"></i>
-                            <span> {{ __('attributes.services') }} </span>
-                        </a>
-                    </li>
-                @endcan --}}
-                @can('list products')
-                    <li>
-                        <a class="{{ request()->routeIs('admin.products.*') ? 'active' : '' }}"
-                            href="{{ route('admin.products.index') }}">
-                            <i data-feather="box"></i>
-                            <span> {{ __('attributes.products') }} </span>
-                        </a>
-                    </li>
-                @endcan
-                {{-- @can('list reviews')
-                    <li>
-                        <a class="{{ request()->routeIs('admin.reviews.*') ? 'active' : '' }}"
-                            href="{{ route('admin.reviews.index') }}">
-                            <i data-feather="star"></i>
-                            <span> {{ __('attributes.reviews') }} </span>
-                        </a>
-                    </li>
-                @endcan --}}
                 @can('list settings')
                     <li>
                         <a class="{{ request()->routeIs('admin.settings.*') ? 'active' : '' }}"

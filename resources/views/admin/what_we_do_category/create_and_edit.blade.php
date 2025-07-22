@@ -15,7 +15,7 @@
                     <div class="card">
                         <div class="card-body">
                             <form method="POST"
-                                action="{{ isset($result) && $result->id ? route('admin.categories.update', $result->id) : route('admin.categories.store') }}"
+                                action="{{ isset($result) && $result->id ? route('admin.what_we_do_category.update', $result->id) : route('admin.what_we_do_category.store') }}"
                                 class="parsley-examples" enctype="multipart/form-data">
                                 @csrf
                                 @if (isset($result) && $result->id)
