@@ -17,8 +17,8 @@
                 <div class="row gy-4 d-flex justify-content-between">
                     <div class="col-lg-9 order-2 order-lg-1 d-flex flex-column justify-content-center">
                         <h2 style="margin-top: 60px;" data-aos="fade-up">{{ setting('title') ?? '' }}</h2>
-                        <p style="margin-top: 20px;" data-aos="fade-up" data-aos-delay="100">
-                            {{ setting('description') ?? '' }}</p>
+                        <h5 style="margin-top: 20px; line-height: 1.6;" data-aos="fade-up" data-aos-delay="100">
+                            {{ setting('description') ?? '' }}</h5>
                     </div>
                 </div>
             </div>
@@ -95,7 +95,7 @@
         </section>
         <!-- /About Section -->
 
-        <section id="about" class="about section" style="background-color: beige;">
+        <section id="about" class="about section" style="background-color: #EA9323;">
             <div class="container">
                 <div class="row gy-4">
                     <div class="col-lg-6 position-relative align-self-start order-first order-lg-first" data-aos="fade-up"

@@ -18,4 +18,4 @@
 <link href="{{ asset('web/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
 
 <!-- Main CSS File -->
-<link href="{{ asset('web/css/app.css') }}" rel="stylesheet">
+<link href="{{ asset('web/css/style.css') }}" rel="stylesheet">

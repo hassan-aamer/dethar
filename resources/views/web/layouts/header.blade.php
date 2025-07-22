@@ -1,4 +1,4 @@
-  <header id="header" class="header d-flex align-items-center fixed-top">
+  <header id="header" style="background-color: #2E6344;" class="header d-flex align-items-center fixed-top">
       <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
           <a href="index.html" class="logo d-flex align-items-center me-auto">
