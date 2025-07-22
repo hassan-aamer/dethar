@@ -1,12 +1,12 @@
 @extends('admin.layouts.master')
-@section('title', __('attributes.products'))
+@section('title', __('attributes.blogs'))
 @section('content')
     <div class="content-page">
         <div class="content">
             <div class="row">
                 <div class="col-12">
                     <div class="page-title-box">
-                        <h4 class="page-title">{{ __('attributes.products') }}</h4>
+                        <h4 class="page-title">{{ __('attributes.blogs') }}</h4>
                     </div>
                 </div>
             </div>
@@ -15,7 +15,7 @@
                     <div class="card">
                         <div class="card-body">
                             <form method="POST"
-                                action="{{ isset($result) && $result->id ? route('admin.products.update', $result->id) : route('admin.products.store') }}"
+                                action="{{ isset($result) && $result->id ? route('admin.blogs.update', $result->id) : route('admin.blogs.store') }}"
                                 class="parsley-examples" enctype="multipart/form-data">
                                 @csrf
                                 @if (isset($result) && $result->id)
@@ -26,7 +26,26 @@
                                     @include('admin.components.description')
                                     @include('admin.components.content')
                                     @include('admin.components.position')
-                                    @include('admin.components.select_category')
+                                    <div class="col-xl-6 col-sm-4">
+                                        <div class="mb-3 mt-3 mt-sm-0">
+                                            <label class="form-label">{{ __('attributes.categories') }}</label>
+                                            <select name="blog_category_id" data-plugin="customselect"
+                                                class="form-select @error('blog_category_id') is-invalid @enderror"
+                                                data-placeholder="{{ __('attributes.categories') }}">
+                                                <option></option>
+                                                @foreach ($categories as $category)
+                                                    <option value="{{ $category->id }}"
+                                                        {{ old('blog_category_id', isset($result) && $result->blog_category_id == $category->id ? 'selected' : '') }}>
+                                                        {{ $category->title ?? '' }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                            @error('blog_category_id')
+                                                <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+
                                     @include('admin.components.ImageUpload', [
                                         'result' => $result ?? null,
                                         'collection' => 'products',

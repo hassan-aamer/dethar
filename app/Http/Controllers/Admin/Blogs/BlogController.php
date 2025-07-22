@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Services\Blogs\BlogService;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Blogs\BlogRequest;
+use App\Models\BlogCategory;
 
 class BlogController extends Controller
 {
@@ -27,7 +28,8 @@ class BlogController extends Controller
     }
     public function create()
     {
-        return view($this->folderPath . 'create_and_edit', ['result' => null]);
+        $categories = BlogCategory::publish()->get();
+        return view($this->folderPath . 'create_and_edit', ['result' => null], compact('categories'));
     }
     public function store(BlogRequest $request)
     {
@@ -40,8 +42,9 @@ class BlogController extends Controller
     }
     public function edit($id)
     {
+        $categories = BlogCategory::publish()->get();
         $result = $this->service->edit($id);
-        return view($this->folderPath . 'create_and_edit', compact('result'));
+        return view($this->folderPath . 'create_and_edit', compact('result', 'categories'));
     }
     public function update(BlogRequest $request, $id)
     {
