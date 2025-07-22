@@ -12,6 +12,8 @@ class DashboardController extends Controller
             'products' => \App\Models\Product::count(),
             'services' => \App\Models\Service::count(),
             'contacts' => \App\Models\Contact::count(),
+            'what_we_do' => \App\Models\WhatWeDo::count(),
+            'value_add' => \App\Models\ValueAdd::count(),
         ];
         return view('admin.dashboard', compact('count'));
     }

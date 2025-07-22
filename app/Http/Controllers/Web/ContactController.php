@@ -13,6 +13,10 @@ class ContactController extends Controller
     {
         $this->service = $service;
     }
+    public function index()
+    {
+        return view('web.pages.get_in_touch.index');
+    }
     public function store(ContactRequest $request)
     {
         try {

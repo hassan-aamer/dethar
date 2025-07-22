@@ -9,7 +9,7 @@
 
           <nav id="navmenu" class="navmenu">
               <ul>
-                  <li><a href="index.html" class="active">Home<br></a></li>
+                  <li><a href="{{ route('home') }}" class="active">Home<br></a></li>
                   <li><a href="about.html">About</a></li>
                   <li class="dropdown"><a href="#"><span>What We Do</span> <i
                               class="bi bi-chevron-down toggle-dropdown"></i></a>
@@ -42,7 +42,7 @@
               <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
           </nav>
 
-          <a class="btn-getstarted" href="get-a-quote.html">Get in touch</a>
+          <a class="btn-getstarted" href="{{ route('contact') }}">Get in touch</a>
 
       </div>
   </header>

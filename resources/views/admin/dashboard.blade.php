@@ -20,7 +20,7 @@
 
                 <!-- stats with icon -->
                 <div class="row">
-                    <div class="col-md-6 col-xl-3">
+                    <div class="col-md-6 col-xl-6">
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex">
@@ -37,14 +37,14 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 col-xl-3">
+                    <div class="col-md-6 col-xl-6">
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex">
                                     <div class="flex-grow-1">
                                         <span
-                                            class="text-muted text-uppercase fs-12 fw-bold">{{ __('attributes.services') }}</span>
-                                        <h3 class="mb-0">{{ $count['services'] }}</h3>
+                                            class="text-muted text-uppercase fs-12 fw-bold">{{ __('attributes.what_we_do') }}</span>
+                                        <h3 class="mb-0">{{ $count['what_we_do'] }}</h3>
                                     </div>
                                     <div class="align-self-center flex-shrink-0">
                                         <span class="icon-lg icon-dual-warning" data-feather="coffee"></span>
@@ -54,24 +54,24 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 col-xl-3">
+                    <div class="col-md-6 col-xl-6">
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex">
                                     <div class="flex-grow-1">
                                         <span
                                             class="text-muted text-uppercase fs-12 fw-bold">{{ __('attributes.users') }}</span>
-                                        <h3 class="mb-0">{{ $count['users'] }}</h3>
+                                        <h3 class="mb-0">{{ $count['value_add'] }}</h3>
                                     </div>
                                     <div class="align-self-center flex-shrink-0">
-                                        <span class="icon-lg icon-dual-success" data-feather="users"></span>
+                                        <span class="icon-lg icon-dual-primary" data-feather="shopping-bag"></span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-md-6 col-xl-3">
+                    <div class="col-md-6 col-xl-6">
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex">
