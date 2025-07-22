@@ -22,7 +22,17 @@ class BlogCategoryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'title'         => 'required|array',
+            'title.*'       => [
+                'required',
+                'string',
+                'max:255',
+                \CodeZero\UniqueTranslation\UniqueTranslationRule::for('blog_categories')->ignore($this->id)
+            ],
+            'description'   => 'required|array',
+            'description.*' => 'required|string|max:1000',
+            'position'      => 'required',
+            'active'        => 'required|in:0,1',
         ];
     }
 }
