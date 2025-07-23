@@ -46,7 +46,7 @@
                                                 <tr id="row-{{ $categories->id ?? '' }}">
                                                     <td>{{ $loop->iteration ?? '' }}</td>
                                                     <td>{{ $categories->position ?? '' }}</td>
-                                                    <td>{{ shortenText($categories->name ?? '', 10) }}</td>
+                                                    <td>{{ shortenText($categories->name ?? '', 30) }}</td>
                                                     <td>{{ shortenText($categories->title ?? '', 10) }}</td>
                                                     <td>{{ shortenText($categories->description ?? '', 10) }}</td>
                                                     {{-- <td>

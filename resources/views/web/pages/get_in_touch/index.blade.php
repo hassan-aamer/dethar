@@ -1,23 +1,27 @@
 @extends('web.layouts.app')
 @section('title', __('attributes.get_in_touch'))
-
+@section('css')
+    <style>
+        .dark-background::before {
+            /* background-color: transparent !important; */
+            /* background-color: rgba(0, 0, 0, 0.1); */
+        }
+    </style>
+@endsection
 @section('content')
     <main class="main">
 
         <!-- Page Title -->
-        <div class="page-title dark-background" data-aos="fade" style="background-image: url(web/img/page-title-bg.jpg);">
+<div class="page-title dark-background" data-aos="fade" style="background-image: url({{ page_image('get in touch') }});">
+
+
             <div class="container position-relative">
-                <h1>Contact</h1>
-                <p>Esse dolorum voluptatum ullam est sint nemo et est ipsa porro placeat quibusdam quia assumenda numquam
-                    molestias.</p>
-                <nav class="breadcrumbs">
-                    <ol>
-                        <li><a href="index.html">Home</a></li>
-                        <li class="current">Contact</li>
-                    </ol>
-                </nav>
+                <h1>{{ page('get in touch', 'title') }}</h1>
+                <p>{{ page('get in touch', 'description') }}</p>
+
             </div>
-        </div><!-- End Page Title -->
+        </div>
+        <!-- End Page Title -->
 
         <!-- Contact Section -->
         <section id="contact" class="contact section">

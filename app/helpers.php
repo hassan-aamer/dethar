@@ -21,6 +21,41 @@ if (! function_exists('setting')) {
         return $settings->{$key} ?? $default;
     }
 }
+if (! function_exists('page')) {
+    function page(string $name, ?string $column = null, $default = null)
+    {
+        $page = \App\Models\Page::where('name->en', $name)->first();
+
+        if (!$page) {
+            return $default;
+        }
+
+        if (is_null($column)) {
+            return $page;
+        }
+
+        if (in_array($column, $page->translatable ?? []) && method_exists($page, 'getTranslation')) {
+            return $page->getTranslation($column, app()->getLocale()) ?? $default;
+        }
+
+        return $page->{$column} ?? $default;
+    }
+}
+use Illuminate\Support\Facades\File;
+
+if (! function_exists('page_image')) {
+    function page_image(string $name, string $collection = 'pages', string $defaultImage = 'robot.png')
+    {
+        $page = \App\Models\Page::where('name->en', $name)->first();
+
+        if ($page && $page->getFirstMedia($collection) && File::exists($page->getFirstMedia($collection)->getPath())) {
+            return $page->getFirstMediaUrl($collection);
+        }
+
+        return asset($defaultImage);
+    }
+}
+
 if (!function_exists('shortenText')) {
     function shortenText($text, $length = 50) {
         return Str::limit($text, $length);

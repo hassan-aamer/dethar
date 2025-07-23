@@ -45,12 +45,12 @@ class PageController extends Controller
     }
     public function update(PageRequest $request, $id)
     {
-        try {
+        // try {
             $this->service->update($request->validated(), $id);
             return redirect()->route('admin.pages.index')->with('success', __('attributes.OperationCompletedSuccessfully'));
-        } catch (\Throwable $e) {
-            return redirect()->back()->with('error', 'Failed to update slider: ' . $e->getMessage());
-        }
+        // } catch (\Throwable $e) {
+        //     return redirect()->back()->with('error', 'Failed to update slider: ' . $e->getMessage());
+        // }
     }
     public function destroy($id)
     {

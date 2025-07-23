@@ -31,7 +31,7 @@ class PageRequest extends FormRequest
             'content'       => 'nullable|array',
             'content.*'     => 'nullable|string|max:1000',
             'position'      => 'required',
-            'active'        => 'required|in:0,1',
+            'active'        => 'nullable|in:0,1',
             'image'         => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
         ];
     }

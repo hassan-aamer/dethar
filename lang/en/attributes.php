@@ -10,6 +10,7 @@ return [
     'E-Commerce' => 'E-Commerce',
     'dashboard' => 'Dashboard',
     'file' => 'File',
+    'get_in_touch' => 'Get In Touch',
     'technical_data_sheets' => 'Technical Data Sheets',
     'active' => 'Active',
     'pages' => 'Pages',
