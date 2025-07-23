@@ -12,6 +12,7 @@ return [
     'file' => 'File',
     'technical_data_sheets' => 'Technical Data Sheets',
     'active' => 'Active',
+    'pages' => 'Pages',
     'marketing' => 'Marketing',
     'development' => 'Development',
     'images' => 'Images',
