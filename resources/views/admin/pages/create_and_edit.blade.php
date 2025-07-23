@@ -22,6 +22,7 @@
                                     @method('PUT')
                                 @endif
                                 <div class="row">
+                                    @include('admin.components.name')
                                     @include('admin.components.title')
                                     @include('admin.components.description')
                                     @include('admin.components.ImageUpload', [
@@ -29,7 +30,7 @@
                                         'collection' => 'pages',
                                     ])
                                     @include('admin.components.position')
-                                    @include('admin.components.active')
+                                    {{-- @include('admin.components.active') --}}
                                     @include('admin.components.submit')
                                 </div>
                             </form>

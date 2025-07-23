@@ -33,9 +33,10 @@
                                         <tr>
                                             <th>#</th>
                                             <th>@lang('attributes.position')</th>
+                                            <th>@lang('attributes.name')</th>
                                             <th>@lang('attributes.title')</th>
                                             <th>@lang('attributes.description')</th>
-                                            <th>@lang('attributes.active')</th>
+                                            {{-- <th>@lang('attributes.active')</th> --}}
                                             <th>@lang('attributes.action')</th>
                                         </tr>
                                     </thead>
@@ -45,9 +46,10 @@
                                                 <tr id="row-{{ $categories->id ?? '' }}">
                                                     <td>{{ $loop->iteration ?? '' }}</td>
                                                     <td>{{ $categories->position ?? '' }}</td>
+                                                    <td>{{ shortenText($categories->name ?? '', 10) }}</td>
                                                     <td>{{ shortenText($categories->title ?? '', 10) }}</td>
                                                     <td>{{ shortenText($categories->description ?? '', 10) }}</td>
-
+                                                    {{-- <td>
                                                         <div class="form-check form-switch">
                                                             <input class="form-check-input" type="checkbox" name="status"
                                                                 id="active-{{ $categories->id }}"
@@ -57,21 +59,20 @@
                                                                 for="active-{{ $categories->id }}"></label>
                                                         </div>
 
-                                                    </td>
+                                                    </td> --}}
                                                     <td>
 
-                                                        <a
-                                                            href="{{ route('admin.pages.edit', $categories->id) }}">
+                                                        <a href="{{ route('admin.pages.edit', $categories->id) }}">
                                                             <button type="button" class="btn btn-warning btn-block "><i
                                                                     class="fa uil-edit"></i> </button>
                                                         </a>
 
 
-                                                        <button type="button" class="btn btn-danger btn-block btn-delete"
+                                                        {{-- <button type="button" class="btn btn-danger btn-block btn-delete"
                                                             data-bs-toggle="modal"
                                                             data-bs-target="#delete{{ $categories->id }}">
                                                             <i class="fa uil-trash"></i>
-                                                        </button>
+                                                        </button> --}}
 
                                                     </td>
                                                 </tr>
