@@ -12,12 +12,20 @@
     <main class="main">
 
         <!-- Page Title -->
-<div class="page-title dark-background" data-aos="fade" style="background-image: url({{ page_image('get in touch') }});">
+        <div class="page-title dark-background" data-aos="fade"
+            style="background-image: url({{ page_image('get in touch') }});">
 
 
             <div class="container position-relative">
                 <h1>{{ page('get in touch', 'title') }}</h1>
                 <p>{{ page('get in touch', 'description') }}</p>
+
+                <nav class="breadcrumbs">
+                    <ol>
+                        <li><a href="index.html">Home</a></li>
+                        <li class="current">{{ page('get in touch', 'title') }}</li>
+                    </ol>
+                </nav>
 
             </div>
         </div>
