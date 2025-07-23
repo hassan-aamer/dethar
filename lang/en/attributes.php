@@ -9,6 +9,8 @@ return [
     'create' => 'Create',
     'E-Commerce' => 'E-Commerce',
     'dashboard' => 'Dashboard',
+    'file' => 'File',
+    'technical_data_sheets' => 'Technical Data Sheets',
     'active' => 'Active',
     'marketing' => 'Marketing',
     'development' => 'Development',

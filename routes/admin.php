@@ -161,4 +161,13 @@ Route::middleware('checkAuth')->group(function () {
         Route::delete('/delete/{id}', 'destroy')->name('what_we_do_category.delete');
         Route::post('/change-status', 'changeStatus')->name('what_we_do_category.status');
     });
+    Route::prefix('technical_data_sheets')->controller(\App\Http\Controllers\Admin\TechnicalDataSheets\TechnicalDataSheetsController::class)->group(function () {
+        Route::get('/', 'index')->name('technical_data_sheets.index');
+        Route::get('/create', 'create')->name('technical_data_sheets.create');
+        Route::post('/store', 'store')->name('technical_data_sheets.store');
+        Route::get('/{id}/edit', 'edit')->name('technical_data_sheets.edit');
+        Route::put('/update/{id}', 'update')->name('technical_data_sheets.update');
+        Route::delete('/delete/{id}', 'destroy')->name('technical_data_sheets.delete');
+        Route::post('/change-status', 'changeStatus')->name('technical_data_sheets.status');
+    });
 });
