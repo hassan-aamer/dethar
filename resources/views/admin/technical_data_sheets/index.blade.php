@@ -35,6 +35,7 @@
                                             <th>@lang('attributes.position')</th>
                                             <th>@lang('attributes.title')</th>
                                             <th>@lang('attributes.description')</th>
+                                            <th>@lang('attributes.file')</th>
                                             <th>@lang('attributes.active')</th>
                                             <th>@lang('attributes.action')</th>
                                         </tr>
@@ -47,6 +48,8 @@
                                                     <td>{{ $categories->position ?? '' }}</td>
                                                     <td>{{ shortenText($categories->title ?? '', 10) }}</td>
                                                     <td>{{ shortenText($categories->description ?? '', 10) }}</td>
+                                                    <td><a href="{{ App\Helpers\Image::getMediaUrl($categories, 'technical_data_sheets') }}"
+                                                            download="">Download file</a></td>
                                                     <td>
 
                                                         <div class="form-check form-switch">
@@ -61,7 +64,8 @@
                                                     </td>
                                                     <td>
 
-                                                        <a href="{{ route('admin.technical_data_sheets.edit', $categories->id) }}">
+                                                        <a
+                                                            href="{{ route('admin.technical_data_sheets.edit', $categories->id) }}">
                                                             <button type="button" class="btn btn-warning btn-block "><i
                                                                     class="fa uil-edit"></i> </button>
                                                         </a>

@@ -1,5 +1,5 @@
 @props([
-    'result' => null,
+ 'result' => null,
     'collection' => 'default',
     'name' => 'file',
     'label' => __('attributes.file'),
@@ -14,18 +14,6 @@
                 <div class="invalid-feedback">{{ $message }}</div>
             @enderror
 
-            @php
-                $imageUrl = App\Helpers\Image::getMediaUrl($result, $collection);
-            @endphp
-
-            @if ($imageUrl)
-                <div class="mb-2">
-                    <img src="{{ $imageUrl }}" alt="Current Image" class="img-thumbnail" style="max-height: 150px;"
-                        onclick="openImage('{{ $imageUrl }}')"
-                        style="width: 100px; height: auto; cursor: pointer; transition: transform 0.3s;"
-                        onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
-                </div>
-            @endif
             <input type="file" name="{{ $name }}" class="form-control @error($name) is-invalid @enderror"
                 id="example-fileinput">
         </div>
