@@ -34,34 +34,27 @@
             </div><!-- End Section Title -->
 
             <div class="container">
-
                 <div class="row justify-content-center">
-
                     <div class="col-lg-10">
-
                         <div class="faq-container">
 
-                            <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
-                                <i class="faq-icon bi bi-file-earmark-pdf"></i>
-                                <h3>Dolor sit amet consectetur adipiscing elit pellentesque?</h3>
-                                <div class="faq-content">
-                                    <p>Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus
-                                        pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit.
-                                        Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis
-                                        tellus. Urna molestie at elementum eu facilisis sed odio morbi quis</p>
+                            @foreach ($result as $item)
+                                <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
+                                    <i class="faq-icon bi bi-file-earmark-pdf"></i>
+                                    <h3>{{ $item->title ?? '' }}</h3>
+                                    <div class="faq-content">
+                                        <p>{{ $item->description ?? '' }}</p>
+                                        <a href="{{ App\Helpers\Image::getMediaUrl($item, 'technical_data_sheets') }}" class="btn btn-primary">Download</a>
+                                    </div>
+                                    <i class="faq-toggle bi bi-chevron-right"></i>
                                 </div>
-                                <i class="faq-toggle bi bi-chevron-right"></i>
-                            </div>
+                            @endforeach
 
 
                         </div>
-
                     </div>
-
                 </div>
-
             </div>
-
         </section>
 
     </main>

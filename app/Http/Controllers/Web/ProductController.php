@@ -11,9 +11,9 @@ use App\Services\Services\ServicesService;
 class ProductController extends Controller
 {
     protected ProductsService $service;
-        protected ServicesService $servicesService;
+    protected ServicesService $servicesService;
 
-    public function __construct(ProductsService $service,ServicesService $servicesService)
+    public function __construct(ProductsService $service, ServicesService $servicesService)
     {
         $this->service = $service;
         $this->servicesService = $servicesService;
@@ -26,6 +26,6 @@ class ProductController extends Controller
         $product = Cache::rememberForever("product_{$id}", function () use ($id) {
             return $this->service->show($id);
         });
-        return view('web.pages.portfolio_details', compact('product','result'));
+        return view('web.pages.portfolio_details', compact('product', 'result'));
     }
 }
