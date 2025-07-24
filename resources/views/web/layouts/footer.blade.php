@@ -4,7 +4,7 @@
           <div class="row gy-4">
               <div class="col-lg-5 col-md-12 footer-about">
                   <a href="index.html" class="logo d-flex align-items-center">
-                      <span class="sitename">{{ setting('name') ?? '' }}</span>
+                      <span class="sitename" style="color: #EA9323;">{{ setting('name') ?? '' }}</span>
                   </a>
                   <p>{{ setting('title') ?? '' }}</p>
                   <div class="social-links d-flex mt-4">
@@ -16,7 +16,7 @@
               </div>
 
               <div class="col-lg-4 col-6 footer-links">
-                  <h4>Useful Links</h4>
+                  <h4 style="color: #EA9323;">Useful Links</h4>
                   <ul>
                       <li><a href="{{ route('home') }}">Home</a></li>
                       <li><a href="{{ route('about') }}">About</a></li>
@@ -37,7 +37,7 @@
               </div> --}}
 
               <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
-                  <h4>Contact Us</h4>
+                  <h4 style="color: #EA9323;">Contact Us</h4>
                   <p>{{ setting('address') ?? '' }}</p>
                   {{-- <p>New York, NY 535022</p>
                   <p>United States</p> --}}
@@ -49,13 +49,9 @@
       </div>
 
       <div class="container copyright text-center mt-4">
-          <p>© <span>{{ setting('copyrights') ?? '' }}</span></p>
+          <p>© <span >{{ setting('copyrights') ?? '' }}</span></p>
           <div class="credits">
-              <!-- All the links in the footer should remain intact. -->
-              <!-- You can delete the links only if you've purchased the pro version. -->
-              <!-- Licensing information: https://bootstrapmade.com/license/ -->
-              <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-              Powered by <a href="https://viral-monkeys.com/">Viral Monkeys</a>
+              Powered by <a href="https://viral-monkeys.com/" style="color: #EA9323;">Viral Monkeys</a>
           </div>
       </div>
 

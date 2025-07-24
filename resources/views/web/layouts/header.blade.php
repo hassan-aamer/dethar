@@ -4,7 +4,7 @@
           <a href="{{ route('home') }}" class="logo d-flex align-items-center me-auto">
               <!-- Uncomment the line below if you also wish to use an image logo -->
               {{-- <img src="{{ App\Helpers\Image::getMediaUrl(App\Models\Setting::first(), 'logo') }}" alt=""> --}}
-              <h1 class="sitename">{{ setting('name') ?? '' }}</h1>
+              <h1 class="sitename" style="color: #EA9323;">{{ setting('name') ?? '' }}</h1>
           </a>
 
           <nav id="navmenu" class="navmenu">
