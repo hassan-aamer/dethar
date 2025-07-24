@@ -22,6 +22,8 @@ return [
     'mobile' => 'mobile',
     'map' => 'Map',
     'login' => 'Login',
+    'vision' => 'Vision',
+    'mission' => 'Mission',
     'packages' => 'Packages',
     'PackageDetails' => 'Package Details',
     'FirstDevelopment' => 'First development section',

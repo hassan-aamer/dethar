@@ -17,6 +17,8 @@ return new class extends Migration
             $table->longText('title')->nullable();
             $table->string('email')->nullable();
             $table->longText('about')->nullable();
+            $table->longText('vision')->nullable();
+            $table->longText('mission')->nullable();
             $table->longText('description')->nullable();
             $table->longText('address')->nullable();
             $table->string('phone')->nullable();
