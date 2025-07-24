@@ -9,30 +9,40 @@
 
           <nav id="navmenu" class="navmenu">
               <ul>
-                  <li><a href="{{ route('home') }}" class=" {{ request()->routeIs('home') ? 'active' : '' }}">Home<br></a></li>
-                  <li><a href="{{ route('about') }}" class=" {{ request()->routeIs('about') ? 'active' : '' }}">About</a></li>
+                  <li><a href="{{ route('home') }}"
+                          class=" {{ request()->routeIs('home') ? 'active' : '' }}">Home<br></a></li>
+                  <li><a href="{{ route('about') }}"
+                          class=" {{ request()->routeIs('about') ? 'active' : '' }}">About</a></li>
                   <li class="dropdown"><a href="#"><span>What We Do</span> <i
                               class="bi bi-chevron-down toggle-dropdown"></i></a>
                       <ul>
-                          <li><a href="#">Dropdown 1</a></li>
+                          @foreach (WhatWeDoCategories() as $category)
+                              <li><a href="#">{{ $category->title ?? '' }}</a></li>
+                          @endforeach
                       </ul>
                   </li>
                   <li class="dropdown"><a href="#"><span>Value add</span> <i
                               class="bi bi-chevron-down toggle-dropdown"></i></a>
                       <ul>
-                          <li><a href="#">Dropdown 1</a></li>
+                          @foreach (ValueAddCategories() as $category)
+                              <li><a href="#">{{ $category->title ?? '' }}</a></li>
+                          @endforeach
                       </ul>
                   </li>
                   <li class="dropdown"><a href="#"><span>Our products</span> <i
                               class="bi bi-chevron-down toggle-dropdown"></i></a>
                       <ul>
-                          <li><a href="#">Dropdown 1</a></li>
+                          @foreach (ProductCategories() as $category)
+                              <li><a href="#">{{ $category->title ?? '' }}</a></li>
+                          @endforeach
                       </ul>
                   </li>
                   <li class="dropdown"><a href="#"><span>Blogs</span> <i
                               class="bi bi-chevron-down toggle-dropdown"></i></a>
                       <ul>
-                          <li><a href="#">Dropdown 1</a></li>
+                          @foreach (BlogCategories() as $category)
+                              <li><a href="#">{{ $category->title ?? '' }}</a></li>
+                          @endforeach
                       </ul>
                   </li>
                   {{-- <li><a href="services.html">Services</a></li>

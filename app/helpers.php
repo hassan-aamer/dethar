@@ -78,3 +78,75 @@ function dateFormatted($date, $format = 'M d, Y', $showTimes = false)
     return date($format, strtotime($date));
 }
 
+if (!function_exists('WhatWeDoCategories')) {
+    function WhatWeDoCategories(?string $column = null, $default = null)
+    {
+        $categories = \App\Models\WhatWeDoCategory::publish()->get();
+
+        if (is_null($column)) {
+            return $categories;
+        }
+
+        return $categories->map(function ($category) use ($column, $default) {
+            if (in_array($column, $category->translatable ?? []) && method_exists($category, 'getTranslation')) {
+                return $category->getTranslation($column, app()->getLocale()) ?? $default;
+            }
+
+            return $category->{$column} ?? $default;
+        });
+    }
+}
+if (!function_exists('ValueAddCategories')) {
+    function ValueAddCategories(?string $column = null, $default = null)
+    {
+        $categories = \App\Models\ValueAddCategory::publish()->get();
+
+        if (is_null($column)) {
+            return $categories;
+        }
+
+        return $categories->map(function ($category) use ($column, $default) {
+            if (in_array($column, $category->translatable ?? []) && method_exists($category, 'getTranslation')) {
+                return $category->getTranslation($column, app()->getLocale()) ?? $default;
+            }
+
+            return $category->{$column} ?? $default;
+        });
+    }
+}
+if (!function_exists('ProductCategories')) {
+    function ProductCategories(?string $column = null, $default = null)
+    {
+        $categories = \App\Models\Category::publish()->get();
+
+        if (is_null($column)) {
+            return $categories;
+        }
+
+        return $categories->map(function ($category) use ($column, $default) {
+            if (in_array($column, $category->translatable ?? []) && method_exists($category, 'getTranslation')) {
+                return $category->getTranslation($column, app()->getLocale()) ?? $default;
+            }
+
+            return $category->{$column} ?? $default;
+        });
+    }
+}
+if (!function_exists('BlogCategories')) {
+    function BlogCategories(?string $column = null, $default = null)
+    {
+        $categories = \App\Models\BlogCategory::publish()->get();
+
+        if (is_null($column)) {
+            return $categories;
+        }
+
+        return $categories->map(function ($category) use ($column, $default) {
+            if (in_array($column, $category->translatable ?? []) && method_exists($category, 'getTranslation')) {
+                return $category->getTranslation($column, app()->getLocale()) ?? $default;
+            }
+
+            return $category->{$column} ?? $default;
+        });
+    }
+}
