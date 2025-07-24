@@ -37,13 +37,13 @@
                                     @include('admin.components.address')
                                     @include('admin.components.about')
 
-                                    {{-- @foreach (config('app.locales') as $locale)
+                                    @foreach (config('app.locales') as $locale)
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label class="form-label">@lang('attributes.vision')
                                                     ({{ __('attributes.' . $locale) }})
                                                 </label>
-                                                <textarea required name="vision[{{ $locale }}]" id="vision_{{ $locale }}"
+                                                <textarea name="vision[{{ $locale }}]" id="vision_{{ $locale }}"
                                                     class="form-control @error('vision.' . $locale) is-invalid @enderror">{{ old('vision.' . $locale, isset($result) ? $result->getTranslation('vision', $locale) : '') }}</textarea>
                                                 @error('vision.' . $locale)
                                                     <div class="invalid-feedback">{{ $message }}</div>
@@ -57,14 +57,14 @@
                                                 <label class="form-label">@lang('attributes.mission')
                                                     ({{ __('attributes.' . $locale) }})
                                                 </label>
-                                                <textarea required name="mission[{{ $locale }}]" id="mission_{{ $locale }}"
+                                                <textarea name="mission[{{ $locale }}]" id="mission_{{ $locale }}"
                                                     class="form-control @error('mission.' . $locale) is-invalid @enderror">{{ old('mission.' . $locale, isset($result) ? $result->getTranslation('mission', $locale) : '') }}</textarea>
                                                 @error('mission.' . $locale)
                                                     <div class="invalid-feedback">{{ $message }}</div>
                                                 @enderror
                                             </div>
                                         </div>
-                                    @endforeach --}}
+                                    @endforeach
                                     @include('admin.components.map')
                                     <div class="row">
                                         @include('admin.components.ImageUpload', [
@@ -98,15 +98,15 @@
                                         ])
                                         @include('admin.components.ImageUpload', [
                                             'result' => $result ?? null,
-                                            'collection' => 'vision',
+                                            'collection' => 'vision_image',
                                             'label' => 'vision',
-                                            'name' => 'vision',
+                                            'name' => 'vision_image',
                                         ])
                                         @include('admin.components.ImageUpload', [
                                             'result' => $result ?? null,
-                                            'collection' => 'mission',
+                                            'collection' => 'mission_image',
                                             'label' => 'mission',
-                                            'name' => 'mission',
+                                            'name' => 'mission_image',
                                         ])
                                         @include('admin.components.submit')
                                     </div>

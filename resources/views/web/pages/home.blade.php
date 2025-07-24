@@ -103,7 +103,7 @@
                 <div class="row gy-4">
                     <div class="col-lg-6 position-relative align-self-start order-first order-lg-first" data-aos="fade-up"
                         data-aos-delay="200">
-                        <img src="{{ App\Helpers\Image::getMediaUrl(App\Models\Setting::first(), 'vision') }}"
+                        <img src="{{ App\Helpers\Image::getMediaUrl(App\Models\Setting::first(), 'vision_image') }}"
                             class="img-fluid" alt="">
                     </div>
 
@@ -123,7 +123,7 @@
                 <div class="row gy-4">
                     <div class="col-lg-6 position-relative align-self-start order-lg-last order-first" data-aos="fade-up"
                         data-aos-delay="200">
-                        <img src="{{ App\Helpers\Image::getMediaUrl(App\Models\Setting::first(), 'mission') }}"
+                        <img src="{{ App\Helpers\Image::getMediaUrl(App\Models\Setting::first(), 'mission_image') }}"
                             class="img-fluid" alt="">
                     </div>
 
