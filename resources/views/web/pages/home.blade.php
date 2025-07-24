@@ -110,9 +110,7 @@
                     <div class="col-lg-6 content order-last order-lg-last" data-aos="fade-up" data-aos-delay="100">
                         <h3>Vision</h3>
                         <p  style="font-weight: bold;">
-                            To redefine how global trade connects with logistics—empowering businesses
-                            through transparent, agile, and insight-driven import/export solutions from the heart
-                            of Egypt to the world.
+                            {!! nl2br(e( setting('vision') ?? '' )) !!}
                         </p>
                     </div>
                 </div>
@@ -131,10 +129,7 @@
                     <div class="col-lg-6 content order-last  order-lg-first" data-aos="fade-up" data-aos-delay="100">
                         <h3>Mission</h3>
                         <p style="font-weight: bold;">
-                            At Dethar, we deliver seamless international trade experiences by combining sharp
-                            market intelligence, reliable logistics, and client-first service. Through our integrated
-                            partnership with Tact Freight, we manage the full supply chain—ensuring quality,
-                            speed, and compliance at every step.
+                            {!! nl2br(e( setting('mission') ?? '' )) !!}
                         </p>
                     </div>
                 </div>
