@@ -12,4 +12,5 @@ Route::get('/product/details/{id}', [App\Http\Controllers\Web\ProductController:
 Route::get('/contact',              [App\Http\Controllers\Web\ContactController::class, 'index'])->name('contact');
 Route::post('/contact/store',       [App\Http\Controllers\Web\ContactController::class, 'store'])->name('contact.store');
 Route::post('/subscription',        [App\Http\Controllers\Web\SubscriptionController::class, 'store'])->name('subscription');
+Route::get('/tds',                  [App\Http\Controllers\Web\TechnicalDataSheetsController::class, 'index'])->name('tds');
 

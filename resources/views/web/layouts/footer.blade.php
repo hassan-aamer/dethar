@@ -21,7 +21,7 @@
                       <li><a href="{{ route('home') }}">Home</a></li>
                       <li><a href="{{ route('about') }}">About</a></li>
                       <li><a href="{{ route('contact') }}">Get in touch</a></li>
-                      <li><a href="#">Technical Data Sheets</a></li>
+                      <li><a href="{{ route('tds') }}">Technical Data Sheets</a></li>
                   </ul>
               </div>
 
