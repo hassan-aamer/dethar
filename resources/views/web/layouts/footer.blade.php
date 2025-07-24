@@ -15,14 +15,13 @@
                   </div>
               </div>
 
-              <div class="col-lg-2 col-6 footer-links">
+              <div class="col-lg-4 col-6 footer-links">
                   <h4>Useful Links</h4>
                   <ul>
-                      <li><a href="#">Home</a></li>
-                      <li><a href="#">About us</a></li>
-                      <li><a href="#">Services</a></li>
-                      <li><a href="#">Terms of service</a></li>
-                      <li><a href="#">Privacy policy</a></li>
+                      <li><a href="{{ route('home') }}">Home</a></li>
+                      <li><a href="{{ route('about') }}">About</a></li>
+                      <li><a href="{{ route('contact') }}">Get in touch</a></li>
+                      <li><a href="#">Technical Data Sheets</a></li>
                   </ul>
               </div>
 
@@ -42,8 +41,8 @@
                   <p>{{ setting('address') ?? '' }}</p>
                   {{-- <p>New York, NY 535022</p>
                   <p>United States</p> --}}
-                  <p class="mt-4"><strong>Phone:</strong> <span>{{ setting('phone') ?? '' }}</span></p>
-                  <p><strong>Email:</strong> <span>{{ setting('email') ?? '' }}</span></p>
+                  <p class="mt-4"><strong>Phone :</strong> <span>{{ setting('phone') ?? '' }}</span></p>
+                  <p><strong>Email :</strong> <span>{{ setting('email') ?? '' }}</span></p>
               </div>
 
           </div>
