@@ -18,7 +18,10 @@
 
             <div class="container position-relative">
                 <h1>{{ page('get in touch', 'title') }}</h1>
-                <p>{{ page('get in touch', 'description') }}</p>
+                <p>
+                    {{-- {{ page('get in touch', 'description') }} --}}
+                    {!! nl2br(e(page('get in touch', 'description'))) !!}
+                </p>
 
                 <nav class="breadcrumbs">
                     <ol>
