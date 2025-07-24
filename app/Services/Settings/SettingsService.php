@@ -48,6 +48,14 @@ class SettingsService
                 $settings->clearMediaCollection('logo');
                 $settings->addMediaFromRequest('logo')->toMediaCollection('logo');
             }
+            if (isset($request['vision']) && $request['vision']) {
+                $settings->clearMediaCollection('vision');
+                $settings->addMediaFromRequest('vision')->toMediaCollection('vision');
+            }
+            if (isset($request['mission']) && $request['mission']) {
+                $settings->clearMediaCollection('mission');
+                $settings->addMediaFromRequest('mission')->toMediaCollection('mission');
+            }
 
             DB::commit();
         } catch (\Throwable $e) {

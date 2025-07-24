@@ -11,7 +11,8 @@
             <div class="container position-relative">
                 <h1>{{ page('about', 'title') }}</h1>
                 <p>
-                    {!! nl2br(e( page('about', 'description') )) !!}
+                    {{-- {!! nl2br(e( page('about', 'description') )) !!} --}}
+                    {{ page('about', 'description') }}
                 </p>
                 <nav class="breadcrumbs">
                     <ol>
@@ -38,8 +39,8 @@
                     <div class="col-lg-6 content order-last  order-lg-first" data-aos="fade-up" data-aos-delay="100">
                         <h3>About</h3>
                         <p style="font-weight: bold;">
-                            {{-- {{ page('about', 'content') }} --}}
-                            {!! nl2br(e(page('about', 'content'))) !!}
+                            {{ page('about', 'content') }}
+                            {{-- {!! nl2br(e(page('about', 'content'))) !!} --}}
                         </p>
                         {{-- <ul>
                             <li>

@@ -18,8 +18,8 @@
                     <div class="col-lg-9 order-2 order-lg-1 d-flex flex-column justify-content-center">
                         <h2 style="margin-top: 60px;" data-aos="fade-up">{{ setting('title') ?? '' }}</h2>
                         <h5 style="margin-top: 20px; line-height: 1.6;" data-aos="fade-up" data-aos-delay="100">
-                            {{-- {{ setting('description') ?? '' }} --}}
-                            {!! nl2br(e( setting('description') ?? '' )) !!}
+                            {{ setting('description') ?? '' }}
+                            {{-- {!! nl2br(e( setting('description') ?? '' )) !!} --}}
                         </h5>
                     </div>
                 </div>
@@ -89,8 +89,8 @@
                     <div class="col-lg-6 content order-last  order-lg-first" data-aos="fade-up" data-aos-delay="100">
                         <h3>About</h3>
                         <p style="font-weight: bold;">
-                            {{-- {{ setting('about') ?? '' }} --}}
-                            {!! nl2br(e( setting('about') ?? '' )) !!}
+                            {{ setting('about') ?? '' }}
+                            {{-- {!! nl2br(e( setting('about') ?? '' )) !!} --}}
                         </p>
                     </div>
                 </div>
@@ -110,7 +110,8 @@
                     <div class="col-lg-6 content order-last order-lg-last" data-aos="fade-up" data-aos-delay="100">
                         <h3>Vision</h3>
                         <p  style="font-weight: bold;">
-                            {!! nl2br(e( setting('vision') ?? '' )) !!}
+                            {{ setting('vision') ?? '' }}
+                            {{-- {!! nl2br(e( setting('vision') ?? '' )) !!} --}}
                         </p>
                     </div>
                 </div>
@@ -129,7 +130,8 @@
                     <div class="col-lg-6 content order-last  order-lg-first" data-aos="fade-up" data-aos-delay="100">
                         <h3>Mission</h3>
                         <p style="font-weight: bold;">
-                            {!! nl2br(e( setting('mission') ?? '' )) !!}
+                            {{ setting('mission') ?? '' }}
+                            {{-- {!! nl2br(e( setting('mission') ?? '' )) !!} --}}
                         </p>
                     </div>
                 </div>

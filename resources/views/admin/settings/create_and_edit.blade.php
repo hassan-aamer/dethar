@@ -36,7 +36,8 @@
                                     @include('admin.components.copyrights')
                                     @include('admin.components.address')
                                     @include('admin.components.about')
-                                    @foreach (config('app.locales') as $locale)
+
+                                    {{-- @foreach (config('app.locales') as $locale)
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label class="form-label">@lang('attributes.vision')
@@ -63,7 +64,7 @@
                                                 @enderror
                                             </div>
                                         </div>
-                                    @endforeach
+                                    @endforeach --}}
                                     @include('admin.components.map')
                                     <div class="row">
                                         @include('admin.components.ImageUpload', [
@@ -94,6 +95,18 @@
                                             'collection' => 'logo',
                                             'label' => 'logo',
                                             'name' => 'logo',
+                                        ])
+                                        @include('admin.components.ImageUpload', [
+                                            'result' => $result ?? null,
+                                            'collection' => 'vision',
+                                            'label' => 'vision',
+                                            'name' => 'vision',
+                                        ])
+                                        @include('admin.components.ImageUpload', [
+                                            'result' => $result ?? null,
+                                            'collection' => 'mission',
+                                            'label' => 'mission',
+                                            'name' => 'mission',
                                         ])
                                         @include('admin.components.submit')
                                     </div>
