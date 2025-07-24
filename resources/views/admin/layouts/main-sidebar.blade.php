@@ -87,17 +87,12 @@
                 </li>
 
                 <li>
-                    <a href="{{ route('admin.technical_data_sheets.index') }}">
-                        <i data-feather="file"></i>
-                        <span> {{ __('attributes.technical_data_sheets') }} </span>
-                    </a>
-                </li>
-                <li>
                     <a href="{{ route('admin.pages.index') }}">
                         <i data-feather="file-text"></i>
                         <span> {{ __('attributes.pages') }} </span>
                     </a>
                 </li>
+
 
                 {{-- @can('list contacts') --}}
                 <li>
@@ -124,6 +119,13 @@
                     </a>
                 </li>
                 {{-- @endcan --}}
+
+                <li>
+                    <a href="{{ route('admin.technical_data_sheets.index') }}">
+                        <i data-feather="file"></i>
+                        <span> {{ __('attributes.technical_data_sheets') }} </span>
+                    </a>
+                </li>
 
             </ul>
 

@@ -14,6 +14,8 @@ class DashboardController extends Controller
             'contacts' => \App\Models\Contact::count(),
             'what_we_do' => \App\Models\WhatWeDo::count(),
             'value_add' => \App\Models\ValueAdd::count(),
+            'blogs' => \App\Models\Blog::count(),
+            'TechnicalDataSheets' => \App\Models\TechnicalDataSheets::count(),
         ];
         return view('admin.dashboard', compact('count'));
     }

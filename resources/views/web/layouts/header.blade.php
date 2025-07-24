@@ -1,9 +1,9 @@
   <header id="header" style="background-color: #2E6344;" class="header d-flex align-items-center fixed-top">
       <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
-          <a href="index.html" class="logo d-flex align-items-center me-auto">
+          <a href="{{ route('home') }}" class="logo d-flex align-items-center me-auto">
               <!-- Uncomment the line below if you also wish to use an image logo -->
-              <!-- <img src="assets/img/logo.png" alt=""> -->
+              {{-- <img src="{{ App\Helpers\Image::getMediaUrl(App\Models\Setting::first(), 'logo') }}" alt=""> --}}
               <h1 class="sitename">{{ setting('name') ?? '' }}</h1>
           </a>
 

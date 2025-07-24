@@ -47,7 +47,7 @@
                                         <h3 class="mb-0">{{ $count['what_we_do'] }}</h3>
                                     </div>
                                     <div class="align-self-center flex-shrink-0">
-                                        <span class="icon-lg icon-dual-warning" data-feather="coffee"></span>
+                                        <span class="icon-lg icon-dual-warning" data-feather="activity"></span>
                                     </div>
                                 </div>
                             </div>
@@ -60,11 +60,11 @@
                                 <div class="d-flex">
                                     <div class="flex-grow-1">
                                         <span
-                                            class="text-muted text-uppercase fs-12 fw-bold">{{ __('attributes.users') }}</span>
+                                            class="text-muted text-uppercase fs-12 fw-bold">{{ __('attributes.value_add') }}</span>
                                         <h3 class="mb-0">{{ $count['value_add'] }}</h3>
                                     </div>
                                     <div class="align-self-center flex-shrink-0">
-                                        <span class="icon-lg icon-dual-primary" data-feather="shopping-bag"></span>
+                                        <span class="icon-lg icon-dual-primary" data-feather="trending-up"></span>
                                     </div>
                                 </div>
                             </div>
@@ -79,6 +79,38 @@
                                         <span
                                             class="text-muted text-uppercase fs-12 fw-bold">{{ __('attributes.contuct') }}</span>
                                         <h3 class="mb-0">{{ $count['contacts'] }}</h3>
+                                    </div>
+                                    <div class="align-self-center flex-shrink-0">
+                                        <span class="icon-lg icon-dual-info" data-feather="message-circle"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex">
+                                    <div class="flex-grow-1">
+                                        <span
+                                            class="text-muted text-uppercase fs-12 fw-bold">{{ __('attributes.blogs') }}</span>
+                                        <h3 class="mb-0">{{ $count['blogs'] }}</h3>
+                                    </div>
+                                    <div class="align-self-center flex-shrink-0">
+                                        <span class="icon-lg icon-dual-info" data-feather="book-open"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex">
+                                    <div class="flex-grow-1">
+                                        <span
+                                            class="text-muted text-uppercase fs-12 fw-bold">{{ __('attributes.technical_data_sheets') }}</span>
+                                        <h3 class="mb-0">{{ $count['TechnicalDataSheets'] }}</h3>
                                     </div>
                                     <div class="align-self-center flex-shrink-0">
                                         <span class="icon-lg icon-dual-info" data-feather="file-text"></span>

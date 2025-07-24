@@ -11,7 +11,7 @@ return [
     'dashboard' => 'Dashboard',
     'file' => 'File',
     'get_in_touch' => 'Get In Touch',
-    'technical_data_sheets' => 'Technical Data Sheets',
+    'technical_data_sheets' => 'TDS',
     'active' => 'Active',
     'pages' => 'Pages',
     'marketing' => 'Marketing',
