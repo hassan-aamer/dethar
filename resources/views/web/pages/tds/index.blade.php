@@ -44,7 +44,12 @@
                                     <h3>{{ $item->title ?? '' }}</h3>
                                     <div class="faq-content">
                                         <p>{{ $item->description ?? '' }}</p>
-                                        <a href="{{ App\Helpers\Image::getMediaUrl($item, 'technical_data_sheets') }}" class="btn btn-primary">Download</a>
+                                        <div class="text-end">
+                                            <a href="{{ App\Helpers\Image::getMediaUrl($item, 'technical_data_sheets') }}"
+                                                class="btn btn-primary">
+                                                <i class="bi bi-download me-1"></i> Download
+                                            </a>
+                                        </div>
                                     </div>
                                     <i class="faq-toggle bi bi-chevron-right"></i>
                                 </div>

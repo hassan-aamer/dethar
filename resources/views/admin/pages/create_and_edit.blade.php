@@ -22,7 +22,10 @@
                                     @method('PUT')
                                 @endif
                                 <div class="row">
-                                    @include('admin.components.name')
+                                    @if (!optional($result)->id)
+                                        @include('admin.components.name')
+                                    @endif
+
                                     @include('admin.components.title')
                                     @include('admin.components.description')
                                     @if (isset($result) && $result->name == 'about')
