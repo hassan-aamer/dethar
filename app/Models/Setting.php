@@ -24,7 +24,7 @@ class Setting extends Model  implements HasMedia
         'terms_condition',
         'return_description',
         'privacy_description',
-        // 'vision',
-        // 'mission'
+        'vision',
+        'mission'
     ];
 }
