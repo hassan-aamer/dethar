@@ -25,10 +25,20 @@
                                     @include('admin.components.name')
                                     @include('admin.components.title')
                                     @include('admin.components.description')
+                                    @if (isset($result) && $result->name == 'about')
+                                        @include('admin.components.content')
+                                    @endif
                                     @include('admin.components.ImageUpload', [
                                         'result' => $result ?? null,
                                         'collection' => 'pages',
                                     ])
+                                    @if (isset($result) && $result->name == 'about')
+                                        @include('admin.components.ImageUpload', [
+                                            'result' => $result ?? null,
+                                            'collection' => 'about',
+                                            'name' => 'about',
+                                        ])
+                                    @endif
                                     @include('admin.components.position')
                                     {{-- @include('admin.components.active') --}}
                                     @include('admin.components.submit')

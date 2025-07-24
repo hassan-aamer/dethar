@@ -10,7 +10,9 @@
         <div class="page-title dark-background" data-aos="fade" style="background-image: url({{ page_image('about') }});">
             <div class="container position-relative">
                 <h1>{{ page('about', 'title') }}</h1>
-                <p>{{ page('about', 'description') }}</p>
+                <p>
+                    {!! nl2br(e( page('about', 'description') )) !!}
+                </p>
                 <nav class="breadcrumbs">
                     <ol>
                         <li><a href="index.html">Home</a></li>
@@ -29,16 +31,15 @@
 
                     <div class="col-lg-6 position-relative align-self-start order-lg-last order-first" data-aos="fade-up"
                         data-aos-delay="200">
-                        <img src="assets/img/about.jpg" class="img-fluid" alt="">
-                        <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox pulsating-play-btn"></a>
+                        <img src="{{ page_image('about','about') }}" class="img-fluid" alt="">
+                        {{-- <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox pulsating-play-btn"></a> --}}
                     </div>
 
                     <div class="col-lg-6 content order-last  order-lg-first" data-aos="fade-up" data-aos-delay="100">
                         <h3>About</h3>
-                        <p>
-                            Dolor iure expedita id fuga asperiores qui sunt consequatur minima. Quidem voluptas deleniti.
-                            Sit quia molestiae quia quas qui magnam itaque veritatis dolores. Corrupti totam ut eius
-                            incidunt reiciendis veritatis asperiores placeat.
+                        <p style="font-weight: bold;">
+                            {{-- {{ page('about', 'content') }} --}}
+                            {!! nl2br(e(page('about', 'content'))) !!}
                         </p>
                         {{-- <ul>
                             <li>

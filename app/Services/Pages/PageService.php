@@ -33,6 +33,9 @@ class PageService
             if (isset($request['image']) && $request['image']) {
                 $pages->addMediaFromRequest('image')->toMediaCollection('pages');
             }
+            if (isset($request['about']) && $request['about']) {
+                $pages->addMediaFromRequest('about')->toMediaCollection('about');
+            }
 
             DB::commit();
         } catch (\Throwable $e) {
@@ -56,6 +59,10 @@ class PageService
             if (isset($request['image']) && $request['image']) {
                 $pages->clearMediaCollection('pages');
                 $pages->addMediaFromRequest('image')->toMediaCollection('pages');
+            }
+            if (isset($request['about']) && $request['about']) {
+                $pages->clearMediaCollection('about');
+                $pages->addMediaFromRequest('about')->toMediaCollection('about');
             }
 
             DB::commit();

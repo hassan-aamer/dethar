@@ -33,6 +33,7 @@ class PageRequest extends FormRequest
             'position'      => 'required',
             'active'        => 'nullable|in:0,1',
             'image'         => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
+            'about'         => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
         ];
     }
 }

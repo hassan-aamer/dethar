@@ -18,7 +18,9 @@
                     <div class="col-lg-9 order-2 order-lg-1 d-flex flex-column justify-content-center">
                         <h2 style="margin-top: 60px;" data-aos="fade-up">{{ setting('title') ?? '' }}</h2>
                         <h5 style="margin-top: 20px; line-height: 1.6;" data-aos="fade-up" data-aos-delay="100">
-                            {{ setting('description') ?? '' }}</h5>
+                            {{-- {{ setting('description') ?? '' }} --}}
+                            {!! nl2br(e( setting('description') ?? '' )) !!}
+                        </h5>
                     </div>
                 </div>
             </div>
@@ -85,10 +87,11 @@
                     </div>
 
                     <div class="col-lg-6 content order-last  order-lg-first" data-aos="fade-up" data-aos-delay="100">
-                        <h3>About Us</h3>
-                        <h5 style="color: black;">
-                            {{ setting('about') ?? '' }}
-                        </h5>
+                        <h3>About</h3>
+                        <p style="font-weight: bold;">
+                            {{-- {{ setting('about') ?? '' }} --}}
+                            {!! nl2br(e( setting('about') ?? '' )) !!}
+                        </p>
                     </div>
                 </div>
             </div>
@@ -106,11 +109,11 @@
 
                     <div class="col-lg-6 content order-last order-lg-last" data-aos="fade-up" data-aos-delay="100">
                         <h3>Vision</h3>
-                        <h5 style="color: black;">
+                        <p  style="font-weight: bold;">
                             To redefine how global trade connects with logistics—empowering businesses
                             through transparent, agile, and insight-driven import/export solutions from the heart
                             of Egypt to the world.
-                        </h5>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -127,12 +130,12 @@
 
                     <div class="col-lg-6 content order-last  order-lg-first" data-aos="fade-up" data-aos-delay="100">
                         <h3>Mission</h3>
-                        <h5 style="color: black;">
+                        <p style="font-weight: bold;">
                             At Dethar, we deliver seamless international trade experiences by combining sharp
                             market intelligence, reliable logistics, and client-first service. Through our integrated
                             partnership with Tact Freight, we manage the full supply chain—ensuring quality,
                             speed, and compliance at every step.
-                        </h5>
+                        </p>
                     </div>
                 </div>
             </div>
