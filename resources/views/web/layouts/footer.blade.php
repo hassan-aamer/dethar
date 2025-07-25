@@ -3,7 +3,7 @@
       <div class="container footer-top">
           <div class="row gy-4">
               <div class="col-lg-5 col-md-12 footer-about">
-                  <a href="index.html" class="logo d-flex align-items-center">
+                  <a href="{{ route('home') }}" class="logo d-flex align-items-center">
                       <span class="sitename" style="color: #EA9323;">{{ setting('name') ?? '' }}</span>
                   </a>
                   <p>{{ setting('title') ?? '' }}</p>
