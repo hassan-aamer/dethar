@@ -41,7 +41,7 @@
                               class="bi bi-chevron-down toggle-dropdown"></i></a>
                       <ul>
                           @foreach (BlogCategories() as $category)
-                              <li><a href="#">{{ $category->title ?? '' }}</a></li>
+                              <li><a href="{{ route('blog', $category->id) }}">{{ $category->title ?? '' }}</a></li>
                           @endforeach
                       </ul>
                   </li>
