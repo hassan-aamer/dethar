@@ -14,8 +14,8 @@
                     <div class="col-12">
                         <div class="page-title-box">
 
-                            <a class="btn btn-success"
-                                href="{{ route('admin.pages.create') }}">{{ __('attributes.create') }}</a>
+                            {{-- <a class="btn btn-success"
+                                href="{{ route('admin.pages.create') }}">{{ __('attributes.create') }}</a> --}}
 
                         </div>
                     </div>

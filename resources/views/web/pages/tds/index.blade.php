@@ -38,22 +38,31 @@
                     <div class="col-lg-10">
                         <div class="faq-container">
 
-                            @foreach ($result as $item)
-                                <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
-                                    <i class="faq-icon bi bi-file-earmark-pdf"></i>
-                                    <h3>{{ $item->title ?? '' }}</h3>
-                                    <div class="faq-content">
-                                        <p>{{ $item->description ?? '' }}</p>
-                                        <div class="text-end">
-                                            <a href="{{ App\Helpers\Image::getMediaUrl($item, 'technical_data_sheets') }}"
-                                                class="btn btn-primary">
-                                                <i class="bi bi-download me-1"></i> Download
-                                            </a>
-                                        </div>
+                            @if ($result->isEmpty())
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <div class="col-12 text-center">
+                                        {{-- <h1 style="color: #EA9323;">No Technical Data Sheets found.</h1> --}}
+                                        <img src="{{ asset('empty-folder.png') }}" alt="empty">
                                     </div>
-                                    <i class="faq-toggle bi bi-chevron-right"></i>
                                 </div>
-                            @endforeach
+                            @else
+                                @foreach ($result as $item)
+                                    <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
+                                        <i class="faq-icon bi bi-file-earmark-pdf"></i>
+                                        <h3>{{ $item->title ?? '' }}</h3>
+                                        <div class="faq-content">
+                                            <p>{{ $item->description ?? '' }}</p>
+                                            <div class="text-end">
+                                                <a href="{{ App\Helpers\Image::getMediaUrl($item, 'technical_data_sheets') }}"
+                                                    class="btn btn-primary">
+                                                    <i class="bi bi-download me-1"></i> Download
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <i class="faq-toggle bi bi-chevron-right"></i>
+                                    </div>
+                                @endforeach
+                            @endif
 
 
                         </div>
