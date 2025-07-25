@@ -17,7 +17,7 @@
                               class="bi bi-chevron-down toggle-dropdown"></i></a>
                       <ul>
                           @foreach (WhatWeDoCategories() as $category)
-                              <li><a href="#">{{ $category->title ?? '' }}</a></li>
+                              <li><a href="{{ route('what', $category->id) }}">{{ $category->title ?? '' }}</a></li>
                           @endforeach
                       </ul>
                   </li>
@@ -25,7 +25,7 @@
                               class="bi bi-chevron-down toggle-dropdown"></i></a>
                       <ul>
                           @foreach (ValueAddCategories() as $category)
-                              <li><a href="#">{{ $category->title ?? '' }}</a></li>
+                              <li><a href="{{ route('value', $category->id) }}">{{ $category->title ?? '' }}</a></li>
                           @endforeach
                       </ul>
                   </li>
