@@ -18,14 +18,20 @@ class ProductController extends Controller
         $this->service = $service;
         $this->servicesService = $servicesService;
     }
-    public function show($id)
+
+    public function index(Request $request, $category)
     {
-        $result = [
-            'services' => $this->servicesService->index()->where('active', 1),
-        ];
-        $product = Cache::rememberForever("product_{$id}", function () use ($id) {
-            return $this->service->show($id);
-        });
-        return view('web.pages.portfolio_details', compact('product', 'result'));
+        $result = $this->service->index($request)->where('active', 1)->where('category_id', $category);
+        return view('web.pages.our_products.index', compact('result'));
     }
+    // public function show($id)
+    // {
+    //     $result = [
+    //         'services' => $this->servicesService->index()->where('active', 1),
+    //     ];
+    //     $product = Cache::rememberForever("product_{$id}", function () use ($id) {
+    //         return $this->service->show($id);
+    //     });
+    //     return view('web.pages.portfolio_details', compact('product', 'result'));
+    // }
 }

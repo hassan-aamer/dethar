@@ -33,7 +33,7 @@
                               class="bi bi-chevron-down toggle-dropdown"></i></a>
                       <ul>
                           @foreach (ProductCategories() as $category)
-                              <li><a href="#">{{ $category->title ?? '' }}</a></li>
+                              <li><a href="{{ route('products', $category->id) }}">{{ $category->title ?? '' }}</a></li>
                           @endforeach
                       </ul>
                   </li>
