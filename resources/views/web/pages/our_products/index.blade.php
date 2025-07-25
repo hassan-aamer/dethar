@@ -36,18 +36,26 @@
             <div class="container">
                 <div class="row gy-4">
 
-                    @foreach ($result as $item)
-                        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                            <div class="card">
-                                <div class="card-img">
-                                    <img src="{{ App\Helpers\Image::getMediaUrl($item, 'products') }}" alt=""
-                                        class="img-fluid">
-                                </div>
-                                <h3><a href="#" class="stretched-link">{{ $item->title ?? '' }}</a></h3>
-                                <p>{{ $item->description ?? '' }}</p>
+                    @if ($result->isEmpty())
+                        <div class="d-flex justify-content-center align-items-center">
+                            <div class="col-12 text-center">
+                                <h1 style="color: #EA9323;">No products found.</h1>
                             </div>
                         </div>
-                    @endforeach
+                    @else
+                        @foreach ($result as $item)
+                            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                                <div class="card">
+                                    <div class="card-img">
+                                        <img src="{{ App\Helpers\Image::getMediaUrl($item, 'products') }}" alt=""
+                                            class="img-fluid">
+                                    </div>
+                                    <h3><a href="#" class="stretched-link">{{ $item->title ?? '' }}</a></h3>
+                                    <p>{{ $item->description ?? '' }}</p>
+                                </div>
+                            </div>
+                        @endforeach
+                    @endif
 
                 </div>
             </div>
