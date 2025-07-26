@@ -159,7 +159,7 @@
                                             alt="{{ $product->title ?? '' }}" class="img-fluid">
                                     </div>
                                     <h3>
-                                        <a href="#"
+                                        <a href="{{ route('product.details', $product->id) }}"
                                             class="stretched-link">{{ shortenText($product->title ?? '') }}</a>
                                     </h3>
                                     <p>{{ shortenText($product->description ?? '') }}</p>

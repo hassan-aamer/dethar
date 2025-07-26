@@ -51,7 +51,8 @@
                                         <img src="{{ App\Helpers\Image::getMediaUrl($item, 'products') }}" alt=""
                                             class="img-fluid">
                                     </div>
-                                    <h3><a href="#" class="stretched-link">{{ $item->title ?? '' }}</a></h3>
+                                    <h3><a href="{{ route('product.details', $item->id) }}"
+                                            class="stretched-link">{{ $item->title ?? '' }}</a></h3>
                                     <p>{{ $item->description ?? '' }}</p>
                                 </div>
                             </div>

@@ -24,14 +24,13 @@ class ProductController extends Controller
         $result = $this->service->index($request)->where('active', 1)->where('category_id', $category);
         return view('web.pages.our_products.index', compact('result'));
     }
-    // public function show($id)
-    // {
-    //     $result = [
-    //         'services' => $this->servicesService->index()->where('active', 1),
-    //     ];
-    //     $product = Cache::rememberForever("product_{$id}", function () use ($id) {
-    //         return $this->service->show($id);
-    //     });
-    //     return view('web.pages.portfolio_details', compact('product', 'result'));
-    // }
+    public function show(Request $request, $id)
+    {
+        $product = $this->service->show($id);
+        $result = [
+            'products' => $this->service->index($request)->where('category_id', $product->category_id)->where('active', 1),
+            'product' => $product,
+        ];
+        return view('web.pages.our_products.show', compact('result'));
+    }
 }
