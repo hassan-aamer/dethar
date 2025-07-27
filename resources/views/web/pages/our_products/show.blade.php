@@ -47,6 +47,9 @@
                         <p>
                             {{ $result['product']->description ?? '' }}
                         </p>
+                        <p>
+                            {{ $result['product']->content ?? '' }}
+                        </p>
                     </div>
 
                 </div>

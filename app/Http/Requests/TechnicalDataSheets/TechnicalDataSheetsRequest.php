@@ -24,8 +24,8 @@ class TechnicalDataSheetsRequest extends FormRequest
         return [
             'title'         => 'required|array',
             'title.*'       => ['required', 'string', 'max:255'],
-            'description'   => 'required|array',
-            'description.*' => 'required|string|max:1000',
+            'description'   => 'nullable|array',
+            'description.*' => 'nullable|string|max:1000',
             // 'name'          => 'required|array',
             // 'name.*'        => 'required|string|max:255',
             // 'content'       => 'required|array',

@@ -32,12 +32,12 @@ class ProductsRequest extends FormRequest
             ],
             'description'   => 'required|array',
             'description.*' => 'required|string|max:1000',
-            'content'   => 'required|array',
-            'content.*' => 'required|string|max:1000',
+            'content'       => 'nullable|array',
+            'content.*'     => 'nullable|string|max:1000',
             'position'      => 'required',
             'image'         => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp',
-            'images'   => 'nullable|array|max:10',
-            'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg',
+            'images'        => 'nullable|array|max:10',
+            'images.*'      => 'image|mimes:jpeg,png,jpg,gif,svg',
             'active'        => 'required|in:0,1',
         ];
     }
