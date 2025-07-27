@@ -32,7 +32,7 @@
                         <div class="services-list">
                             @foreach ($result['products'] as $product)
                                 <a class="{{ request()->routeIs('product.details') && request()->route('id') == $product->id ? 'active' : '' }}"
-                                    href="{{ route('product.details', $product->id) }}">{{ $product->title }}</a>
+                                    href="{{ route('product.details', $product->id) }}">{{ $product->title ?? '' }}</a>
                             @endforeach
                         </div>
 
