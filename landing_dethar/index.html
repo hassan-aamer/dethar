@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Dethar"
+    />
+    <meta name="author" content="Dethar" />
+    <title>Dethar</title>
+
+    <!-- Favicon -->
+    <!-- <link
+      rel="icon"
+      href="https://unitedcreativeengineers.com/favicon.ico"
+      type="image/x-icon"
+    /> -->
+    <link href="dethar1.png" rel="icon" />
+    <link href="dethar1.png" rel="apple-touch-icon" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome Icons -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Animate.css -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+
+    <style>
+      :root {
+        --primary-color: #EA9323;
+        --secondary-color: #2E6344;
+        --accent-color: #ff6b6b;
+        --dark-bg: #0a0a0a;
+        --light-text: #f8f9fa;
+        --gray-text: #adb5bd;
+        --section-padding: 80px 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background-color: var(--dark-bg);
+        color: var(--light-text);
+        font-family: "Roboto", sans-serif;
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700;
+      }
+
+      .hero-section {
+        background: linear-gradient(
+          135deg,
+          rgba(0, 0, 0, 0.9) 0%,
+          rgba(33, 163, 159, 0.3) 100%
+        );
+        padding: 120px 0 80px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url("world-dotted-map.png")
+          no-repeat center center/cover;
+        opacity: 0.3;
+        z-index: -1;
+      }
+
+      .section-title {
+        font-size: 3rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        margin-bottom: 1.5rem;
+        position: relative;
+        display: inline-block;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 60px;
+        height: 3px;
+        /* background: var(--accent-color); */
+      }
+
+      .lead-text {
+        font-size: 1.25rem;
+        color: var(--gray-text);
+        margin-bottom: 2rem;
+      }
+
+      .icon-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        color: var(--light-text);
+        font-size: 1.5rem;
+        margin: 0 10px;
+        transition: all 0.3s ease;
+      }
+
+      .icon-link:hover {
+        background: var(--primary-color);
+        color: #fff;
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .info-card {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 10px;
+        padding: 30px;
+        margin-bottom: 30px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border-left: 3px solid var(--primary-color);
+      }
+
+      .info-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+      }
+
+      .info-card h3 {
+        color: var(--primary-color);
+        margin-bottom: 15px;
+        font-size: 1.5rem;
+      }
+
+      .info-card p {
+        color: var(--gray-text);
+      }
+
+      .btn-primary-custom {
+        background-color: var(--primary-color);
+        border: none;
+        padding: 12px 25px;
+        border-radius: 30px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+      }
+
+      .btn-primary-custom:hover {
+        background-color: var(--secondary-color);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .btn-outline-custom {
+        border: 2px solid var(--primary-color);
+        color: var(--primary-color);
+        padding: 10px 20px;
+        border-radius: 30px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
+
+      .btn-outline-custom:hover {
+        background-color: var(--primary-color);
+        color: #fff;
+      }
+
+      .location-link {
+        color: var(--primary-color);
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-weight: 500;
+      }
+
+      .location-link:hover {
+        /* color: var(--accent-color); */
+        text-decoration: underline;
+      }
+
+      footer {
+        background: rgba(0, 0, 0, 0.8);
+        padding: 40px 0 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .footer-logo {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        margin-bottom: 20px;
+        display: inline-block;
+      }
+
+      .footer-links a {
+        color: var(--gray-text);
+        margin: 0 15px;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .footer-links a:hover {
+        color: var(--primary-color);
+      }
+
+      .copyright {
+        color: var(--gray-text);
+        font-size: 0.9rem;
+        margin-top: 30px;
+      }
+
+      .credits a {
+        color: var(--primary-color);
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .credits a:hover {
+        /* color: var(--accent-color); */
+      }
+
+      /* Animation classes */
+      .animate-pop {
+        animation: popIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) both;
+      }
+
+      @keyframes popIn {
+        0% {
+          opacity: 0;
+          transform: scale(0.5);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .section-title {
+          font-size: 2.2rem;
+        }
+
+        .hero-section {
+          padding: 80px 0 60px;
+        }
+
+        .info-card {
+          padding: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Hero Section -->
+    <section class="hero-section text-center">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <img
+              src="dethar1.png"
+              class="img-fluid mb-3"
+              alt=""
+              width="250"
+              height="250"
+            />
+            <!-- <h3 style="font-weight: bold" class="h5 h2-md h2-lg">
+              <span style="font-size: x-large;color: var(--primary-color);">Dethar</span>
+            </h3> -->
+            <!-- <h1 class="section-title animate__animated animate__fadeInDown">Dethar</h1> -->
+            <!-- <p class="lead-text animate__animated animate__fadeIn animate__delay-1s">
+              Where engineering meets innovation and creativity to build the future
+            </p> -->
+
+            <div
+              class="social-icons  animate__animated animate__fadeIn animate__delay-1s"
+            >
+              <a
+                style="text-decoration: none"
+                href="mailto:info@unitedcreativeengineers.com"
+                class="icon-link"
+                title="Email"
+              >
+                <i class="fas fa-envelope"></i>
+              </a>
+              <a
+                style="text-decoration: none"
+                href="https://www.instagram.com/united_creative_engineers?igsh=YWlscTdiYzFtbGI1"
+                target="_blank"
+                class="icon-link"
+                title="Instagram"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a
+                style="text-decoration: none"
+                href="https://www.facebook.com/profile.php?id=61576660857029"
+                target="_blank"
+                class="icon-link"
+                title="Facebook"
+              >
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a
+                style="text-decoration: none"
+                href="https://www.dethar.net"
+                target="_blank"
+                class="icon-link"
+                title="Website"
+              >
+                <i class="fas fa-globe"></i>
+              </a>
+              <!-- <a style="text-decoration: none;" href="https://maps.app.goo.gl/D5pLxd8eakN1AXrH6?g_st=aw" target="_blank" class="icon-link" title="Location">
+                <i class="fas fa-map-marker-alt"></i>
+              </a> -->
+            </div>
+
+            <a
+              href="#contact"
+              class="btn btn-primary-custom mt-5 animate__animated animate__fadeInUp animate__delay-2s"
+            >
+              Get in Touch <i class="fas fa-arrow-right ms-2"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Info Section -->
+    <section class="py-5" id="contact">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8 text-center mb-5">
+            <span style="font-size: x-large;" class="section-title">Contact Information</span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="info-card animate-pop">
+              <h3><i class="fas fa-envelope me-2"></i> Email</h3>
+              <p>
+                <a
+                  href="mailto:info@unitedcreativeengineers.com"
+                  class="location-link"
+                >
+                  info@unitedcreativeengineers.com
+                </a>
+              </p>
+            </div>
+
+            <div class="info-card animate-pop">
+              <h3><i class="fas fa-file-pdf me-2"></i> Company Profile</h3>
+              <p>
+                Download our company profile to learn more about our services
+                and capabilities
+              </p>
+              <a
+                href="https://drive.google.com/file/d/1HbR8aACG2vrMo326pt-vhZqBI09oeaqg/view?usp=drivesdk"
+                target="_blank"
+                class="btn btn-outline-custom mt-2"
+              >
+                View PDF <i class="fas fa-external-link-alt ms-2"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="info-card animate-pop">
+              <h3><i class="fas fa-map-marker-alt me-2"></i> Address</h3>
+              <p>
+                EL SHEIKH ZAYED, DISTRICT 13<br />
+                COMMERCIAL BUILDING, LEGENDA COMPOUND<br />
+                MAKANAK WORKSPACE
+              </p>
+              <a
+                href="https://maps.app.goo.gl/D5pLxd8eakN1AXrH6?g_st=aw"
+                target="_blank"
+                class="btn btn-outline-custom mt-3"
+              >
+                <i class="fas fa-map-marked-alt me-2"></i> Open in Maps
+              </a>
+            </div>
+
+            <div class="info-card animate-pop">
+              <h3><i class="fas fa-clock me-2"></i> Business Hours</h3>
+              <p>
+                <strong>Sunday To Thursday :</strong> 9:00 AM - 5:00 PM<br />
+                <!-- <strong>Friday & Saturday :</strong> Closed -->
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 text-center text-md-start">
+            <span class="footer-logo">Dethar</span>
+            <!-- <p class="text-muted mt-3">
+              Empowering engineering with creativity and innovation
+            </p> -->
+          </div>
+          <div class="col-md-6 text-center text-md-end">
+            <div class="footer-links">
+              <a href="#contact">Contact</a>
+              <a href="https://www.dethar.net" target="_blank"
+                >Website</a
+              >
+              <a
+                href="https://drive.google.com/file/d/1HbR8aACG2vrMo326pt-vhZqBI09oeaqg/view?usp=drivesdk"
+                target="_blank"
+                >Profile</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 text-center">
+            <p class="copyright">
+              &copy; 2025 Dethar. All rights reserved.
+            </p>
+            <div class="credits">
+              Powered by
+              <a href="https://viral-monkeys.com/" target="_blank"
+                >Viral Monkeys</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      // Simple animation trigger on scroll
+      document.addEventListener("DOMContentLoaded", function () {
+        const animateElements = document.querySelectorAll(".animate-pop");
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("animate-pop");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          {
+            threshold: 0.1,
+          }
+        );
+
+        animateElements.forEach((element) => {
+          observer.observe(element);
+        });
+      });
+    </script>
+  </body>
+</html>
