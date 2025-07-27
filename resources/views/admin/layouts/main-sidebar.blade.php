@@ -21,6 +21,13 @@
                 <li class="menu-title mt-2"></li>
 
                 <li>
+                    <a href="{{ route('admin.technical_data_sheets.index') }}">
+                        <i data-feather="file"></i>
+                        <span> {{ __('attributes.technical_data_sheets') }} </span>
+                    </a>
+                </li>
+
+                <li>
                     <a href="#sidebarEmail" data-bs-toggle="collapse">
                         <i data-feather="menu"></i>
                         <span> {{ __('attributes.products') }} </span>
@@ -30,7 +37,8 @@
                             <li><a class="{{ request()->routeIs('admin.products.*') ? 'active' : '' }}"
                                     href="{{ route('admin.products.index') }}">{{ __('attributes.products') }}</a></li>
                             <li><a class="{{ request()->routeIs('admin.categories.*') ? 'active' : '' }}"
-                                    href="{{ route('admin.categories.index') }}"> {{ __('attributes.categories') }} </a>
+                                    href="{{ route('admin.categories.index') }}"> {{ __('attributes.categories') }}
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -69,30 +77,6 @@
                         </ul>
                     </div>
                 </li>
-                <li>
-                    <a href="#blogs" data-bs-toggle="collapse">
-                        <i data-feather="menu"></i>
-                        <span> {{ __('attributes.blogs') }} </span>
-                    </a>
-                    <div class="collapse" id="blogs">
-                        <ul class="nav-second-level">
-                            <li><a class="{{ request()->routeIs('admin.blogs.*') ? 'active' : '' }}"
-                                    href="{{ route('admin.blogs.index') }}">{{ __('attributes.blogs') }}</a></li>
-                            <li><a class="{{ request()->routeIs('admin.blogs_category.*') ? 'active' : '' }}"
-                                    href="{{ route('admin.blogs_category.index') }}">
-                                    {{ __('attributes.categories') }} </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-
-                <li>
-                    <a href="{{ route('admin.pages.index') }}">
-                        <i data-feather="file-text"></i>
-                        <span> {{ __('attributes.pages') }} </span>
-                    </a>
-                </li>
-
 
                 {{-- @can('list contacts') --}}
                 <li>
@@ -119,13 +103,29 @@
                     </a>
                 </li>
                 {{-- @endcan --}}
-
                 <li>
-                    <a href="{{ route('admin.technical_data_sheets.index') }}">
-                        <i data-feather="file"></i>
-                        <span> {{ __('attributes.technical_data_sheets') }} </span>
+                    <a href="{{ route('admin.pages.index') }}">
+                        <i data-feather="file-text"></i>
+                        <span> {{ __('attributes.pages') }} </span>
                     </a>
                 </li>
+                <li>
+                    <a href="#blogs" data-bs-toggle="collapse">
+                        <i data-feather="menu"></i>
+                        <span> {{ __('attributes.blogs') }} </span>
+                    </a>
+                    <div class="collapse" id="blogs">
+                        <ul class="nav-second-level">
+                            <li><a class="{{ request()->routeIs('admin.blogs.*') ? 'active' : '' }}"
+                                    href="{{ route('admin.blogs.index') }}">{{ __('attributes.blogs') }}</a></li>
+                            <li><a class="{{ request()->routeIs('admin.blogs_category.*') ? 'active' : '' }}"
+                                    href="{{ route('admin.blogs_category.index') }}">
+                                    {{ __('attributes.categories') }} </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
 
             </ul>
 
