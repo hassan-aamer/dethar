@@ -130,7 +130,7 @@ return [
     'additionalServices' => 'Additional Services',
     'ForBusiness' => 'For your business',
     'services_details' => 'Services Details',
-    'product_details' => 'Portfolio Details',
+    'product_details' => 'Product Details',
     'hour' => 'Hour',
     'minute' => 'Minute',
     'again' => 'Again',
