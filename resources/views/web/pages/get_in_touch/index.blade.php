@@ -74,12 +74,12 @@
                     </div>
 
                     <div class="col-lg-8">
-                        <form action="{{ route('contact.store') }}" method="post">
+                        <form action="{{ route('contact.store') }}" method="post" >
                             @csrf
                             <div class="row gy-4">
 
                                 <div class="col-md-6">
-                                    <input type="text" name="name"
+                                    <input type="text" name="name" style="background-color: #EDE4D9;border-color: #EA9323;"
                                         class="form-control @error('name') is-invalid @enderror" placeholder="Your Name"
                                         required="">
                                     @error('name')
@@ -88,7 +88,7 @@
                                 </div>
 
                                 <div class="col-md-6 ">
-                                    <input type="email" class="form-control @error('email') is-invalid @enderror"
+                                    <input type="email" class="form-control @error('email') is-invalid @enderror" style="background-color: #EDE4D9;border-color: #EA9323;"
                                         name="email" placeholder="Your Email" required="">
                                     @error('email')
                                         <div class="invalid-feedback">{{ $message }}</div>
@@ -96,7 +96,7 @@
                                 </div>
 
                                 <div class="col-md-12">
-                                    <input type="text" class="form-control @error('phone') is-invalid @enderror"
+                                    <input type="text" class="form-control @error('phone') is-invalid @enderror" style="background-color: #EDE4D9;border-color: #EA9323;"
                                         name="phone" placeholder="phone" required="">
                                     @error('phone')
                                         <div class="invalid-feedback">{{ $message }}</div>
@@ -104,7 +104,7 @@
                                 </div>
 
                                 <div class="col-md-12">
-                                    <textarea class="form-control @error('message') is-invalid @enderror" name="message" rows="6"
+                                    <textarea class="form-control @error('message') is-invalid @enderror" name="message" rows="6" style="background-color: #EDE4D9;border-color: #EA9323;"
                                         placeholder="Message" required=""></textarea>
                                     @error('message')
                                         <div class="invalid-feedback">{{ $message }}</div>
