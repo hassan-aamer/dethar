@@ -36,7 +36,7 @@
                 class="hero-bg d-none d-md-block" data-aos="fade-in" loading="lazy">
 
             <img src="{{ App\Helpers\Image::getMediaUrl(App\Models\Setting::first(), 'mobile_baners') }}" alt=""
-                class="hero-bg d-block d-md-none" data-aos="fade-in" loading="lazy">
+                class="hero-bg d-block d-md-none" data-aos="fade-in" loading="lazy" style="margin-top: 50px;">
 
             <div class="container">
                 <div class="row gy-4 d-flex justify-content-between">
