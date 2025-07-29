@@ -11,15 +11,21 @@
         <section style="height: 100vh;" id="hero" class="hero section dark-background">
 
             <img src="{{ App\Helpers\Image::getMediaUrl(App\Models\Setting::first(), 'baners') }}" alt=""
-                class="hero-bg" data-aos="fade-in">
+                class="hero-bg d-none d-lg-block" data-aos="fade-in">
+
+            <img src="{{ asset('web/img/map.png') }}" alt="" class="hero-bg d-block d-md-none"
+                data-aos="fade-in">
 
             <div class="container">
                 <div class="row gy-4 d-flex justify-content-between">
                     <div class="col-lg-12 order-2 order-lg-1 d-flex flex-column justify-content-center">
                         <h2 style="margin-top: 60px;font-size: 50px;" data-aos="fade-up">{{ setting('title') ?? '' }}</h2>
-                        <h5 style="margin-top: 20px; line-height: 1.6;font-size: 25px;" data-aos="fade-up" data-aos-delay="100">
+                        <h5 
+                        {{-- class="d-none d-xxl-block"  --}}
+                        style="margin-top: 10px; line-height: 1.3;font-size: 25px;"
+                            data-aos="fade-up" data-aos-delay="100">
                             {{-- {{ setting('description') ?? '' }} --}}
-                            {!! nl2br(e( setting('description') ?? '' )) !!}
+                            {!! nl2br(e(setting('description') ?? '')) !!}
                         </h5>
                     </div>
                 </div>
@@ -90,7 +96,7 @@
                         <h3>About</h3>
                         <p style="font-weight: bold;">
                             {{-- {{ setting('about') ?? '' }} --}}
-                            {!! nl2br(e( setting('about') ?? '' )) !!}
+                            {!! nl2br(e(setting('about') ?? '')) !!}
                         </p>
                     </div>
                 </div>
@@ -109,9 +115,9 @@
 
                     <div class="col-lg-6 content order-last order-lg-last" data-aos="fade-up" data-aos-delay="100">
                         <h3>Vision</h3>
-                        <p  style="font-weight: bold;">
+                        <p style="font-weight: bold;">
                             {{-- {{ setting('vision') ?? '' }} --}}
-                            {!! nl2br(e( setting('vision') ?? '' )) !!}
+                            {!! nl2br(e(setting('vision') ?? '')) !!}
                         </p>
                     </div>
                 </div>
@@ -131,7 +137,7 @@
                         <h3>Mission</h3>
                         <p style="font-weight: bold;">
                             {{-- {{ setting('mission') ?? '' }} --}}
-                            {!! nl2br(e( setting('mission') ?? '' )) !!}
+                            {!! nl2br(e(setting('mission') ?? '')) !!}
                         </p>
                     </div>
                 </div>
