@@ -138,6 +138,7 @@ return [
     'infoOption' => 'Info Option',
     'infoSectionDetails' => 'Info Details',
     'contacts' => 'Contacts',
+    'mobile_baners' => 'Mobile Banners',
     'productFeatures' => 'Product Features',
     'productServices' => 'Product Services',
     'infoSections' => 'Info Sections',

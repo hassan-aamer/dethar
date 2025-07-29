@@ -23,6 +23,7 @@ return [
     'message' => 'الرسالة',
     'DoYouHelp' => 'هل تريد المساعدة في شيء آخر ؟',
     'delete' => 'حذف',
+    'mobile_baners' => 'لافتات موبايل',
     'reviews' => 'التقيمات',
     'question' => 'السؤال',
     'answer' => 'الجواب',

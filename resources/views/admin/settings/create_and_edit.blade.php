@@ -75,6 +75,12 @@
                                         ])
                                         @include('admin.components.ImageUpload', [
                                             'result' => $result ?? null,
+                                            'collection' => 'mobile_baners',
+                                            'label' => 'mobile baner',
+                                            'name' => 'mobile_baners',
+                                        ])
+                                        @include('admin.components.ImageUpload', [
+                                            'result' => $result ?? null,
                                             'collection' => 'about',
                                             'label' => 'about',
                                         ])

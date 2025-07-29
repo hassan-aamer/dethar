@@ -2,6 +2,28 @@
 @section('title', __('attributes.home'))
 @section('css')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <style>
+        .hero-bg {
+            width: 100%;
+            height: 100vh;
+            object-fit: contain;
+            object-position: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+
+        #hero {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 2;
+        }
+    </style>
 
 @endsection
 @section('content')
@@ -11,18 +33,17 @@
         <section style="height: 100vh;" id="hero" class="hero section dark-background">
 
             <img src="{{ App\Helpers\Image::getMediaUrl(App\Models\Setting::first(), 'baners') }}" alt=""
-                class="hero-bg d-none d-lg-block" data-aos="fade-in">
+                class="hero-bg d-none d-md-block" data-aos="fade-in" loading="lazy">
 
-            <img src="{{ asset('web/img/map.png') }}" alt="" class="hero-bg d-block d-md-none"
-                data-aos="fade-in">
+            <img src="{{ App\Helpers\Image::getMediaUrl(App\Models\Setting::first(), 'mobile_baners') }}" alt=""
+                class="hero-bg d-block d-md-none" data-aos="fade-in" loading="lazy">
 
             <div class="container">
                 <div class="row gy-4 d-flex justify-content-between">
-                    <div class="col-lg-12 order-2 order-lg-1 d-flex flex-column justify-content-center">
-                        <h2 style="margin-top: 60px;font-size: 50px;" data-aos="fade-up">{{ setting('title') ?? '' }}</h2>
-                        <h5 
-                        {{-- class="d-none d-xxl-block"  --}}
-                        style="margin-top: 10px; line-height: 1.3;font-size: 25px;"
+                    <div class="col-lg-11 order-2 order-lg-1 d-flex flex-column justify-content-center">
+                        <h2 class="d-none d-xl-block" style="margin-top: 30px;font-size: 50px;" data-aos="fade-up">
+                            {{ setting('title') ?? '' }}</h2>
+                        <h5 class="d-none d-xl-block" style="margin-top: 5px; line-height: 1.3;font-size: 25px;"
                             data-aos="fade-up" data-aos-delay="100">
                             {{-- {{ setting('description') ?? '' }} --}}
                             {!! nl2br(e(setting('description') ?? '')) !!}
@@ -89,7 +110,7 @@
                     <div class="col-lg-6 position-relative align-self-start order-lg-last order-first" data-aos="fade-up"
                         data-aos-delay="200">
                         <img src="{{ App\Helpers\Image::getMediaUrl(App\Models\Setting::first(), 'about') }}"
-                            class="img-fluid" alt="">
+                            class="img-fluid" alt="" loading="lazy">
                     </div>
 
                     <div class="col-lg-6 content order-last  order-lg-first" data-aos="fade-up" data-aos-delay="100">
@@ -110,7 +131,7 @@
                     <div class="col-lg-6 position-relative align-self-start order-first order-lg-first" data-aos="fade-up"
                         data-aos-delay="200">
                         <img src="{{ App\Helpers\Image::getMediaUrl(App\Models\Setting::first(), 'vision_image') }}"
-                            class="img-fluid" alt="">
+                            class="img-fluid" alt="" loading="lazy">
                     </div>
 
                     <div class="col-lg-6 content order-last order-lg-last" data-aos="fade-up" data-aos-delay="100">
@@ -130,7 +151,7 @@
                     <div class="col-lg-6 position-relative align-self-start order-lg-last order-first" data-aos="fade-up"
                         data-aos-delay="200">
                         <img src="{{ App\Helpers\Image::getMediaUrl(App\Models\Setting::first(), 'mission_image') }}"
-                            class="img-fluid" alt="">
+                            class="img-fluid" alt="" loading="lazy">
                     </div>
 
                     <div class="col-lg-6 content order-last  order-lg-first" data-aos="fade-up" data-aos-delay="100">
@@ -162,7 +183,7 @@
                                 <div class="card">
                                     <div class="card-img">
                                         <img src="{{ App\Helpers\Image::getMediaUrl($product, 'products') }}"
-                                            alt="{{ $product->title ?? '' }}" class="img-fluid">
+                                            alt="{{ $product->title ?? '' }}" class="img-fluid" loading="lazy">
                                     </div>
                                     <h3>
                                         <a href="{{ route('product.details', $product->id) }}"

@@ -40,7 +40,7 @@
 
                     <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
                         <img src="{{ App\Helpers\Image::getMediaUrl($result['blog'], 'blogs') }}" alt=""
-                            class="img-fluid services-img">
+                            class="img-fluid services-img" loading="lazy">
                         <h3>
                             {{ $result['blog']->title ?? '' }}
                         </h3>

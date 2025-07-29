@@ -56,6 +56,10 @@ class SettingsService
                 $settings->clearMediaCollection('mission_image');
                 $settings->addMediaFromRequest('mission_image')->toMediaCollection('mission_image');
             }
+            if (isset($request['mobile_baners']) && $request['mobile_baners']) {
+                $settings->clearMediaCollection('mobile_baners');
+                $settings->addMediaFromRequest('mobile_baners')->toMediaCollection('mobile_baners');
+            }
 
             DB::commit();
         } catch (\Throwable $e) {

@@ -32,7 +32,7 @@
 
                     <div class="col-lg-6 position-relative align-self-start order-lg-last order-first" data-aos="fade-up"
                         data-aos-delay="200">
-                        <img src="{{ page_image('about','about') }}" class="img-fluid" alt="">
+                        <img src="{{ page_image('about','about') }}" class="img-fluid" alt="" loading="lazy">
                         {{-- <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox pulsating-play-btn"></a> --}}
                     </div>
 

@@ -42,7 +42,7 @@
                                 <div class="d-flex justify-content-center align-items-center">
                                     <div class="col-12 text-center">
                                         {{-- <h1 style="color: #EA9323;">No Technical Data Sheets found.</h1> --}}
-                                        <img src="{{ asset('empty-folder.png') }}" alt="empty">
+                                        <img src="{{ asset('empty-folder.png') }}" alt="empty" loading="lazy">
                                     </div>
                                 </div>
                             @else
