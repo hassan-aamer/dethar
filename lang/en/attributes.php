@@ -120,7 +120,7 @@ return [
     'WhyChooseFuture' => 'Why choose the sword of the future',
     'features' => 'Features',
     'blogs' => 'Blogs',
-    'value_add' => 'Value add',
+    'value_add' => 'Added value',
     'what_we_do' => 'What we do',
     'categories' => 'Categories',
     'WhatWill' => 'What will he offer',

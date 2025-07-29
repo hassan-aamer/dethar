@@ -21,7 +21,7 @@
                           @endforeach
                       </ul>
                   </li>
-                  <li class="dropdown"><a href="#"><span>Value add</span> <i
+                  <li class="dropdown"><a href="#"><span>Added value</span> <i
                               class="bi bi-chevron-down toggle-dropdown"></i></a>
                       <ul>
                           @foreach (ValueAddCategories() as $category)
