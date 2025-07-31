@@ -280,11 +280,13 @@
         // في ملف JavaScript الخاص بك
         var swiper = new Swiper('.mySwiper', {
             slidesPerView: 3, // عدد الشرائح المرئية
-            spaceBetween: 30, // المسافة بين الشرائح
+            spaceBetween: 20, // المسافة بين الشرائح
             speed: 1000, // ✅ سرعة الانتقال بين الشرائح بالميلي ثانية (1000 = 1 ثانية)
             effect: "slide", // ✅ تأثير الانزلاق الناعم (الافتراضي)
             grabCursor: true,
             loop: true,
+            observer: true, // أضف هذه السطر
+            observeParents: true, // أضف هذه السطر
             autoplay: {
                 delay: 1500,
                 disableOnInteraction: false,
