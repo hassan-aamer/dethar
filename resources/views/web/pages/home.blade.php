@@ -411,51 +411,49 @@
         @if ($result['products']->count())
             <!-- Products Section -->
             <section id="products" class="services section">
-                <div class="container">
-                    <div class="section-title" data-aos="fade-up">
-                        {{-- <span>Our Collection<br></span> --}}
-                        <h2>Our products</h2>
-                        {{-- <p class="mx-auto" style="max-width: 700px;">Discover our premium selection of high-quality products designed to meet your needs</p> --}}
-                    </div>
+                {{-- <div class="container"> --}}
+                <div class="section-title" data-aos="fade-up">
+                    {{-- <span>Our Collection<br></span> --}}
+                    <h2>Our products</h2>
+                    {{-- <p class="mx-auto" style="max-width: 700px;">Discover our premium selection of high-quality products designed to meet your needs</p> --}}
+                </div>
 
-                    <div class="swiper-container mySwiper" data-aos="fade-up">
-                        <div class="swiper-wrapper">
-                            @foreach ($result['products']->sortBy('position') as $product)
-                                <div class="swiper-slide">
-                                    <div class="card">
-                                        <div class="card-img">
-                                            <img src="{{ App\Helpers\Image::getMediaUrl($product, 'products') }}"
-                                                alt="{{ $product->title ?? '' }}" class="img-fluid" loading="lazy">
-                                        </div>
-                                        <div class="card-body">
-                                            <h3>
-                                                <a href="{{ route('product.details', $product->id) }}"
-                                                    class="stretched-link">{{ shortenText($product->title ?? '') }}</a>
-                                            </h3>
-                                            <p>{{ shortenText($product->description ?? '') }}</p>
-                                            <div class="d-flex justify-content-between align-items-center mt-auto">
-                                                <span class="badge bg-primary">{{ $product->category->name ?? '' }}</span>
-                                                <a href="{{ route('product.details', $product->id) }}"
-                                                    class="text-arrow-icon">
-                                                    <i class="bi bi-arrow-right"></i>
-                                                </a>
-                                            </div>
+                <div class="swiper-container mySwiper" data-aos="fade-up">
+                    <div class="swiper-wrapper">
+                        @foreach ($result['products']->sortBy('position') as $product)
+                            <div class="swiper-slide">
+                                <div class="card">
+                                    <div class="card-img">
+                                        <img src="{{ App\Helpers\Image::getMediaUrl($product, 'products') }}"
+                                            alt="{{ $product->title ?? '' }}" class="img-fluid" loading="lazy">
+                                    </div>
+                                    <div class="card-body">
+                                        <h3>
+                                            <a href="{{ route('product.details', $product->id) }}"
+                                                class="stretched-link">{{ shortenText($product->title ?? '') }}</a>
+                                        </h3>
+                                        <p>{{ shortenText($product->description ?? '') }}</p>
+                                        <div class="d-flex justify-content-between align-items-center mt-auto">
+                                            <span class="badge bg-primary">{{ $product->category->name ?? '' }}</span>
+                                            <a href="{{ route('product.details', $product->id) }}" class="text-arrow-icon">
+                                                <i class="bi bi-arrow-right"></i>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
-                            @endforeach
-                        </div>
-                        {{-- <div class="swiper-pagination"></div>
+                            </div>
+                        @endforeach
+                    </div>
+                    {{-- <div class="swiper-pagination"></div>
                     <div class="swiper-button-next"></div>
                     <div class="swiper-button-prev"></div> --}}
-                    </div>
+                </div>
 
-                    {{-- <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="100">
+                {{-- <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="100">
                     <a href="" class="btn btn-primary btn-lg">
                         View All Products <i class="bi bi-arrow-right ms-2"></i>
-                    </a>
-                </div> --}}
-                </div>
+                    </a> --}}
+                {{-- </div> --}}
             </section>
             <!-- /Products Section -->
         @endif
@@ -466,88 +464,39 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Initialize Swiper with modern settings
-            var swiper = new Swiper('.mySwiper', {
-                slidesPerView: 3,
-                spaceBetween: 30,
-                speed: 800,
-                effect: "slide",
-                grabCursor: true,
-                loop: true,
-                observer: true,
-                observeParents: true,
-                autoplay: {
-                    delay: 1000,
-                    disableOnInteraction: false,
-                    pauseOnMouseEnter: true
-                },
-                pagination: {
-                    el: '.swiper-pagination',
-                    clickable: true,
-                    dynamicBullets: true
-                },
+            new Swiper(".mySwiper", {
+                slidesPerView: 5,
+                spaceBetween: 20,
+                loop: false,
                 navigation: {
-                    nextEl: '.swiper-button-next',
-                    prevEl: '.swiper-button-prev',
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
                 },
                 breakpoints: {
                     320: {
                         slidesPerView: 1,
-                        spaceBetween: 20
+                        spaceBetween: 10,
                     },
-                    576: {
-                        slidesPerView: 1,
-                        spaceBetween: 20
+                    640: {
+                        slidesPerView: 2,
+                        spaceBetween: 10,
                     },
                     768: {
-                        slidesPerView: 2,
-                        spaceBetween: 25
-                    },
-                    992: {
                         slidesPerView: 3,
-                        spaceBetween: 30
+                        spaceBetween: 15,
                     },
-                    1200: {
-                        slidesPerView: 3,
-                        spaceBetween: 40
-                    }
+                    1024: {
+                        slidesPerView: 4,
+                        spaceBetween: 20,
+                    },
+                    1280: {
+                        slidesPerView: 5,
+                        spaceBetween: 20,
+                    },
                 },
-                on: {
-                    init: function() {
-                        // Add animation to slides on init
-                        const slides = this.slides;
-                        slides.forEach((slide, index) => {
-                            slide.style.opacity = '0';
-                            slide.style.transform = 'translateY(20px)';
-                            slide.style.transition =
-                                `opacity 0.5s ease ${index * 0.1}s, transform 0.5s ease ${index * 0.1}s`;
-                            setTimeout(() => {
-                                slide.style.opacity = '1';
-                                slide.style.transform = 'translateY(0)';
-                            }, index * 100);
-                        });
-                    }
-                }
             });
-
-            // Hero background scale effect
-            const hero = document.getElementById('hero');
-            if (hero) {
-                hero.addEventListener('mousemove', function() {
-                    const bg = this.querySelector('.hero-bg');
-                    if (bg) {
-                        bg.style.transform = 'scale(1.05)';
-                    }
-                });
-
-                hero.addEventListener('mouseleave', function() {
-                    const bg = this.querySelector('.hero-bg');
-                    if (bg) {
-                        bg.style.transform = 'scale(1)';
-                    }
-                });
-            }
         });
     </script>
+
 
 @endsection
