@@ -3,118 +3,95 @@
 @section('css')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <style>
+        /* تحسينات عامة */
+        :root {
+            --primary-color: #EA9323;
+            --secondary-color: #333;
+            --text-color: #555;
+            --light-bg: #f9f9f9;
+            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --card-hover-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        /* تحسينات قسم Hero */
+        #hero {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 100%);
+        }
+
         .hero-bg {
             width: 100%;
-            height: 100vh;
-            object-fit: contain;
+            height: 100%;
+            object-fit: cover;
             object-position: center;
             position: absolute;
             top: 0;
             left: 0;
             z-index: 0;
+            transition: transform 10s ease;
         }
 
-        #hero {
-            position: relative;
-            overflow: hidden;
+        #hero:hover .hero-bg {
+            transform: scale(1.05);
         }
 
         .hero .container {
             position: relative;
             z-index: 2;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
         }
 
-        .services .swiper-slide .card {
-            border: none;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            height: 320px;
-            /* يمكن تعديل الارتفاع حسب الحاجة */
-            display: flex;
-            flex-direction: column;
+        .hero h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            animation: fadeInUp 1s ease;
         }
 
-        .services .swiper-slide .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+        .hero h5 {
+            font-size: clamp(1rem, 2.5vw, 1.5rem);
+            font-weight: 300;
+            max-width: 800px;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.3s both;
         }
 
-        .services .swiper-slide .card-img {
-            height: 160px;
-            /* ارتفاع الصورة */
-            overflow: hidden;
-        }
-
-        .services .swiper-slide .card-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .services .swiper-slide .card:hover .card-img img {
-            transform: scale(1.05);
-        }
-
-        .services .swiper-slide .card h3 {
-            padding: 15px 15px 0;
-            margin-bottom: 10px;
-            font-size: 1.1rem;
-        }
-
-        .services .swiper-slide .card p {
-            padding: 0 15px 15px;
-            font-size: 0.9rem;
-            color: #555;
-            flex-grow: 1;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            /* عدد الأسطر المراد عرضها */
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .services .swiper-slide .card a {
-            color: #333;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .services .swiper-slide .card:hover a {
-            color: #EA9323;
-            /* لون عند التحويم */
-        }
-
-
-        /*  About, Vision, Mission */
+        /* تحسينات الأقسام النصية */
         .about.section {
             padding: 100px 0;
             position: relative;
         }
 
         .about.section:nth-child(odd) {
-            background-color: #f9f9f9;
+            background-color: var(--light-bg);
         }
 
         .about .img-fluid {
             border-radius: 12px;
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-            transition: transform 0.5s ease, box-shadow 0.5s ease;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            width: 100%;
+            height: auto;
+            max-height: 500px;
+            object-fit: cover;
         }
 
         .about .img-fluid:hover {
-            transform: translateY(-5px);
+            transform: translateY(-5px) scale(1.02);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
         }
 
         .about h3 {
-            font-size: 2.2rem;
+            font-size: clamp(1.8rem, 3vw, 2.2rem);
             font-weight: 700;
             margin-bottom: 1.5rem;
-            color: #333;
+            color: var(--secondary-color);
             position: relative;
             display: inline-block;
         }
@@ -126,14 +103,221 @@
             left: 0;
             width: 60px;
             height: 3px;
-            background: #EA9323;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .about h3:hover::after {
+            width: 100px;
         }
 
         .about p {
             font-size: 1.1rem;
             line-height: 1.8;
-            color: #555;
+            color: var(--text-color);
             margin-bottom: 1.5rem;
+        }
+
+        /* تحسينات قسم المنتجات */
+        .services.section {
+            padding: 100px 0;
+            background: linear-gradient(to bottom, #ffffff 0%, var(--light-bg) 100%);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title span {
+            font-size: 1rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .section-title h2 {
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            font-weight: 700;
+            color: var(--secondary-color);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--primary-color);
+        }
+
+        .services .swiper-container {
+            padding: 30px 0;
+            overflow: hidden;
+        }
+
+        .services .swiper-slide {
+            height: auto;
+            padding: 15px;
+        }
+
+        .services .card {
+            border: none;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            background: white;
+        }
+
+        .services .card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--card-hover-shadow);
+        }
+
+        .services .card-img {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .services .card-img::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+            z-index: 1;
+        }
+
+        .services .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .services .card:hover .card-img img {
+            transform: scale(1.1);
+        }
+
+        .services .card-body {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .services .card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+            transition: color 0.3s ease;
+        }
+
+        .services .card p {
+            font-size: 0.95rem;
+            color: var(--text-color);
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex-grow: 1;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .services .card a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            position: relative;
+            align-self: flex-start;
+        }
+
+        .services .card a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .services .card:hover a::after {
+            width: 100%;
+        }
+
+        .services .card:hover h3 {
+            color: var(--primary-color);
+        }
+
+        /* تأثيرات الحركة */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        [data-aos="fade-up"] {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        [data-aos="fade-up"].aos-animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* تأثيرات خاصة للصور */
+        .img-scale-animation {
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        .img-scale-animation img {
+            transition: transform 0.8s ease;
+        }
+
+        .img-scale-animation:hover img {
+            transform: scale(1.05);
+        }
+
+        /* تحسينات للجوال */
+        @media (max-width: 768px) {
+            .about .img-fluid {
+                margin-bottom: 30px;
+            }
+
+            .hero h2 {
+                margin-top: 80px;
+            }
+
+            .services .card-img {
+                height: 150px;
+            }
         }
     </style>
 
@@ -142,104 +326,98 @@
     <main class="main">
 
         <!-- Hero Section -->
-        <section style="height: 100vh;" id="hero" class="hero section dark-background">
-
+        <section id="hero" class="hero section dark-background">
             <img src="{{ App\Helpers\Image::getMediaUrl(App\Models\Setting::first(), 'baners') }}" alt=""
                 class="hero-bg d-none d-md-block" data-aos="fade-in" loading="lazy">
-
             <img src="{{ App\Helpers\Image::getMediaUrl(App\Models\Setting::first(), 'mobile_baners') }}" alt=""
-                class="hero-bg d-block d-md-none" data-aos="fade-in" loading="lazy" style="margin-top: 50px;">
+                class="hero-bg d-block d-md-none" data-aos="fade-in" loading="lazy">
 
             <div class="container">
                 <div class="row gy-4 d-flex justify-content-between">
                     <div class="col-lg-11 order-2 order-lg-1 d-flex flex-column justify-content-center">
-                        <h2 class="d-none d-xl-block" style="margin-top: 30px;font-size: 50px;" data-aos="fade-up">
-                            {{ setting('title') ?? '' }}</h2>
-                        <h5 class="d-none d-xl-block" style="margin-top: 5px; line-height: 1.3;font-size: 25px;"
-                            data-aos="fade-up" data-aos-delay="100">
-                            {{-- {{ setting('description') ?? '' }} --}}
-                            {!! nl2br(e(setting('description') ?? '')) !!}
-                        </h5>
+                        {{-- <h2 data-aos="fade-up">{{ setting('title') ?? '' }}</h2>
+                    <h5 data-aos="fade-up" data-aos-delay="100">
+                        {!! nl2br(e(setting('description') ?? '')) !!}
+                    </h5> --}}
                     </div>
                 </div>
             </div>
-
         </section>
         <!-- /Hero Section -->
 
         <!-- About Section -->
         <section id="about" class="about section">
             <div class="container">
-                <div class="row gy-4">
+                <div class="row gy-4 align-items-center">
                     <div class="col-lg-6 position-relative align-self-start order-lg-last order-first" data-aos="fade-up"
                         data-aos-delay="200">
-                        <img src="{{ App\Helpers\Image::getMediaUrl(App\Models\Setting::first(), 'about') }}"
-                            class="img-fluid" alt="" loading="lazy">
+                        <div class="img-scale-animation">
+                            <img src="{{ App\Helpers\Image::getMediaUrl(App\Models\Setting::first(), 'about') }}"
+                                class="img-fluid" alt="" loading="lazy">
+                        </div>
                     </div>
 
-                    <div class="col-lg-6 content order-last  order-lg-first" data-aos="fade-up" data-aos-delay="100">
-                        <h3>About</h3>
-                        <p style="font-weight: bold;">
-                            {{-- {{ setting('about') ?? '' }} --}}
-                            {!! nl2br(e(setting('about') ?? '')) !!}
-                        </p>
+                    <div class="col-lg-6 content order-last order-lg-first" data-aos="fade-up" data-aos-delay="100">
+                        <h3>About Us</h3>
+                        <p>{!! nl2br(e(setting('about') ?? '')) !!}</p>
                     </div>
                 </div>
             </div>
         </section>
         <!-- /About Section -->
 
-        <section id="about" class="about section">
+        <!-- Vision Section -->
+        <section id="vision" class="about section">
             <div class="container">
-                <div class="row gy-4">
-                    <div class="col-lg-6 position-relative align-self-start order-first order-lg-first" data-aos="fade-up"
+                <div class="row gy-4 align-items-center">
+                    <div class="col-lg-6 position-relative align-self-start order-first" data-aos="fade-up"
                         data-aos-delay="200">
-                        <img src="{{ App\Helpers\Image::getMediaUrl(App\Models\Setting::first(), 'vision_image') }}"
-                            class="img-fluid" alt="" loading="lazy">
+                        <div class="img-scale-animation">
+                            <img src="{{ App\Helpers\Image::getMediaUrl(App\Models\Setting::first(), 'vision_image') }}"
+                                class="img-fluid" alt="" loading="lazy">
+                        </div>
                     </div>
 
-                    <div class="col-lg-6 content order-last order-lg-last" data-aos="fade-up" data-aos-delay="100">
+                    <div class="col-lg-6 content order-last" data-aos="fade-up" data-aos-delay="100">
                         <h3>Vision</h3>
-                        <p style="font-weight: bold;">
-                            {{-- {{ setting('vision') ?? '' }} --}}
-                            {!! nl2br(e(setting('vision') ?? '')) !!}
-                        </p>
+                        <p>{!! nl2br(e(setting('vision') ?? '')) !!}</p>
                     </div>
                 </div>
             </div>
         </section>
+        <!-- /Vision Section -->
 
-        <section id="about" class="about section">
+        <!-- Mission Section -->
+        <section id="mission" class="about section">
             <div class="container">
-                <div class="row gy-4">
+                <div class="row gy-4 align-items-center">
                     <div class="col-lg-6 position-relative align-self-start order-lg-last order-first" data-aos="fade-up"
                         data-aos-delay="200">
-                        <img src="{{ App\Helpers\Image::getMediaUrl(App\Models\Setting::first(), 'mission_image') }}"
-                            class="img-fluid" alt="" loading="lazy">
+                        <div class="img-scale-animation">
+                            <img src="{{ App\Helpers\Image::getMediaUrl(App\Models\Setting::first(), 'mission_image') }}"
+                                class="img-fluid" alt="" loading="lazy">
+                        </div>
                     </div>
 
-                    <div class="col-lg-6 content order-last  order-lg-first" data-aos="fade-up" data-aos-delay="100">
+                    <div class="col-lg-6 content order-last order-lg-first" data-aos="fade-up" data-aos-delay="100">
                         <h3>Mission</h3>
-                        <p style="font-weight: bold;">
-                            {{-- {{ setting('mission') ?? '' }} --}}
-                            {!! nl2br(e(setting('mission') ?? '')) !!}
-                        </p>
+                        <p>{!! nl2br(e(setting('mission') ?? '')) !!}</p>
                     </div>
                 </div>
             </div>
         </section>
-
+        <!-- /Mission Section -->
 
         @if ($result['products']->count())
-            <!-- Services Section -->
-            <section id="services" class="services section">
-                <!-- Section Title -->
-                <div class="container section-title" data-aos="fade-up">
-                    <span>Our Products<br></span>
-                    <h2>Our Products</h2>
-                </div><!-- End Section Title -->
-
+            <!-- Products Section -->
+            <section id="products" class="services section">
                 <div class="container">
+                    <div class="section-title" data-aos="fade-up">
+                        {{-- <span>Our Collection<br></span> --}}
+                        <h2>Our products</h2>
+                        {{-- <p class="mx-auto" style="max-width: 700px;">Discover our premium selection of high-quality products designed to meet your needs</p> --}}
+                    </div>
+
                     <div class="swiper-container mySwiper" data-aos="fade-up">
                         <div class="swiper-wrapper">
                             @foreach ($result['products']->sortBy('position') as $product)
@@ -255,60 +433,119 @@
                                                     class="stretched-link">{{ shortenText($product->title ?? '') }}</a>
                                             </h3>
                                             <p>{{ shortenText($product->description ?? '') }}</p>
+                                            <div class="d-flex justify-content-between align-items-center mt-auto">
+                                                <span class="badge bg-primary">{{ $product->category->name ?? '' }}</span>
+                                                <a href="{{ route('product.details', $product->id) }}"
+                                                    class="text-arrow-icon">
+                                                    <i class="bi bi-arrow-right"></i>
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             @endforeach
                         </div>
-                        <!-- Add pagination and navigation -->
                         {{-- <div class="swiper-pagination"></div>
-                        <div class="swiper-button-next"></div>
-                        <div class="swiper-button-prev"></div> --}}
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div> --}}
                     </div>
+
+                    {{-- <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="100">
+                    <a href="" class="btn btn-primary btn-lg">
+                        View All Products <i class="bi bi-arrow-right ms-2"></i>
+                    </a>
+                </div> --}}
                 </div>
             </section>
-            <!-- /Services Section -->
+            <!-- /Products Section -->
         @endif
-
 
     </main>
 @endsection
 @section('js')
-    <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-        // في ملف JavaScript الخاص بك
-        var swiper = new Swiper('.mySwiper', {
-            slidesPerView: 3, // عدد الشرائح المرئية
-            spaceBetween: 20, // المسافة بين الشرائح
-            speed: 1000, // ✅ سرعة الانتقال بين الشرائح بالميلي ثانية (1000 = 1 ثانية)
-            effect: "slide", // ✅ تأثير الانزلاق الناعم (الافتراضي)
-            grabCursor: true,
-            loop: true,
-            observer: true, // أضف هذه السطر
-            observeParents: true, // أضف هذه السطر
-            autoplay: {
-                delay: 1500,
-                disableOnInteraction: false,
-            },
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-            breakpoints: {
-                320: {
-                    slidesPerView: 1,
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize Swiper with modern settings
+            var swiper = new Swiper('.mySwiper', {
+                slidesPerView: 3,
+                spaceBetween: 30,
+                speed: 800,
+                effect: "slide",
+                grabCursor: true,
+                loop: true,
+                observer: true,
+                observeParents: true,
+                autoplay: {
+                    delay: 1000,
+                    disableOnInteraction: false,
+                    pauseOnMouseEnter: true
                 },
-                768: {
-                    slidesPerView: 2,
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                    dynamicBullets: true
                 },
-                1024: {
-                    slidesPerView: 3,
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                breakpoints: {
+                    320: {
+                        slidesPerView: 1,
+                        spaceBetween: 20
+                    },
+                    576: {
+                        slidesPerView: 1,
+                        spaceBetween: 20
+                    },
+                    768: {
+                        slidesPerView: 2,
+                        spaceBetween: 25
+                    },
+                    992: {
+                        slidesPerView: 3,
+                        spaceBetween: 30
+                    },
+                    1200: {
+                        slidesPerView: 3,
+                        spaceBetween: 40
+                    }
+                },
+                on: {
+                    init: function() {
+                        // Add animation to slides on init
+                        const slides = this.slides;
+                        slides.forEach((slide, index) => {
+                            slide.style.opacity = '0';
+                            slide.style.transform = 'translateY(20px)';
+                            slide.style.transition =
+                                `opacity 0.5s ease ${index * 0.1}s, transform 0.5s ease ${index * 0.1}s`;
+                            setTimeout(() => {
+                                slide.style.opacity = '1';
+                                slide.style.transform = 'translateY(0)';
+                            }, index * 100);
+                        });
+                    }
                 }
+            });
+
+            // Hero background scale effect
+            const hero = document.getElementById('hero');
+            if (hero) {
+                hero.addEventListener('mousemove', function() {
+                    const bg = this.querySelector('.hero-bg');
+                    if (bg) {
+                        bg.style.transform = 'scale(1.05)';
+                    }
+                });
+
+                hero.addEventListener('mouseleave', function() {
+                    const bg = this.querySelector('.hero-bg');
+                    if (bg) {
+                        bg.style.transform = 'scale(1)';
+                    }
+                });
             }
         });
     </script>
