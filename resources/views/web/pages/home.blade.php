@@ -87,6 +87,54 @@
             color: #EA9323;
             /* لون عند التحويم */
         }
+
+
+        /*  About, Vision, Mission */
+        .about.section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .about.section:nth-child(odd) {
+            background-color: #f9f9f9;
+        }
+
+        .about .img-fluid {
+            border-radius: 12px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+
+        .about .img-fluid:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .about h3 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #333;
+            position: relative;
+            display: inline-block;
+        }
+
+        .about h3::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: #EA9323;
+        }
+
+        .about p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
     </style>
 
 @endsection
@@ -213,9 +261,9 @@
                             @endforeach
                         </div>
                         <!-- Add pagination and navigation -->
-                        <div class="swiper-pagination"></div>
+                        {{-- <div class="swiper-pagination"></div>
                         <div class="swiper-button-next"></div>
-                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-prev"></div> --}}
                     </div>
                 </div>
             </section>
