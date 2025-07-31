@@ -336,9 +336,9 @@
                 <div class="row gy-4 d-flex justify-content-between">
                     <div class="col-lg-11 order-2 order-lg-1 d-flex flex-column justify-content-center">
                         {{-- <h2 data-aos="fade-up">{{ setting('title') ?? '' }}</h2>
-                    <h5 data-aos="fade-up" data-aos-delay="100">
-                        {!! nl2br(e(setting('description') ?? '')) !!}
-                    </h5> --}}
+                        <h5 data-aos="fade-up" data-aos-delay="100">
+                            {!! nl2br(e(setting('description') ?? '')) !!}
+                        </h5> --}}
                     </div>
                 </div>
             </div>
@@ -468,6 +468,22 @@
                 slidesPerView: 5,
                 spaceBetween: 20,
                 loop: false,
+                speed: 800,
+                effect: "slide",
+                grabCursor: true,
+                loop: true,
+                observer: true,
+                observeParents: true,
+                autoplay: {
+                    delay: 500,
+                    disableOnInteraction: false,
+                    pauseOnMouseEnter: true
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                    dynamicBullets: true
+                },
                 navigation: {
                     nextEl: ".swiper-button-next",
                     prevEl: ".swiper-button-prev",
