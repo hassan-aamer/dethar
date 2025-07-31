@@ -23,6 +23,70 @@
             position: relative;
             z-index: 2;
         }
+
+        .services .swiper-slide .card {
+            border: none;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            height: 320px;
+            /* يمكن تعديل الارتفاع حسب الحاجة */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .services .swiper-slide .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .services .swiper-slide .card-img {
+            height: 160px;
+            /* ارتفاع الصورة */
+            overflow: hidden;
+        }
+
+        .services .swiper-slide .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .services .swiper-slide .card:hover .card-img img {
+            transform: scale(1.05);
+        }
+
+        .services .swiper-slide .card h3 {
+            padding: 15px 15px 0;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .services .swiper-slide .card p {
+            padding: 0 15px 15px;
+            font-size: 0.9rem;
+            color: #555;
+            flex-grow: 1;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            /* عدد الأسطر المراد عرضها */
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .services .swiper-slide .card a {
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .services .swiper-slide .card:hover a {
+            color: #007bff;
+            /* لون عند التحويم */
+        }
     </style>
 
 @endsection
@@ -127,26 +191,33 @@
                     <h2>Our Products</h2>
                 </div><!-- End Section Title -->
 
-                <div class="swiper-container mySwiper" data-aos="fade-up">
-                    <div class="swiper-wrapper">
-                        @foreach ($result['products']->sortBy('position') as $product)
-                            <div class="swiper-slide">
-                                <div class="card">
-                                    <div class="card-img">
-                                        <img src="{{ App\Helpers\Image::getMediaUrl($product, 'products') }}"
-                                            alt="{{ $product->title ?? '' }}" class="img-fluid" loading="lazy">
+                <div class="container">
+                    <div class="swiper-container mySwiper" data-aos="fade-up">
+                        <div class="swiper-wrapper">
+                            @foreach ($result['products']->sortBy('position') as $product)
+                                <div class="swiper-slide">
+                                    <div class="card">
+                                        <div class="card-img">
+                                            <img src="{{ App\Helpers\Image::getMediaUrl($product, 'products') }}"
+                                                alt="{{ $product->title ?? '' }}" class="img-fluid" loading="lazy">
+                                        </div>
+                                        <div class="card-body">
+                                            <h3>
+                                                <a href="{{ route('product.details', $product->id) }}"
+                                                    class="stretched-link">{{ shortenText($product->title ?? '') }}</a>
+                                            </h3>
+                                            <p>{{ shortenText($product->description ?? '') }}</p>
+                                        </div>
                                     </div>
-                                    <h3>
-                                        <a href="{{ route('product.details', $product->id) }}"
-                                            class="stretched-link">{{ shortenText($product->title ?? '') }}</a>
-                                    </h3>
-                                    <p>{{ shortenText($product->description ?? '') }}</p>
                                 </div>
-                            </div>
-                        @endforeach
+                            @endforeach
+                        </div>
+                        <!-- Add pagination and navigation -->
+                        <div class="swiper-pagination"></div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
                     </div>
                 </div>
-
             </section>
             <!-- /Services Section -->
         @endif
@@ -158,37 +229,38 @@
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            new Swiper(".mySwiper", {
-                loop: true,
-                spaceBetween: 30,
-                slidesPerView: 1,
-                speed: 1000, // ✅ سرعة الانتقال بين الشرائح بالميلي ثانية (1000 = 1 ثانية)
-                effect: "slide", // ✅ تأثير الانزلاق الناعم (الافتراضي)
-                grabCursor: true, // ✅ لتغيير المؤشر عند السحب (يوحي بالسلاسة)
-                autoplay: {
-                    delay: 1500, // ⏱️ تأخير بين كل شريحة
-                    disableOnInteraction: false,
+        // في ملف JavaScript الخاص بك
+        var swiper = new Swiper('.mySwiper', {
+            slidesPerView: 3, // عدد الشرائح المرئية
+            spaceBetween: 30, // المسافة بين الشرائح
+            speed: 1000, // ✅ سرعة الانتقال بين الشرائح بالميلي ثانية (1000 = 1 ثانية)
+            effect: "slide", // ✅ تأثير الانزلاق الناعم (الافتراضي)
+            grabCursor: true,
+            loop: true,
+            autoplay: {
+                delay: 1500,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            breakpoints: {
+                320: {
+                    slidesPerView: 1,
                 },
-                pagination: {
-                    el: ".swiper-pagination",
-                    clickable: true,
+                768: {
+                    slidesPerView: 2,
                 },
-                navigation: {
-                    nextEl: ".swiper-button-next",
-                    prevEl: ".swiper-button-prev",
-                },
-                breakpoints: {
-                    768: {
-                        slidesPerView: 2,
-                    },
-                    1024: {
-                        slidesPerView: 3,
-                    }
+                1024: {
+                    slidesPerView: 3,
                 }
-            });
+            }
         });
     </script>
-
 
 @endsection
