@@ -84,7 +84,7 @@
         }
 
         .services .swiper-slide .card:hover a {
-            color: #007bff;
+            color: #EA9323;
             /* لون عند التحويم */
         }
     </style>
