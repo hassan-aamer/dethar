@@ -320,27 +320,116 @@
             }
         }
     </style>
+    <style>
+        :root {
+            --primary-color: #EA9323;
+            --secondary-color: #333;
+            --text-color: #555;
+            --light-bg: #f9f9f9;
+            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
 
+        #hero {
+            position: relative;
+            height: 50vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3));
+        }
+
+        .hero-bg {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            transition: transform 10s ease;
+        }
+
+        #hero:hover .hero-bg {
+            transform: scale(1.05);
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 2;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .img-scale-animation {
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        .img-scale-animation img {
+            transition: transform 0.8s ease;
+        }
+
+        .img-scale-animation:hover img {
+            transform: scale(1.05);
+        }
+
+        .services-list a {
+            display: block;
+            padding: 12px 16px;
+            margin-bottom: 8px;
+            background: var(--light-bg);
+            border-left: 4px solid transparent;
+            color: var(--text-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-radius: 6px;
+        }
+
+        .services-list a:hover,
+        .services-list a.active {
+            border-left-color: var(--primary-color);
+            background-color: #fff;
+            box-shadow: var(--card-shadow);
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            #hero {
+                height: 40vh;
+            }
+
+            .services-list a {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
 @endsection
 @section('content')
     <main class="main">
 
-        <!-- Page Title -->
-        <div class="page-title dark-background" data-aos="fade" style="background-image: url({{ page_image('tds') }});">
-            <div class="container position-relative">
-                <h1>{{ page('tds', 'title') }}</h1>
-                <p>
-                    {!! nl2br(e(page('tds', 'description'))) !!}
-                    {{-- {{ page('tds', 'description') }} --}}
-                </p>
-                <nav class="breadcrumbs">
-                    <ol>
-                        <li><a href="index.html">Home</a></li>
-                        <li class="current">{{ page('tds', 'title') }}</li>
-                    </ol>
-                </nav>
+
+        <section id="hero" class="hero section dark-background">
+            <img src="{{ page_image('tds') }}" alt="" class="hero-bg d-none d-md-block" data-aos="fade-in"
+                loading="lazy">
+            <img src="{{ page_image('tds') }}" alt="" class="hero-bg d-block d-md-none" data-aos="fade-in"
+                loading="lazy">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h1>{{ page('tds', 'title') }}</h1>
+                        <p>{{ page('tds', 'description') }}</p>
+                        <nav class="breadcrumbs">
+                            <ol class="breadcrumb justify-content-center">
+                                <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">
+                                    {{ page('tds', 'title') }}</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
             </div>
-        </div><!-- End Page Title -->
+        </section>
 
 
         <section id="faq" class="faq section">
