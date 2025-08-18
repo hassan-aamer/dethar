@@ -334,11 +334,15 @@
 
             <div class="container">
                 <div class="row gy-4 d-flex justify-content-between">
-                    <div class="col-lg-11 order-2 order-lg-1 d-flex flex-column justify-content-center">
-                        {{-- <h2 data-aos="fade-up">{{ setting('title') ?? '' }}</h2>
+                    <div class="col-lg-12 order-2 order-lg-1 d-flex flex-column justify-content-center">
+                        <h2 data-aos="fade-up">{{ setting('title') ?? '' }}</h2>
                         <h5 data-aos="fade-up" data-aos-delay="100">
                             {!! nl2br(e(setting('description') ?? '')) !!}
-                        </h5> --}}
+                        </h5>
+                        <div>
+                            <a href="#products" class="btn  btn-lg me-2" style="background-color: #EA9323;">Products</a>
+                            <a href="{{ route('contact') }}" class="btn btn-outline-light btn-lg">Get in touch</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -365,6 +369,50 @@
             </div>
         </section>
         <!-- /About Section -->
+
+
+        @if ($result['products']->count())
+            <!-- Products Section -->
+            <section id="products" class="services section py-5">
+                <div class="container">
+                    <div class="section-title text-center mb-5" data-aos="fade-up">
+                        <h2>Products</h2>
+                        {{-- <p class="mx-auto" style="max-width: 700px;">
+                            Our commitment is to ensure client satisfaction by delivering top-notch products at competitive
+                            prices.
+                        </p> --}}
+                    </div>
+
+                    <div class="row g-4">
+                        @foreach ($result['products']->sortBy('position') as $product)
+                            <div class="col-md-3 col-sm-6">
+                                <div class="card h-100 text-center shadow-sm border-0">
+                                    <!-- صورة المنتج -->
+                                    <div class="card-img">
+                                        <img src="{{ App\Helpers\Image::getMediaUrl($product, 'products') }}"
+                                            alt="{{ $product->title ?? '' }}" class="img-fluid"
+                                            style="width: 100%; height: 200px; object-fit: cover;">
+                                    </div>
+                                    <!-- بيانات المنتج -->
+                                    <div class="card-body d-flex flex-column">
+                                        <h5 class="card-title mt-3">{{ $product->title ?? '' }}</h5>
+                                        <p class="card-text small text-muted">
+                                            {{ Str::limit($product->description ?? '', 60) }}
+                                        </p>
+                                        <a href="{{ route('product.details', $product->id) }}" class="">
+                                            View More
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- /Products Section -->
+        @endif
 
         <!-- Vision Section -->
         <section id="vision" class="about section">
@@ -408,59 +456,9 @@
         </section>
         <!-- /Mission Section -->
 
-        @if ($result['products']->count())
-            <!-- Products Section -->
-            <section id="products" class="services section">
-                {{-- <div class="container"> --}}
-                <div class="section-title" data-aos="fade-up">
-                    {{-- <span>Our Collection<br></span> --}}
-                    <h2>Our products</h2>
-                    {{-- <p class="mx-auto" style="max-width: 700px;">Discover our premium selection of high-quality products designed to meet your needs</p> --}}
-                </div>
-
-                <div class="swiper-container mySwiper" data-aos="fade-up">
-                    <div class="swiper-wrapper">
-                        @foreach ($result['products']->sortBy('position') as $product)
-                            <div class="swiper-slide">
-                                <div class="card">
-                                    <div class="card-img">
-                                        <img src="{{ App\Helpers\Image::getMediaUrl($product, 'products') }}"
-                                            alt="{{ $product->title ?? '' }}" class="img-fluid" loading="lazy">
-                                    </div>
-                                    <div class="card-body">
-                                        <h3>
-                                            <a href="{{ route('product.details', $product->id) }}"
-                                                class="stretched-link">{{ shortenText($product->title ?? '') }}</a>
-                                        </h3>
-                                        <p>{{ shortenText($product->description ?? '') }}</p>
-                                        <div class="d-flex justify-content-between align-items-center mt-auto">
-                                            <span class="badge bg-primary">{{ $product->category->name ?? '' }}</span>
-                                            <a href="{{ route('product.details', $product->id) }}" class="text-arrow-icon">
-                                                <i class="bi bi-arrow-right"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                    {{-- <div class="swiper-pagination"></div>
-                    <div class="swiper-button-next"></div>
-                    <div class="swiper-button-prev"></div> --}}
-                </div>
-
-                {{-- <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="100">
-                    <a href="" class="btn btn-primary btn-lg">
-                        View All Products <i class="bi bi-arrow-right ms-2"></i>
-                    </a> --}}
-                {{-- </div> --}}
-            </section>
-            <!-- /Products Section -->
-        @endif
-
     </main>
 @endsection
-@section('js')
+{{-- @section('js')
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -515,4 +513,4 @@
     </script>
 
 
-@endsection
+@endsection --}}
