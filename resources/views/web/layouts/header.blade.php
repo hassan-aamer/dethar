@@ -14,6 +14,10 @@
                           style="color: #EA9323;">Home<br></a></li>
                   <li><a href="{{ route('about') }}" class=" {{ request()->routeIs('about') ? 'active' : '' }}"
                           style="color: #EA9323;">About</a></li>
+                  <li><a href="{{ route('vision') }}" class=" {{ request()->routeIs('vision') ? 'active' : '' }}"
+                          style="color: #EA9323;">Vision</a></li>
+                  <li><a href="{{ route('mission') }}" class=" {{ request()->routeIs('mission') ? 'active' : '' }}"
+                          style="color: #EA9323;">Mission</a></li>
                   <li class="dropdown"><a href="#"><span style="color: #EA9323;">What We Do</span> <i
                               class="bi bi-chevron-down toggle-dropdown" style="color: #EA9323;"></i></a>
                       <ul>

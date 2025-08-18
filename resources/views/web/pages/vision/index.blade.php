@@ -1,5 +1,5 @@
 @extends('web.layouts.app')
-@section('title', __('attributes.home'))
+@section('title', __('attributes.about'))
 @section('css')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <style>
@@ -320,197 +320,178 @@
             }
         }
     </style>
+    <style>
+        :root {
+            --primary-color: #EA9323;
+            --secondary-color: #333;
+            --text-color: #555;
+            --light-bg: #f9f9f9;
+            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
 
+        #hero {
+            position: relative;
+            height: 50vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3));
+        }
+
+        .hero-bg {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            transition: transform 10s ease;
+        }
+
+        #hero:hover .hero-bg {
+            transform: scale(1.05);
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 2;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .img-scale-animation {
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        .img-scale-animation img {
+            transition: transform 0.8s ease;
+        }
+
+        .img-scale-animation:hover img {
+            transform: scale(1.05);
+        }
+
+        .services-list a {
+            display: block;
+            padding: 12px 16px;
+            margin-bottom: 8px;
+            background: var(--light-bg);
+            border-left: 4px solid transparent;
+            color: var(--text-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-radius: 6px;
+        }
+
+        .services-list a:hover,
+        .services-list a.active {
+            border-left-color: var(--primary-color);
+            background-color: #fff;
+            box-shadow: var(--card-shadow);
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            #hero {
+                height: 40vh;
+            }
+
+            .services-list a {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
 @endsection
 @section('content')
     <main class="main">
 
-        <!-- Hero Section -->
-        <section id="hero" class="hero section dark-background">
-            <img src="{{ App\Helpers\Image::getMediaUrl(App\Models\Setting::first(), 'baners') }}" alt=""
-                class="hero-bg d-none d-md-block" data-aos="fade-in" loading="lazy">
-            <img src="{{ App\Helpers\Image::getMediaUrl(App\Models\Setting::first(), 'mobile_baners') }}" alt=""
-                class="hero-bg d-block d-md-none" data-aos="fade-in" loading="lazy">
+        <!-- Page Title -->
+
+        <!-- End Page Title -->
+
+
+
+
+
+                <section id="hero" class="hero section dark-background">
+            <img src="{{ page_image('about') }}" alt="" class="hero-bg d-none d-md-block"
+                data-aos="fade-in" loading="lazy">
+            <img src="{{ page_image('about') }}" alt="" class="hero-bg d-block d-md-none"
+                data-aos="fade-in" loading="lazy">
 
             <div class="container">
-                <div class="row gy-4 d-flex justify-content-between">
-                    <div class="col-lg-12 order-2 order-lg-1 d-flex flex-column justify-content-center">
-                        <h2 data-aos="fade-up">{{ setting('title') ?? '' }}</h2>
-                        <h5 data-aos="fade-up" data-aos-delay="100">
-                            {!! nl2br(e(setting('description') ?? '')) !!}
-                        </h5>
-                        <div>
-                            <a href="#products" class="btn  btn-lg me-2" style="background-color: #EA9323;">Products</a>
-                            <a href="{{ route('contact') }}" class="btn btn-outline-light btn-lg">Get in touch</a>
-                        </div>
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h1>Vision</h1>
+                        {{-- <p>{{ page('about', 'description') }}</p> --}}
+                        <nav class="breadcrumbs">
+                            <ol class="breadcrumb justify-content-center">
+                                <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">
+                                    Vision</li>
+                            </ol>
+                        </nav>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- /Hero Section -->
 
         <!-- About Section -->
-        {{-- <section id="about" class="about section">
+        <section id="about" class="about section">
+
             <div class="container">
-                <div class="row gy-4 align-items-center">
+
+                <div class="row gy-4">
+
                     <div class="col-lg-6 position-relative align-self-start order-lg-last order-first" data-aos="fade-up"
                         data-aos-delay="200">
-                        <div class="img-scale-animation">
-                            <img src="{{ App\Helpers\Image::getMediaUrl(App\Models\Setting::first(), 'about') }}"
-                                class="img-fluid" alt="" loading="lazy">
-                        </div>
+                        <img src="{{ App\Helpers\Image::getMediaUrl(App\Models\Setting::first(), 'vision_image') }}" class="img-fluid" alt="" loading="lazy">
+                        {{-- <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox pulsating-play-btn"></a> --}}
                     </div>
 
-                    <div class="col-lg-6 content order-last order-lg-first" data-aos="fade-up" data-aos-delay="100">
-                        <h3>About Us</h3>
-                        <p>{!! nl2br(e(setting('about') ?? '')) !!}</p>
-                    </div>
-                </div>
-            </div>
-        </section> --}}
-        <!-- /About Section -->
-
-
-        @if ($result['products']->count())
-            <!-- Products Section -->
-            <section id="products" class="services section py-5">
-                <div class="container">
-                    <div class="section-title text-center mb-5" data-aos="fade-up">
-                        <h2>Products</h2>
-                        {{-- <p class="mx-auto" style="max-width: 700px;">
-                            Our commitment is to ensure client satisfaction by delivering top-notch products at competitive
-                            prices.
-                        </p> --}}
-                    </div>
-
-                    <div class="row g-4">
-                        @foreach ($result['products']->sortBy('position') as $product)
-                            <div class="col-md-3 col-sm-6">
-                                <div class="card h-100 text-center shadow-sm border-0">
-                                    <!-- صورة المنتج -->
-                                    <div class="card-img">
-                                        <img src="{{ App\Helpers\Image::getMediaUrl($product, 'products') }}"
-                                            alt="{{ $product->title ?? '' }}" class="img-fluid"
-                                            style="width: 100%; height: 200px; object-fit: cover;">
-                                    </div>
-                                    <!-- بيانات المنتج -->
-                                    <div class="card-body d-flex flex-column">
-                                        <h5 class="card-title mt-3">{{ $product->title ?? '' }}</h5>
-                                        <p class="card-text small text-muted">
-                                            {{ Str::limit($product->description ?? '', 60) }}
-                                        </p>
-                                        <a href="{{ route('product.details', $product->id) }}" class="">
-                                            View More
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-            </section>
-
-
-            <!-- /Products Section -->
-        @endif
-
-        <!-- Vision Section -->
-        {{-- <section id="vision" class="about section">
-            <div class="container">
-                <div class="row gy-4 align-items-center">
-                    <div class="col-lg-6 position-relative align-self-start order-first" data-aos="fade-up"
-                        data-aos-delay="200">
-                        <div class="img-scale-animation">
-                            <img src="{{ App\Helpers\Image::getMediaUrl(App\Models\Setting::first(), 'vision_image') }}"
-                                class="img-fluid" alt="" loading="lazy">
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 content order-last" data-aos="fade-up" data-aos-delay="100">
+                    <div class="col-lg-6 content order-last  order-lg-first" data-aos="fade-up" data-aos-delay="100">
                         <h3>Vision</h3>
-                        <p>{!! nl2br(e(setting('vision') ?? '')) !!}</p>
+                        <p style="font-weight: bold;">
+                            {{-- {{ page('about', 'content') }} --}}
+                            {!! nl2br(e(setting('vision') ?? '')) !!}
+                        </p>
+                        {{-- <ul>
+                            <li>
+                                <i class="bi bi-diagram-3"></i>
+                                <div>
+                                    <h5>Ullamco laboris nisi ut aliquip consequat</h5>
+                                    <p>Magni facilis facilis repellendus cum excepturi quaerat praesentium libre trade</p>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="bi bi-fullscreen-exit"></i>
+                                <div>
+                                    <h5>Magnam soluta odio exercitationem reprehenderi</h5>
+                                    <p>Quo totam dolorum at pariatur aut distinctio dolorum laudantium illo direna pasata
+                                        redi</p>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="bi bi-broadcast"></i>
+                                <div>
+                                    <h5>Voluptatem et qui exercitationem</h5>
+                                    <p>Et velit et eos maiores est tempora et quos dolorem autem tempora incidunt maxime
+                                        veniam</p>
+                                </div>
+                            </li>
+                        </ul> --}}
                     </div>
+
                 </div>
+
             </div>
-        </section> --}}
-        <!-- /Vision Section -->
 
-        <!-- Mission Section -->
-        {{-- <section id="mission" class="about section">
-            <div class="container">
-                <div class="row gy-4 align-items-center">
-                    <div class="col-lg-6 position-relative align-self-start order-lg-last order-first" data-aos="fade-up"
-                        data-aos-delay="200">
-                        <div class="img-scale-animation">
-                            <img src="{{ App\Helpers\Image::getMediaUrl(App\Models\Setting::first(), 'mission_image') }}"
-                                class="img-fluid" alt="" loading="lazy">
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 content order-last order-lg-first" data-aos="fade-up" data-aos-delay="100">
-                        <h3>Mission</h3>
-                        <p>{!! nl2br(e(setting('mission') ?? '')) !!}</p>
-                    </div>
-                </div>
-            </div>
-        </section> --}}
-        <!-- /Mission Section -->
-
+        </section>
+        <!-- /About Section -->
     </main>
 @endsection
-{{-- @section('js')
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            new Swiper(".mySwiper", {
-                slidesPerView: 5,
-                spaceBetween: 20,
-                loop: false,
-                speed: 800,
-                effect: "slide",
-                grabCursor: true,
-                loop: true,
-                observer: true,
-                observeParents: true,
-                autoplay: {
-                    delay: 500,
-                    disableOnInteraction: false,
-                    pauseOnMouseEnter: true
-                },
-                pagination: {
-                    el: '.swiper-pagination',
-                    clickable: true,
-                    dynamicBullets: true
-                },
-                navigation: {
-                    nextEl: ".swiper-button-next",
-                    prevEl: ".swiper-button-prev",
-                },
-                breakpoints: {
-                    320: {
-                        slidesPerView: 1,
-                        spaceBetween: 10,
-                    },
-                    640: {
-                        slidesPerView: 2,
-                        spaceBetween: 10,
-                    },
-                    768: {
-                        slidesPerView: 3,
-                        spaceBetween: 15,
-                    },
-                    1024: {
-                        slidesPerView: 4,
-                        spaceBetween: 20,
-                    },
-                    1280: {
-                        slidesPerView: 5,
-                        spaceBetween: 20,
-                    },
-                },
-            });
-        });
-    </script>
+@section('js')
 
-
-@endsection --}}
+@endsection
