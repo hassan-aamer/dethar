@@ -22,7 +22,7 @@ class ValueAddRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'value_add_category_id'         => 'required|exists:value_add_categories,id',
+            // 'value_add_category_id'         => 'required|exists:value_add_categories,id',
             'title'         => 'required|array',
             'title.*'       => [
                 'required',

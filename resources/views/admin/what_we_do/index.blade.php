@@ -32,7 +32,7 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>@lang('attributes.categories')</th>
+                                            {{-- <th>@lang('attributes.categories')</th> --}}
                                             <th>@lang('attributes.image')</th>
                                             <th>@lang('attributes.position')</th>
                                             <th>@lang('attributes.title')</th>
@@ -46,7 +46,7 @@
                                             @foreach ($result as $products)
                                                 <tr id="row-{{ $products->id ?? '' }}">
                                                     <td>{{ $loop->iteration ?? '' }}</td>
-                                                    <td>{{ $products->whatWeDoCategory->title ?? '' }}</td>
+                                                    {{-- <td>{{ $products->whatWeDoCategory->title ?? '' }}</td> --}}
                                                     <td><img src="{{ App\Helpers\Image::getMediaUrl($products, 'what_we_do') }}"
                                                             alt="products" width="100"
                                                             onclick="openImage('{{ App\Helpers\Image::getMediaUrl($products, 'what_we_do') }}')"

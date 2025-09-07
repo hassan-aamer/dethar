@@ -43,7 +43,7 @@
                         </ul>
                     </div>
                 </li>
-                <li>
+                {{-- <li>
                     <a href="#what_we_do" data-bs-toggle="collapse">
                         <i data-feather="menu"></i>
                         <span> {{ __('attributes.what_we_do') }} </span>
@@ -59,8 +59,8 @@
                             </li>
                         </ul>
                     </div>
-                </li>
-                <li>
+                </li> --}}
+                {{-- <li>
                     <a href="#value_add" data-bs-toggle="collapse">
                         <i data-feather="menu"></i>
                         <span> {{ __('attributes.value_add') }} </span>
@@ -76,6 +76,20 @@
                             </li>
                         </ul>
                     </div>
+                </li> --}}
+
+
+                <li>
+                    <a href="{{ route('admin.what_we_do.index') }}">
+                        <i data-feather="file-text"></i>
+                        <span> {{ __('attributes.what_we_do') }} </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('admin.value_add.index') }}">
+                        <i data-feather="file-text"></i>
+                        <span> {{ __('attributes.value_add') }} </span>
+                    </a>
                 </li>
 
                 {{-- @can('list contacts') --}}
@@ -127,7 +141,8 @@
                 </li> --}}
 
                 <li>
-                    <a class="{{ request()->routeIs('admin.blogs.*') ? 'active' : '' }}" href="{{ route('admin.blogs.index') }}">
+                    <a class="{{ request()->routeIs('admin.blogs.*') ? 'active' : '' }}"
+                        href="{{ route('admin.blogs.index') }}">
                         <i data-feather="file"></i>
                         <span> {{ __('attributes.blogs') }} </span>
                     </a>

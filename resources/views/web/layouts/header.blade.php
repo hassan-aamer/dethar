@@ -12,28 +12,40 @@
               <ul>
                   <li><a href="{{ route('home') }}" class=" {{ request()->routeIs('home') ? 'active' : '' }}"
                           style="color: #EA9323;">Home<br></a></li>
-                  <li><a href="{{ route('about') }}" class=" {{ request()->routeIs('about') ? 'active' : '' }}"
-                          style="color: #EA9323;">About</a></li>
-                  <li><a href="{{ route('vision') }}" class=" {{ request()->routeIs('vision') ? 'active' : '' }}"
-                          style="color: #EA9323;">Vision</a></li>
-                  <li><a href="{{ route('mission') }}" class=" {{ request()->routeIs('mission') ? 'active' : '' }}"
-                          style="color: #EA9323;">Mission</a></li>
-                  <li class="dropdown"><a href="#"><span style="color: #EA9323;">What We Do</span> <i
+                  {{-- <li><a href="{{ route('about') }}" class=" {{ request()->routeIs('about') ? 'active' : '' }}"
+                          style="color: #EA9323;">About</a></li> --}}
+                  {{-- <li><a href="{{ route('vision') }}" class=" {{ request()->routeIs('vision') ? 'active' : '' }}"
+                          style="color: #EA9323;">Vision</a></li> --}}
+                  {{-- <li><a href="{{ route('mission') }}" class=" {{ request()->routeIs('mission') ? 'active' : '' }}"
+                          style="color: #EA9323;">Mission</a></li> --}}
+                  <li class="dropdown"><a href="#"><span style="color: #EA9323;">About</span> <i
+                              class="bi bi-chevron-down toggle-dropdown" style="color: #EA9323;"></i></a>
+                      <ul>
+
+                              <li><a href="{{ route('about') }}">About</a></li>
+                              <li><a href="{{ route('vision') }}">Vision</a></li>
+                              <li><a href="{{ route('mission') }}">Mission</a></li>
+                              <li><a href="{{ route('value') }}">Added value</a></li>
+                              <li><a href="{{ route('what') }}">What We Do</a></li>
+
+                      </ul>
+                  </li>
+                  {{-- <li class="dropdown"><a href="#"><span style="color: #EA9323;">What We Do</span> <i
                               class="bi bi-chevron-down toggle-dropdown" style="color: #EA9323;"></i></a>
                       <ul>
                           @foreach (WhatWeDoCategories() as $category)
                               <li><a href="{{ route('what', $category->id) }}">{{ $category->title ?? '' }}</a></li>
                           @endforeach
                       </ul>
-                  </li>
-                  <li class="dropdown"><a href="#"><span style="color: #EA9323;">Added value</span> <i
+                  </li> --}}
+                  {{-- <li class="dropdown"><a href="#"><span style="color: #EA9323;">Added value</span> <i
                               class="bi bi-chevron-down toggle-dropdown" style="color: #EA9323;"></i></a>
                       <ul>
                           @foreach (ValueAddCategories() as $category)
                               <li><a href="{{ route('value', $category->id) }}">{{ $category->title ?? '' }}</a></li>
                           @endforeach
                       </ul>
-                  </li>
+                  </li> --}}
                   <li class="dropdown"><a href="#"><span style="color: #EA9323;">Our products</span> <i
                               class="bi bi-chevron-down toggle-dropdown" style="color: #EA9323;"></i></a>
                       <ul>

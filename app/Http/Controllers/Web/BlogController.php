@@ -24,7 +24,7 @@ class BlogController extends Controller
     {
         $blog = $this->service->show($id);
         $result = [
-            'blogs' => $this->service->index($request)->where('blog_category_id', $blog->blog_category_id)->where('active', 1),
+            'blogs' => $this->service->index($request)->where('active', 1),
             'blog' => $blog,
         ];
         return view('web.pages.blogs.show', compact('result'));

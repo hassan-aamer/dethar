@@ -22,7 +22,7 @@ class WhatWeDoRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'what_we_do_category_id'         => 'required|exists:what_we_do_categories,id',
+            // 'what_we_do_category_id'         => 'required|exists:what_we_do_categories,id',
             'title'         => 'required|array',
             'title.*'       => [
                 'required',

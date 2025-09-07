@@ -8,8 +8,8 @@ Route::get('/services',                    [App\Http\Controllers\Web\ServiceCont
 Route::get('/about',                       [App\Http\Controllers\Web\AboutController::class, 'index'])->name('about');
 Route::get('/services/details/{id}',       [App\Http\Controllers\Web\ServiceController::class, 'show'])->name('services.details');
 Route::get('/products/{category}',         [App\Http\Controllers\Web\ProductController::class, 'index'])->name('products');
-Route::get('/what-we-do/{category}',       [App\Http\Controllers\Web\WhatWeDoController::class, 'index'])->name('what');
-Route::get('/value-add/{category}',        [App\Http\Controllers\Web\ValueAddController::class, 'index'])->name('value');
+Route::get('/what-we-do',                  [App\Http\Controllers\Web\WhatWeDoController::class, 'index'])->name('what');
+Route::get('/value-add',                   [App\Http\Controllers\Web\ValueAddController::class, 'index'])->name('value');
 Route::get('/blog',                        [App\Http\Controllers\Web\BlogController::class, 'index'])->name('blog');
 Route::get('/product/details/{id}',        [App\Http\Controllers\Web\ProductController::class, 'show'])->name('product.details');
 Route::get('/blog/details/{id}',           [App\Http\Controllers\Web\BlogController::class, 'show'])->name('blog.details');
