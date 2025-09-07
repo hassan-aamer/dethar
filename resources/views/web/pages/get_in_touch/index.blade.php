@@ -180,11 +180,19 @@
                                     @enderror
                                 </div>
 
-                                <div class="col-md-12">
+                                <div class="col-md-6">
                                     <input type="text" class="form-control @error('phone') is-invalid @enderror"
                                         style="background-color: #EDE4D9;border-color: #EA9323;" name="phone"
                                         placeholder="phone" required="">
                                     @error('phone')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control @error('company_name') is-invalid @enderror"
+                                        style="background-color: #EDE4D9;border-color: #EA9323;" name="company_name"
+                                        placeholder="company name" required="">
+                                    @error('company_name')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
                                 </div>

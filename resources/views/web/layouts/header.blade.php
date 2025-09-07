@@ -30,6 +30,15 @@
 
                       </ul>
                   </li>
+                  <li class="dropdown"><a href="#"><span style="color: #EA9323;">Media</span> <i
+                              class="bi bi-chevron-down toggle-dropdown" style="color: #EA9323;"></i></a>
+                      <ul>
+
+                              <li><a href="{{ route('tds') }}">Technical Data Sheets</a></li>
+                              <li><a href="{{ route('tds') }}">Catalogs</a></li>
+
+                      </ul>
+                  </li>
                   {{-- <li class="dropdown"><a href="#"><span style="color: #EA9323;">What We Do</span> <i
                               class="bi bi-chevron-down toggle-dropdown" style="color: #EA9323;"></i></a>
                       <ul>

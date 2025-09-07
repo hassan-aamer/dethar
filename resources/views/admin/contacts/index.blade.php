@@ -30,6 +30,7 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
+                                            <th>@lang('attributes.company_name')</th>
                                             <th>@lang('attributes.name')</th>
                                             <th>@lang('attributes.email')</th>
                                             <th>@lang('attributes.phone')</th>
@@ -43,6 +44,7 @@
                                             @foreach ($result as $contacts)
                                                 <tr id="row-{{ $contacts->id ?? '' }}">
                                                     <td>{{ $loop->iteration ?? '' }}</td>
+                                                    <td>{{ $contacts->company_name ?? '' }}</td>
                                                     <td>{{ $contacts->name ?? '' }}</td>
                                                     <td>{{ $contacts->email ?? '' }}</td>
                                                     <td>{{ $contacts->phone ?? '' }}</td>
