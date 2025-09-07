@@ -147,6 +147,13 @@
                         <span> {{ __('attributes.blogs') }} </span>
                     </a>
                 </li>
+                <li>
+                    <a class="{{ request()->routeIs('admin.catalogs.*') ? 'active' : '' }}"
+                        href="{{ route('admin.catalogs.index') }}">
+                        <i data-feather="file"></i>
+                        <span> {{ __('attributes.catalogs') }} </span>
+                    </a>
+                </li>
 
 
             </ul>

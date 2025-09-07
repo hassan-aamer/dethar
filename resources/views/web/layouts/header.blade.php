@@ -35,7 +35,7 @@
                       <ul>
 
                               <li><a href="{{ route('tds') }}">Technical Data Sheets</a></li>
-                              <li><a href="{{ route('tds') }}">Catalogs</a></li>
+                              <li><a href="{{ route('catalogs') }}">Catalogs</a></li>
 
                       </ul>
                   </li>

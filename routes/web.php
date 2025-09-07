@@ -21,3 +21,4 @@ Route::post('/subscription',               [App\Http\Controllers\Web\Subscriptio
 Route::get('/tds',                         [App\Http\Controllers\Web\TechnicalDataSheetsController::class, 'index'])->name('tds');
 Route::get('/mission',                     [App\Http\Controllers\Web\MissionController::class, 'index'])->name('mission');
 Route::get('/vision',                      [App\Http\Controllers\Web\VisionController::class, 'index'])->name('vision');
+Route::get('/catalogs',                    [App\Http\Controllers\Web\CatalogsController::class, 'index'])->name('catalogs');

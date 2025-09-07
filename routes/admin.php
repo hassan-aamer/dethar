@@ -170,4 +170,13 @@ Route::middleware('checkAuth')->group(function () {
         Route::delete('/delete/{id}', 'destroy')->name('technical_data_sheets.delete');
         Route::post('/change-status', 'changeStatus')->name('technical_data_sheets.status');
     });
+    Route::prefix('catalogs')->controller(\App\Http\Controllers\Admin\Catalogs\CatalogsController::class)->group(function () {
+        Route::get('/', 'index')->name('catalogs.index');
+        Route::get('/create', 'create')->name('catalogs.create');
+        Route::post('/store', 'store')->name('catalogs.store');
+        Route::get('/{id}/edit', 'edit')->name('catalogs.edit');
+        Route::put('/update/{id}', 'update')->name('catalogs.update');
+        Route::delete('/delete/{id}', 'destroy')->name('catalogs.delete');
+        Route::post('/change-status', 'changeStatus')->name('catalogs.status');
+    });
 });
