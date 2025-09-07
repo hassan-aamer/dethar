@@ -10,7 +10,7 @@ Route::get('/services/details/{id}',       [App\Http\Controllers\Web\ServiceCont
 Route::get('/products/{category}',         [App\Http\Controllers\Web\ProductController::class, 'index'])->name('products');
 Route::get('/what-we-do/{category}',       [App\Http\Controllers\Web\WhatWeDoController::class, 'index'])->name('what');
 Route::get('/value-add/{category}',        [App\Http\Controllers\Web\ValueAddController::class, 'index'])->name('value');
-Route::get('/blog/{category}',             [App\Http\Controllers\Web\BlogController::class, 'index'])->name('blog');
+Route::get('/blog',                        [App\Http\Controllers\Web\BlogController::class, 'index'])->name('blog');
 Route::get('/product/details/{id}',        [App\Http\Controllers\Web\ProductController::class, 'show'])->name('product.details');
 Route::get('/blog/details/{id}',           [App\Http\Controllers\Web\BlogController::class, 'show'])->name('blog.details');
 Route::get('/value-add/details/{id}',      [App\Http\Controllers\Web\ValueAddController::class, 'show'])->name('value.details');

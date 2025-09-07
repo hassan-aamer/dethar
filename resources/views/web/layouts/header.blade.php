@@ -43,14 +43,16 @@
                           @endforeach
                       </ul>
                   </li>
-                  <li class="dropdown"><a href="#"><span style="color: #EA9323;">Blogs</span> <i
+                  {{-- <li class="dropdown"><a href="#"><span style="color: #EA9323;">Blogs</span> <i
                               class="bi bi-chevron-down toggle-dropdown" style="color: #EA9323;"></i></a>
                       <ul>
                           @foreach (BlogCategories() as $category)
                               <li><a href="{{ route('blog', $category->id) }}">{{ $category->title ?? '' }}</a></li>
                           @endforeach
                       </ul>
-                  </li>
+                  </li> --}}
+                  <li><a href="{{ route('blog') }}" class=" {{ request()->routeIs('blog') ? 'active' : '' }}"
+                          style="color: #EA9323;">Blog<br></a></li>
                   {{-- <li><a href="services.html">Services</a></li>
                   <li><a href="pricing.html">Pricing</a></li>
                   <li><a href="contact.html">Contact</a></li> --}}

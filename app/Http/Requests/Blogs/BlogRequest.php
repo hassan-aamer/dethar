@@ -22,7 +22,7 @@ class BlogRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'blog_category_id'         => 'required|exists:blog_categories,id',
+            // 'blog_category_id'         => 'required|exists:blog_categories,id',
             'title'         => 'required|array',
             'title.*'       => [
                 'required',

@@ -109,7 +109,7 @@
                         <span> {{ __('attributes.pages') }} </span>
                     </a>
                 </li>
-                <li>
+                {{-- <li>
                     <a href="#blogs" data-bs-toggle="collapse">
                         <i data-feather="menu"></i>
                         <span> {{ __('attributes.blogs') }} </span>
@@ -124,6 +124,13 @@
                             </li>
                         </ul>
                     </div>
+                </li> --}}
+
+                <li>
+                    <a class="{{ request()->routeIs('admin.blogs.*') ? 'active' : '' }}" href="{{ route('admin.blogs.index') }}">
+                        <i data-feather="file"></i>
+                        <span> {{ __('attributes.blogs') }} </span>
+                    </a>
                 </li>
 
 
