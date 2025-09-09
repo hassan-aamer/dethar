@@ -14,4 +14,10 @@ class CareerController extends Controller
     {
         $this->service = $service;
     }
+
+    public function index(Request $request)
+    {
+        $result = $this->service->index()->where('active', 1);
+        return view('web.pages.career.index', compact('result'));
+    }
 }

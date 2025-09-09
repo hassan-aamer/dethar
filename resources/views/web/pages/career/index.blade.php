@@ -409,21 +409,21 @@
 
 
         <section id="hero" class="hero section dark-background">
-            <img src="{{ page_image('tds') }}" alt="" class="hero-bg d-none d-md-block" data-aos="fade-in"
+            <img src="{{ page_image('career') }}" alt="" class="hero-bg d-none d-md-block" data-aos="fade-in"
                 loading="lazy">
-            <img src="{{ page_image('tds') }}" alt="" class="hero-bg d-block d-md-none" data-aos="fade-in"
+            <img src="{{ page_image('career') }}" alt="" class="hero-bg d-block d-md-none" data-aos="fade-in"
                 loading="lazy">
 
             <div class="container">
                 <div class="row">
                     <div class="col-12 text-center">
-                        <h1>{{ page('tds', 'title') }}</h1>
-                        <p>{{ page('tds', 'description') }}</p>
+                        <h1>{{ page('career', 'title') }}</h1>
+                        <p>{{ page('career', 'description') }}</p>
                         <nav class="breadcrumbs">
                             <ol class="breadcrumb justify-content-center">
                                 <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">
-                                    {{ page('tds', 'title') }}</li>
+                                    {{ page('career', 'title') }}</li>
                             </ol>
                         </nav>
                     </div>
@@ -436,8 +436,8 @@
 
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
-                <span>{{ page('tds', 'title') }}</span>
-                <h2>{{ page('tds', 'title') }}</h2>
+                <span>{{ page('career', 'title') }}</span>
+                <h2>{{ page('career', 'title') }}</h2>
                 {{-- <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p> --}}
             </div><!-- End Section Title -->
 
@@ -456,16 +456,12 @@
                             @else
                                 @foreach ($result as $item)
                                     <div class="faq-item" data-aos="fade-up" data-aos-delay="400" style="border-radius: 16px;box-shadow: 0 6px 20px rgba(0,0,0,0.08);">
-                                        <i class="faq-icon bi bi-file-earmark-pdf"></i>
-                                        <h3>{{ $item->title ?? '' }}</h3>
+                                        <h3><i class="bi bi-person-workspace y fs-2 me-2"></i> {{ $item->title ?? '' }}</h3>
+                                        <div class="faq-content">
+                                            <p>{{ $item->content ?? '' }}</p>
+                                        </div>
                                         <div class="faq-content">
                                             <p>{{ $item->description ?? '' }}</p>
-                                            <div class="text-end">
-                                                <a href="{{ App\Helpers\Image::getMediaUrl($item, 'technical_data_sheets') }}"
-                                                    class="btn btn-primary">
-                                                    <i class="bi bi-download me-1"></i> Download
-                                                </a>
-                                            </div>
                                         </div>
                                         <i class="faq-toggle bi bi-chevron-right"></i>
                                     </div>

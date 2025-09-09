@@ -74,6 +74,8 @@
                   </li> --}}
                   <li><a href="{{ route('blog') }}" class=" {{ request()->routeIs('blog') ? 'active' : '' }}"
                           style="color: #EA9323;">Blog<br></a></li>
+                  <li><a href="{{ route('career') }}" class=" {{ request()->routeIs('career') ? 'active' : '' }}"
+                          style="color: #EA9323;">Career<br></a></li>
                   {{-- <li><a href="services.html">Services</a></li>
                   <li><a href="pricing.html">Pricing</a></li>
                   <li><a href="contact.html">Contact</a></li> --}}
