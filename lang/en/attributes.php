@@ -15,6 +15,7 @@ return [
     'technical_data_sheets' => 'Technical Data Sheets',
     'active' => 'Active',
     'pages' => 'Pages',
+    'career' => 'Career',
     'company_name' => 'Company name',
     'marketing' => 'Marketing',
     'development' => 'Development',

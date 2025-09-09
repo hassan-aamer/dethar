@@ -179,4 +179,13 @@ Route::middleware('checkAuth')->group(function () {
         Route::delete('/delete/{id}', 'destroy')->name('catalogs.delete');
         Route::post('/change-status', 'changeStatus')->name('catalogs.status');
     });
+    Route::prefix('career')->controller(\App\Http\Controllers\Admin\Career\CareerController::class)->group(function () {
+        Route::get('/', 'index')->name('career.index');
+        Route::get('/create', 'create')->name('career.create');
+        Route::post('/store', 'store')->name('career.store');
+        Route::get('/{id}/edit', 'edit')->name('career.edit');
+        Route::put('/update/{id}', 'update')->name('career.update');
+        Route::delete('/delete/{id}', 'destroy')->name('career.delete');
+        Route::post('/change-status', 'changeStatus')->name('career.status');
+    });
 });

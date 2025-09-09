@@ -22,3 +22,4 @@ Route::get('/tds',                         [App\Http\Controllers\Web\TechnicalDa
 Route::get('/mission',                     [App\Http\Controllers\Web\MissionController::class, 'index'])->name('mission');
 Route::get('/vision',                      [App\Http\Controllers\Web\VisionController::class, 'index'])->name('vision');
 Route::get('/catalogs',                    [App\Http\Controllers\Web\CatalogsController::class, 'index'])->name('catalogs');
+Route::get('/career',                      [App\Http\Controllers\Web\CareerController::class, 'index'])->name('career');

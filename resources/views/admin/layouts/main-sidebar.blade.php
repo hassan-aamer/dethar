@@ -87,7 +87,7 @@
                 </li>
                 <li>
                     <a href="{{ route('admin.value_add.index') }}">
-                        <i data-feather="file-text"></i>
+                        <i data-feather="folder"></i>
                         <span> {{ __('attributes.value_add') }} </span>
                     </a>
                 </li>
@@ -143,15 +143,22 @@
                 <li>
                     <a class="{{ request()->routeIs('admin.blogs.*') ? 'active' : '' }}"
                         href="{{ route('admin.blogs.index') }}">
-                        <i data-feather="file"></i>
+                        <i data-feather="list"></i>
                         <span> {{ __('attributes.blogs') }} </span>
                     </a>
                 </li>
                 <li>
                     <a class="{{ request()->routeIs('admin.catalogs.*') ? 'active' : '' }}"
                         href="{{ route('admin.catalogs.index') }}">
-                        <i data-feather="file"></i>
+                        <i data-feather="book"></i>
                         <span> {{ __('attributes.catalogs') }} </span>
+                    </a>
+                </li>
+                <li>
+                    <a class="{{ request()->routeIs('admin.career.*') ? 'active' : '' }}"
+                        href="{{ route('admin.career.index') }}">
+                        <i data-feather="users"></i>
+                        <span> {{ __('attributes.career') }} </span>
                     </a>
                 </li>
 

@@ -15,6 +15,7 @@ return [
     'profile' => 'الملف الشخصي',
     'ReadIt' => 'مقروئة',
     'description' => 'وصف',
+    'career' => 'مهنة',
     'enter_password' => 'ادخل كلمة السر',
     'MyAccount' => 'الملف الشخصي',
     'action' => 'التحكم',
